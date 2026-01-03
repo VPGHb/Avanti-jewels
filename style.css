@@ -5394,3 +5394,183 @@ body.dark-mode .sidebar-content {
         padding: 6px 12px;
     }
 }
+/* ===== MOBILE LIGHTBOX STYLES ===== */
+
+@media (max-width: 768px) {
+    /* Make main image look clickable on mobile */
+    .main-product-image {
+        cursor: zoom-in !important;
+    }
+    
+    /* Lightbox styles for mobile */
+    #lightbox.active {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .lightbox-content {
+        position: relative;
+        z-index: 10001;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin: 0 !important;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .lightbox-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 10000;
+    }
+    
+    .lightbox-image-container {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+    }
+    
+    #lightbox-image {
+        max-width: 95%;
+        max-height: 95%;
+        object-fit: contain;
+        cursor: grab;
+    }
+    
+    #lightbox-image:active {
+        cursor: grabbing;
+    }
+    
+    /* Lightbox navigation buttons - mobile optimized */
+    .lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10002;
+        transition: all 0.3s ease;
+    }
+    
+    .lightbox-nav:hover {
+        background: rgba(0, 0, 0, 0.9);
+        border-color: #d4af37;
+    }
+    
+    .lightbox-nav.prev {
+        left: 15px;
+    }
+    
+    .lightbox-nav.next {
+        right: 15px;
+    }
+    
+    /* Close button - easy to tap */
+    .close-lightbox {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10002;
+        transition: all 0.3s ease;
+    }
+    
+    .close-lightbox:hover {
+        background: rgba(0, 0, 0, 0.9);
+        border-color: #d4af37;
+    }
+    
+    /* Image counter */
+    .image-counter {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        z-index: 10002;
+    }
+    
+    /* Swipe transition animation */
+    .lightbox-transition {
+        animation: lightboxSwipe 0.3s ease;
+    }
+    
+    @keyframes lightboxSwipe {
+        0% {
+            opacity: 0.5;
+            transform: translateX(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .lightbox-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .lightbox-nav.prev {
+        left: 10px;
+    }
+    
+    .lightbox-nav.next {
+        right: 10px;
+    }
+    
+    .close-lightbox {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .image-counter {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+        top: 15px;
+    }
+}
