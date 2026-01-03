@@ -3954,3 +3954,627 @@ body.dark-mode .sidebar-content::-webkit-scrollbar-thumb:hover {
 body.dark-mode .sidebar-content {
     scrollbar-color: #d4af37 rgba(255, 255, 255, 0.05);
 }
+/* ===== MOBILE RESPONSIVENESS FIXES ===== */
+
+/* Base mobile fixes for better scaling */
+@media (max-width: 768px) {
+    /* 1. IMPROVE OVERALL SCALING */
+    html {
+        font-size: 14px; /* Scale down base font size */
+    }
+    
+    body {
+        font-size: 0.95rem; /* Slightly smaller text */
+        line-height: 1.5;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    
+    /* 2. FIX NAVIGATION */
+    .top-nav {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+        flex-wrap: nowrap;
+    }
+    
+    .sidebar-toggle {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        gap: 5px;
+        min-width: auto;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+        white-space: nowrap;
+        margin: 0 0.5rem;
+    }
+    
+    .nav-actions {
+        gap: 0.8rem;
+    }
+    
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .contact-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+    
+    /* 3. FIX HERO SECTION */
+    .hero-section {
+        height: 70vh;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-overlay {
+        padding: 1.5rem;
+        margin: 0 1rem;
+        border-radius: 15px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .hero-buttons {
+        gap: 0.8rem;
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* 4. FIX CONTENT SECTIONS */
+    .container {
+        width: 95%;
+        padding: 0 1rem;
+    }
+    
+    .intro-section {
+        padding: 2rem 0;
+    }
+    
+    .intro-text h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .intro-text > p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-top: 2rem;
+    }
+    
+    .feature {
+        padding: 1.5rem;
+    }
+    
+    .feature i {
+        font-size: 2rem;
+    }
+    
+    .feature h4 {
+        font-size: 1.2rem;
+    }
+    
+    /* 5. FIX CATEGORY PREVIEW */
+    .category-preview {
+        padding: 2rem 0;
+        margin: 2rem auto;
+        border-radius: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .category-card {
+        padding: 1.5rem;
+    }
+    
+    .category-icon {
+        font-size: 2.5rem;
+    }
+    
+    .category-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .category-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* 6. FIX CTA SECTION */
+    .cta-section {
+        padding: 2rem 1rem;
+        margin: 2rem auto;
+        border-radius: 20px;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .cta-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    /* 7. FIX FOOTER */
+    footer {
+        padding: 2rem 0 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+        padding: 0 1.5rem 2rem;
+    }
+    
+    .footer-brand p {
+        font-size: 0.95rem;
+    }
+    
+    .footer-categories h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-categories a {
+        margin-bottom: 0.6rem;
+        font-size: 0.95rem;
+    }
+    
+    .footer-copyright {
+        padding: 1.5rem 1rem 0;
+        font-size: 0.85rem;
+    }
+    
+    /* 8. FIX SIDEBAR */
+    .sidebar {
+        width: 280px;
+    }
+    
+    .sidebar-header {
+        padding: 1.2rem;
+    }
+    
+    .sidebar-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .category-link {
+        padding: 0.7rem 1.2rem;
+        min-height: 42px;
+    }
+    
+    .sidebar-footer {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* 9. PRODUCT GRID FIXES (for shop pages) */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .product-image {
+        height: 280px;
+    }
+    
+    .product-info {
+        padding: 1.2rem;
+    }
+    
+    .product-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .price {
+        font-size: 1.4rem;
+    }
+    
+    /* 10. FILTER SECTION FIXES */
+    .active-filters {
+        padding: 1rem;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .filter-select {
+        min-width: 100%;
+        width: 100%;
+    }
+    
+    .filter-results {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    
+    /* 11. LOAD MORE BUTTON */
+    .load-more-container {
+        margin: 2rem 0;
+        padding: 1.5rem 0;
+    }
+    
+    #load-more-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: 0 0.8rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .sidebar-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .contact-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Hero */
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    /* Content */
+    .intro-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    /* Product cards */
+    .product-image {
+        height: 240px;
+    }
+    
+    .status-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    /* Footer */
+    .footer-container {
+        padding: 0 1rem 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Ensure no horizontal scrolling */
+    body, html {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+}
+
+/* Tablet specific adjustments (768px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Scale down content for tablets */
+    html {
+        font-size: 15px;
+    }
+    
+    .container {
+        width: 95%;
+    }
+    
+    /* 2-column layout for product grids on tablets */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* 2-column category grid */
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Scale down hero */
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Footer stays 4-column but with adjustments */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Prevent zoom on input focus in iOS */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom */
+    }
+}
+
+/* Improve touch targets */
+@media (max-width: 768px) {
+    .category-link,
+    .category-btn,
+    .btn-primary,
+    .btn-secondary,
+    .contact-btn {
+        min-height: 44px; /* Apple's recommended minimum touch target */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+    .product-image img,
+    .hero-section {
+        image-rendering: optimizeQuality;
+    }
+}
+
+/* Fix viewport issues */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+/* Improve scrolling performance */
+@media (max-width: 768px) {
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Fix for iOS specific issues */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+        .hero-section {
+            background-attachment: scroll !important;
+        }
+        
+        body {
+            height: -webkit-fill-available;
+        }
+    }
+}
+/* ===== MOBILE NAVIGATION SPECIFIC FIXES ===== */
+@media (max-width: 768px) {
+    /* Fix for nav bar items being too big */
+    .nav-container {
+        min-height: 60px; /* Fixed height for nav */
+        align-items: center;
+    }
+    
+    /* Make logo smaller and fit in one line */
+    .logo {
+        font-size: 1.2rem !important;
+        padding: 0;
+        margin: 0 5px;
+        max-width: 120px;
+        white-space: normal;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    /* Make Contact Us button smaller */
+    .contact-btn {
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap;
+        min-width: auto;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Make menu button smaller */
+    .sidebar-toggle {
+        padding: 6px 10px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap;
+        min-width: auto;
+        height: 36px;
+    }
+    
+    /* Make theme toggle smaller */
+    .theme-toggle {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1rem !important;
+        margin: 0;
+    }
+    
+    /* Ensure nav actions don't wrap */
+    .nav-actions {
+        gap: 8px;
+        flex-shrink: 0;
+        align-items: center;
+    }
+    
+    /* Ensure nav items stay in one line */
+    .top-nav {
+        min-height: 60px;
+    }
+    
+    /* Prevent logo from breaking */
+    .logo span {
+        display: inline;
+        margin: 0;
+    }
+}
+
+/* Extra small phones fix */
+@media (max-width: 480px) {
+    /* Even more compact nav */
+    .nav-container {
+        padding: 0 8px;
+    }
+    
+    .logo {
+        font-size: 1rem !important;
+        max-width: 100px;
+        margin: 0 3px;
+    }
+    
+    .contact-btn {
+        padding: 5px 10px !important;
+        font-size: 0.75rem !important;
+        height: 32px;
+    }
+    
+    .sidebar-toggle {
+        padding: 5px 8px !important;
+        font-size: 0.75rem !important;
+        height: 32px;
+    }
+    
+    .sidebar-toggle i {
+        margin-right: 3px;
+    }
+    
+    .nav-actions {
+        gap: 6px;
+    }
+    
+    .theme-toggle {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+/* For very small screens (iPhone 5/SE size) */
+@media (max-width: 360px) {
+    /* Hide text on buttons, keep icons only */
+    .sidebar-toggle span {
+        display: none;
+    }
+    
+    .sidebar-toggle {
+        width: 40px;
+        padding: 5px !important;
+        justify-content: center;
+    }
+    
+    .sidebar-toggle i {
+        margin: 0;
+    }
+    
+    .contact-btn span {
+        font-size: 0;
+    }
+    
+    .contact-btn:after {
+        content: "Contact";
+        font-size: 0.7rem;
+    }
+    
+    .logo {
+        font-size: 0.9rem !important;
+        max-width: 90px;
+    }
+}
