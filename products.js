@@ -484,7 +484,7 @@ const productsData = {
             name: "Mang Tikka",
             description: "Includes: Mang Tikka</br>Product ID: 202",
             price: 25.00,
-            images: ["mandtikka/2/Mainimage.png"],
+            images: ["Mandtikka/2/Mainimage.png"],
             status: "in-stock",
             category: "Mang-tikka"
         },
@@ -1276,3 +1276,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
