@@ -2064,3 +2064,183 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+/* ===== MINIMAL MOBILE LIGHTBOX FIX ===== */
+
+function setupMobileLightboxTap() {
+    const mainImage = document.querySelector('.main-product-image');
+    const lightbox = document.getElementById('lightbox');
+    
+    if (!mainImage || !lightbox) return;
+    
+    // Only enable on mobile
+    if (window.innerWidth > 768) return;
+    
+    console.log('Setting up mobile tap-to-enlarge');
+    
+    // Make image look clickable
+    mainImage.style.cursor = 'zoom-in';
+    
+    // Click to open lightbox
+    mainImage.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('Opening lightbox on mobile');
+        
+        // Get all images
+        const allImages = getAllProductImages();
+        if (allImages.length === 0) return;
+        
+        // Set lightbox image to current image
+        const lightboxImage = document.getElementById('lightbox-image');
+        if (lightboxImage) {
+            lightboxImage.src = this.src;
+        }
+        
+        // Show lightbox
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Add mobile swipe
+        setupLightboxSwipe();
+    });
+    
+    // Also make thumbnails open lightbox
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', function(e) {
+            if (window.innerWidth > 768) return; // Desktop behavior unchanged
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const img = this.querySelector('img');
+            if (img && img.src) {
+                const lightboxImage = document.getElementById('lightbox-image');
+                if (lightboxImage) {
+                    lightboxImage.src = img.src;
+                }
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                setupLightboxSwipe();
+            }
+        });
+    });
+}
+
+function getAllProductImages() {
+    const images = [];
+    const mainImage = document.querySelector('.main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail img');
+    
+    if (mainImage && mainImage.src) images.push(mainImage.src);
+    thumbnails.forEach(img => {
+        if (img && img.src && !images.includes(img.src)) {
+            images.push(img.src);
+        }
+    });
+    
+    return images;
+}
+
+function setupLightboxSwipe() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    
+    let touchStartX = 0;
+    const allImages = getAllProductImages();
+    let currentIndex = 0;
+    
+    // Find current image index
+    const lightboxImage = document.getElementById('lightbox-image');
+    if (lightboxImage && lightboxImage.src) {
+        currentIndex = allImages.indexOf(lightboxImage.src);
+        if (currentIndex === -1) currentIndex = 0;
+    }
+    
+    function handleTouchStart(e) {
+        touchStartX = e.touches[0].clientX;
+    }
+    
+    function handleTouchEnd(e) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        const swipeThreshold = 50;
+        
+        if (Math.abs(diff) > swipeThreshold && allImages.length > 1) {
+            if (diff > 0) {
+                // Swipe left - next image
+                currentIndex = (currentIndex + 1) % allImages.length;
+            } else {
+                // Swipe right - previous image
+                currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+            }
+            
+            if (lightboxImage) {
+                lightboxImage.src = allImages[currentIndex];
+                lightboxImage.classList.add('swipe-transition');
+                setTimeout(() => {
+                    lightboxImage.classList.remove('swipe-transition');
+                }, 300);
+            }
+        }
+    }
+    
+    // Remove old listeners first
+    lightbox.removeEventListener('touchstart', handleTouchStart);
+    lightbox.removeEventListener('touchend', handleTouchEnd);
+    
+    // Add new listeners
+    lightbox.addEventListener('touchstart', handleTouchStart, { passive: true });
+    lightbox.addEventListener('touchend', handleTouchEnd, { passive: true });
+}
+
+// Close lightbox function (make sure it exists)
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Change lightbox image function (make sure it exists)
+function changeLightboxImage(direction) {
+    const lightboxImage = document.getElementById('lightbox-image');
+    const allImages = getAllProductImages();
+    
+    if (!lightboxImage || allImages.length <= 1) return;
+    
+    // Find current index
+    let currentIndex = allImages.indexOf(lightboxImage.src);
+    if (currentIndex === -1) currentIndex = 0;
+    
+    // Change index
+    currentIndex = (currentIndex + direction + allImages.length) % allImages.length;
+    lightboxImage.src = allImages[currentIndex];
+    
+    // Add transition
+    lightboxImage.classList.add('swipe-transition');
+    setTimeout(() => {
+        lightboxImage.classList.remove('swipe-transition');
+    }, 300);
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup mobile tap
+    if (window.innerWidth <= 768) {
+        setTimeout(setupMobileLightboxTap, 500);
+    }
+    
+    // Handle resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            setupMobileLightboxTap();
+        }
+    });
+    
+    // Make sure closeLightbox is accessible globally
+    window.closeLightbox = closeLightbox;
+    window.changeLightboxImage = changeLightboxImage;
+});

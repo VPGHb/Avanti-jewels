@@ -5574,3 +5574,42 @@ body.dark-mode .sidebar-content {
         top: 15px;
     }
 }
+/* ===== MINIMAL MOBILE LIGHTBOX FIX ===== */
+
+@media (max-width: 768px) {
+    /* Make main image clickable */
+    .main-product-image {
+        cursor: zoom-in !important;
+    }
+    
+    /* Ensure lightbox displays properly */
+    #lightbox.active {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Fix lightbox overlay */
+    .lightbox-overlay {
+        background: rgba(0, 0, 0, 0.95) !important;
+    }
+    
+    /* Make lightbox image fill screen better */
+    .lightbox-image-container {
+        width: 100% !important;
+        height: 80vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Swipe transition */
+    .swipe-transition {
+        animation: swipeEffect 0.3s ease;
+    }
+    
+    @keyframes swipeEffect {
+        0% { opacity: 0.5; transform: translateX(20px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+}
