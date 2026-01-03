@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avanti Jewels - Kamarband</title>
+    <link rel="icon" href="images/48x48.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ===== TOP NAVIGATION ===== -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <button class="sidebar-toggle">
+                <i class="fas fa-bars"></i> Catalog
+            </button>
+            <a href="index.html" class="logo">AVANTI<span>JEWELS</span></a>
+            <div class="nav-actions">
+                <button class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="contact.html" class="contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== SIDEBAR CATALOG MENU ===== -->
+    <aside class="sidebar" id="catalogSidebar">
+    <div class="sidebar-header">
+        <h3>Our Collection</h3>
+        <button class="close-sidebar" id="closeSidebar">&times;</button>
+    </div>
+    <div class="sidebar-content">
+        <!-- Alphabetical Order (A-Z) -->
+        <a href="bangles.html" class="category-link">
+            <span>Bangles</span>
+        </a>
+        <a href="bracelets.html" class="category-link">
+            <span>Bracelets</span>
+        </a>
+        <a href="bundles.html" class="category-link">
+            <span>Bundled Sets</span>
+        </a>
+        <a href="earrings.html" class="category-link">
+            <span>Earrings</span>
+        </a>
+        <a href="kamarband.html" class="category-link">
+            <span>Kamarband</span>
+        </a>
+        <a href="mang-tikka.html" class="category-link">
+            <span>Mang Tikka</span>
+        </a>
+        <a href="necklaces.html" class="category-link">
+            <span>Necklaces</span>
+        </a>
+        <a href="pendants.html" class="category-link">
+            <span>Pendants</span>
+        </a>
+        <a href="rings.html" class="category-link">
+            <span>Rings</span>
+        </a>
+        
+        <div class="sidebar-divider"></div>
+        
+        <!-- About & Contact (Always at bottom) -->
+        <a href="about.html" class="category-link">
+            <i class="fas fa-info-circle"></i>
+            <span>About Us</span>
+        </a>
+        <a href="contact.html" class="category-link">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </div>
+    <div class="sidebar-footer">
+        <p>All items are ready to be picked up</p>
+    </div>
+</aside>
+    <div class="overlay"></div>
+
+    <!-- ===== MAIN PRODUCT GRID ===== -->
+    <main class="shop-main">
+        <div class="container">
+            <div class="grid-header">
+                <h2>Kamarband Collection <span id="product-count" class="product-count">(0 items)</span></h2>
+            </div>
+            
+            <div class="active-filters">
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <div class="filter-label">
+                            <i class="fas fa-sort-amount-down"></i> Sort by:
+                        </div>
+                        <select class="filter-select" id="sort-by">
+                            <option value="price-low">Least to Most Expensive</option>
+                            <option value="price-high">Most to Least Expensive</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="products-grid" class="product-grid">
+                <div class="loading-products">
+                    <div class="loading-spinner"></div>
+                    <p>Loading products...</p>
+                </div>
+            </div>
+            
+            <div class="load-more-container">
+                <button id="load-more-btn" class="btn-primary">
+                    <i class="fas fa-arrow-down"></i> Load More Products
+                </button>
+            </div>
+
+            <div class="return-home-container">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-home"></i> Return to Home
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="products.js"></script>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">AVANTI JEWELS</a>
+                <p>Crafting timeless elegance with precision and passion since 2024.</p>
+            </div>
+            <div class="footer-categories">
+                <h4>Shop By Category</h4>
+                <a href="bangles.html">Bangles</a>
+                <a href="bracelets.html">Bracelets</a>
+                <a href="bundles.html">Bundle Sets</a>
+                <a href="earrings.html">Earrings</a>
+                <a href="kamarband.html">Kamarband</a>
+                <a href="necklaces.html">Necklaces</a>
+                <a href="rings.html">Rings</a>
+            </div>
+            <div class="footer-categories">
+                <h4>Quick Links</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-categories">
+                <h4>Connect With Us</h4>
+                <a href="https://www.instagram.com/avanti_jewels_ny?utm_source=qr"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.facebook.com/share/1a8qA1Vr3t/"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.tiktok.com/@avanti.patel"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="mailto:avantijewelsny@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 Avanti Jewels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        body.classList.toggle('dark-mode', savedTheme === 'dark');
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const closeSidebar = document.querySelector('.close-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

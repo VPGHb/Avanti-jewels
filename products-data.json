@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "Golden Pearl Set",
+    "price": 299.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Elegant pearl necklace with matching earrings"
+  },
+  {
+    "id": 2,
+    "name": "Diamond Solitaire Set",
+    "price": 499.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Classic diamond necklace and earring set"
+  },
+  {
+    "id": 3,
+    "name": "Ruby & Gold Collection",
+    "price": 399.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Vibrant ruby set with gold accents"
+  },
+  {
+    "id": 4,
+    "name": "Sapphire Elegance",
+    "price": 449.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Deep blue sapphire jewelry set"
+  },
+  {
+    "id": 5,
+    "name": "Emerald Green Set",
+    "price": 549.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Luxurious emerald necklace and bracelet"
+  },
+  {
+    "id": 6,
+    "name": "Silver Moon Set",
+    "price": 249.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Silver jewelry with moonstone accents"
+  },
+  {
+    "id": 7,
+    "name": "Bridal Collection",
+    "price": 699.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Complete bridal jewelry set"
+  },
+  {
+    "id": 8,
+    "name": "Rose Gold Set",
+    "price": 349.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Modern rose gold necklace and earrings"
+  },
+  {
+    "id": 9,
+    "name": "Traditional Kundan",
+    "price": 599.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Traditional Indian kundan jewelry set"
+  },
+  {
+    "id": 10,
+    "name": "Minimalist Set",
+    "price": 199.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Simple and elegant daily wear set"
+  },
+  {
+    "id": 11,
+    "name": "Royal Diamond Set",
+    "price": 899.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Luxurious diamond necklace set"
+  },
+  {
+    "id": 12,
+    "name": "Pearl & Diamond",
+    "price": 459.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Pearl necklace with diamond accents"
+  },
+  {
+    "id": 13,
+    "name": "Gold Plated Set",
+    "price": 179.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Affordable gold plated jewelry set"
+  },
+  {
+    "id": 14,
+    "name": "Festival Collection",
+    "price": 389.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Colorful festival jewelry set"
+  },
+  {
+    "id": 15,
+    "name": "Platinum Set",
+    "price": 799.99,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    "description": "Premium platinum jewelry collection"
+  }
+]

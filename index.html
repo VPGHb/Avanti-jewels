@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avanti Jewels</title>
+    <link rel="icon" href="images/48x48.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <a href="index.html" class="logo">AVANTI JEWELS</a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="contact.html" class="contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Catalog Menu -->
+    <aside class="sidebar" id="catalogSidebar">
+    <div class="sidebar-header">
+        <h3>Our Collection</h3>
+        <button class="close-sidebar" id="closeSidebar">&times;</button>
+    </div>
+    <div class="sidebar-content">
+        <!-- Alphabetical Order (A-Z) -->
+        <a href="bangles.html" class="category-link">
+            <span>Bangles</span>
+        </a>
+        <a href="bracelets.html" class="category-link">
+            <span>Bracelets</span>
+        </a>
+        <a href="bundles.html" class="category-link">
+            <span>Bundled Sets</span>
+        </a>
+        <a href="earrings.html" class="category-link">
+            <span>Earrings</span>
+        </a>
+        <a href="kamarband.html" class="category-link">
+            <span>Kamarband</span>
+        </a>
+        <a href="mang-tikka.html" class="category-link">
+            <span>Mang Tikka</span>
+        </a>
+        <a href="necklaces.html" class="category-link">
+            <span>Necklaces</span>
+        </a>
+        <a href="pendants.html" class="category-link">
+            <span>Pendants</span>
+        </a>
+        <a href="rings.html" class="category-link">
+            <span>Rings</span>
+        </a>
+        
+        <div class="sidebar-divider"></div>
+        
+        <!-- About & Contact (Always at bottom) -->
+        <a href="about.html" class="category-link">
+            <i class="fas fa-info-circle"></i>
+            <span>About Us</span>
+        </a>
+        <a href="contact.html" class="category-link">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </div>
+    <div class="sidebar-footer">
+        <p>All items are ready to be picked up</p>
+    </div>
+</aside>
+
+    <!-- Overlay for closing sidebar -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <div class="hero-text">
+                    <h1>Handcrafted Traditional Jewelry </h1>
+                    <p class="subtitle">Each piece tells a story of craftsmanship, tradition, and modern elegance</p>
+                    <div class="hero-buttons">
+                        <a href="#collections" class="btn-primary">Explore Collections</a>
+                        <button class="btn-secondary" id="viewCatalogBtn">
+                            <i class="fas fa-th-large"></i> Browse Catalog
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="intro-section container">
+            <div class="intro-text">
+                <h2>Welcome to Avanti Jewels</h2>
+                <p>We specialize in creating exquisite jewelry that blends traditional craftsmanship with contemporary design. Our collections feature carefully curated pieces for every occasion, from daily wear to special celebrations.</p>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-hand-sparkles"></i>
+                        <h4>Handcrafted Excellence</h4>
+                        <p>Each piece is meticulously crafted by skilled artisans</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gem"></i>
+                        <h4>Premium Materials</h4>
+                        <p>Using high-quality metals, gemstones, and pearls</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <h4>Made with Passion</h4>
+                        <p>Jewelry designed to be cherished for generations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Preview Section -->
+        <section class="category-preview container" id="collections">
+            <h2 class="section-title">Our Collections</h2>
+            <p class="section-subtitle">Browse our complete range of jewelry categories</p>
+            
+            <div class="category-grid">
+                <!-- Bundle/Combo Preview -->
+                <div class="category-card featured">
+                    <div class="category-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Complete Sets</h3>
+                    <p>Perfectly matched necklace, earrings, and mang tikka combinations for weddings and special occasions.</p>
+                    <a href="bundles.html" class="category-btn">View Sets</a>
+                </div>
+
+                <!-- Necklace Preview -->
+                <div class="category-card featured">
+                    <div class="category-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Necklaces</h3>
+                    <p>From delicate chains to statement pieces that elevate any outfit.</p>
+                    <a href="necklaces.html" class="category-btn">View Collection</a>
+                </div>
+
+                <!-- Earring Preview -->
+                <div class="category-card featured">
+                    <div class="category-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Earrings</h3>
+                    <p>Studs, hoops, jhumkas, and contemporary designs for every style.</p>
+                    <a href="earrings.html" class="category-btn">View Collection</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Discover Your Perfect Piece?</h2>
+                <p>Browse our complete catalog or contact us for custom design inquiries.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary" id="ctaCatalogBtn">
+                        <i class="fas fa-th-large"></i> Open Catalog Menu
+                    </button>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-envelope"></i> Contact for Custom Design
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER - FIXED 4-COLUMN LAYOUT ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">AVANTI JEWELS</a>
+                <p>Crafting timeless elegance with precision and passion since 2024.</p>
+            </div>
+            
+            <div class="footer-categories">
+                <h4>Shop By Category</h4>
+                <a href="bangles.html">Bangles</a>
+                <a href="bracelets.html">Bracelets</a>
+                <a href="bundles.html">Bundle Sets</a>
+                <a href="earrings.html">Earrings</a>
+                <a href="kamarband.html">Kamarband</a>
+                <a href="necklaces.html">Necklaces</a>
+                <a href="rings.html">Rings</a>
+            </div>
+            
+            <div class="footer-categories">
+                <h4>Quick Links</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="footer-categories">
+                <h4>Connect With Us</h4>
+                <a href="https://www.instagram.com/avanti_jewels_ny?utm_source=qr"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.facebook.com/share/1a8qA1Vr3t/"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.tiktok.com/@avanti.patel"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="mailto:avantijewelsny@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2024 Avanti Jewels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Get elements
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const catalogSidebar = document.getElementById('catalogSidebar');
+        const overlay = document.getElementById('overlay');
+        const viewCatalogBtn = document.getElementById('viewCatalogBtn');
+        const ctaCatalogBtn = document.getElementById('ctaCatalogBtn');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Function to open sidebar
+        function openSidebar() {
+            catalogSidebar.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        // Function to close sidebar
+        function closeSidebarFunc() {
+            catalogSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        // Sidebar event listeners
+        sidebarToggle.addEventListener('click', openSidebar);
+        closeSidebar.addEventListener('click', closeSidebarFunc);
+        overlay.addEventListener('click', closeSidebarFunc);
+        viewCatalogBtn.addEventListener('click', openSidebar);
+        ctaCatalogBtn.addEventListener('click', openSidebar);
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!catalogSidebar.contains(event.target) && 
+                !sidebarToggle.contains(event.target) &&
+                !viewCatalogBtn.contains(event.target) &&
+                !ctaCatalogBtn.contains(event.target)) {
+                closeSidebarFunc();
+            }
+        });
+
+        // Theme Toggle Functionality
+        // Check for saved theme or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
