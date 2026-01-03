@@ -1035,20 +1035,32 @@ function loadMoreProducts() {
     
     isLoading = true;
     const productsGrid = document.getElementById('products-grid');
+    const loadMoreContainer = document.querySelector('.load-more-container');
     
-    // Show loading indicator
-    const loadingHTML = `
-        <div class="loading-products" style="grid-column: 1/-1;">
-            <div class="loading-spinner"></div>
-            <p>Loading more products...</p>
-        </div>
-    `;
-    productsGrid.insertAdjacentHTML('beforeend', loadingHTML);
+    // Show different loading indicators based on device
+    if (window.innerWidth <= 768) {
+        // Mobile: show inline loading indicator
+        const loadingHTML = `
+            <div class="mobile-loading-indicator" style="grid-column: 1/-1; text-align: center; padding: 1rem; color: #666;">
+                <i class="fas fa-spinner fa-spin"></i> Loading more...
+            </div>
+        `;
+        productsGrid.insertAdjacentHTML('beforeend', loadingHTML);
+    } else {
+        // Desktop: show the original loading indicator
+        const loadingHTML = `
+            <div class="loading-products" style="grid-column: 1/-1;">
+                <div class="loading-spinner"></div>
+                <p>Loading more products...</p>
+            </div>
+        `;
+        productsGrid.insertAdjacentHTML('beforeend', loadingHTML);
+    }
     
     // Simulate network delay for smooth UX
     setTimeout(() => {
         // Remove loading indicator
-        const loadingEl = productsGrid.querySelector('.loading-products');
+        const loadingEl = productsGrid.querySelector('.loading-products, .mobile-loading-indicator');
         if (loadingEl) loadingEl.remove();
         
         // Get next batch
@@ -1072,6 +1084,38 @@ function loadMoreProducts() {
         updateLoadMoreButton();
         
         isLoading = false;
+        // At the end of loadMoreProducts(), after loading is done:
+        if (displayedCount >= allProducts.length && allProducts.length > 0) 
+        {
+            const productsGrid = document.getElementById('products-grid');
+    
+            // Remove any existing end message
+            const existingEnd = productsGrid.querySelector('.end-of-products');
+            if (existingEnd) existingEnd.remove();
+    
+            // Add end message
+            const endHTML = `
+                <div class="end-of-products">
+                 <i class="fas fa-check-circle"></i> All ${allProducts.length} products loaded
+                </div>
+            `;
+            productsGrid.insertAdjacentHTML('beforeend', endHTML);
+        }
+        
+        // On mobile, if we just loaded products, check if we need to load more
+        // (in case the new content doesn't fill the screen)
+        if (window.innerWidth <= 768 && nextBatch.length > 0) {
+            setTimeout(() => {
+                const viewportHeight = window.innerHeight;
+                const contentHeight = document.documentElement.scrollHeight;
+                
+                // If content doesn't fill viewport after loading, load more
+                if (contentHeight < viewportHeight * 1.5 && displayedCount < allProducts.length) {
+                    console.log('Content too short, auto-loading more...');
+                    loadMoreProducts();
+                }
+            }, 100);
+        }
     }, 500);
 }
 
@@ -1082,11 +1126,19 @@ function updateLoadMoreButton() {
     if (!loadMoreContainer || !loadMoreBtn) return;
     
     if (displayedCount >= allProducts.length) {
+        // All products loaded - hide container on both mobile/desktop
         loadMoreContainer.style.display = 'none';
     } else {
-        loadMoreContainer.style.display = 'block';
-        const remaining = allProducts.length - displayedCount;
-        loadMoreBtn.innerHTML = `<i class="fas fa-arrow-down"></i> Load More Products (${remaining} remaining)`;
+        // Products remaining - show/hide based on device
+        if (window.innerWidth <= 768) {
+            // Mobile: hide button, use auto-scroll
+            loadMoreContainer.style.display = 'none';
+        } else {
+            // Desktop: show button
+            loadMoreContainer.style.display = 'block';
+            const remaining = allProducts.length - displayedCount;
+            loadMoreBtn.innerHTML = `<i class="fas fa-arrow-down"></i> Load More Products (${remaining} remaining)`;
+        }
     }
 }
 
@@ -1199,18 +1251,48 @@ function handleProductCardClick(event) {
 function setupInfiniteScroll() {
     let scrollTimeout;
     
+    // First, hide the load more button on mobile initially
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.querySelector('.load-more-container');
+    
+    if (window.innerWidth <= 768 && loadMoreContainer) {
+        loadMoreContainer.style.display = 'none';
+    }
+    
     window.addEventListener('scroll', () => {
         clearTimeout(scrollTimeout);
         
         scrollTimeout = setTimeout(() => {
+            // Don't load if already loading or all products shown
+            if (isLoading || displayedCount >= allProducts.length) {
+                return;
+            }
+            
             const scrollPosition = window.innerHeight + window.scrollY;
             const pageHeight = document.documentElement.scrollHeight;
             
-            // Load more when within 800px of bottom - triggers BEFORE footer area
-            if (scrollPosition >= pageHeight - 800 && !isLoading && displayedCount < allProducts.length) {
+            // Calculate threshold based on device
+            const threshold = window.innerWidth <= 768 ? 300 : 800;
+            
+            // Load more when near bottom
+            if (scrollPosition >= pageHeight - threshold) {
+                console.log('Auto-loading more products...');
                 loadMoreProducts();
             }
         }, 100);
+    });
+    
+    // Handle window resize to show/hide button appropriately
+    window.addEventListener('resize', function() {
+        if (loadMoreContainer) {
+            if (window.innerWidth <= 768) {
+                // Mobile: hide button, use auto-scroll
+                loadMoreContainer.style.display = 'none';
+            } else {
+                // Desktop: show button, also keep auto-scroll
+                loadMoreContainer.style.display = 'block';
+            }
+        }
     });
 }
 
@@ -1233,17 +1315,17 @@ document.addEventListener('DOMContentLoaded', function() {
         category = "bangles";
     } else if (path.includes("kamarband.html")) {
         category = "kamarband";
-    }else if (path.includes("mang-tikka.html")) {  
-    category = "mang-tikka";
+    } else if (path.includes("mang-tikka.html")) {  
+        category = "mang-tikka";
     } else if (path.includes("pendants.html")) {   
-    category = "pendants";
+        category = "pendants";
     }
     // 'bundles.html' or anything else defaults to "bundles"
     
     // Initialize products for the correct category
     initializeProducts(category, "price-low");
     
-    // Setup infinite scroll
+    // Setup infinite scroll (will handle mobile/desktop differences)
     setupInfiniteScroll();
     
     // Setup sort dropdown WITH ANIMATION
@@ -1267,15 +1349,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Setup Load More button (if it exists)
+    // Setup Load More button (if it exists) - only for desktop
     const loadMoreBtn = document.getElementById('load-more-btn');
-    if (loadMoreBtn) {
+    if (loadMoreBtn && window.innerWidth > 768) {
         loadMoreBtn.addEventListener('click', function() {
             loadMoreProducts();
         });
     }
-
+    
+    // On mobile, also check if we need to load more immediately
+    // (in case initial batch doesn't fill the screen)
+    if (window.innerWidth <= 768) {
+        setTimeout(() => {
+            const viewportHeight = window.innerHeight;
+            const contentHeight = document.documentElement.scrollHeight;
+            
+            if (contentHeight < viewportHeight * 1.5 && displayedCount < allProducts.length) {
+                console.log('Initial content too short on mobile, auto-loading more...');
+                loadMoreProducts();
+            }
+        }, 500);
+    }
 });
+
 // MOBILE DROPDOWN FIX - SIMPLE VERSION
 document.addEventListener('DOMContentLoaded', function() {
     const filterSelect = document.querySelector('.filter-select');
