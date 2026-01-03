@@ -4048,14 +4048,9 @@ body.dark-mode .sidebar-content {
     }
     
     .theme-toggle {
-        width: 44px !important;
-        height: 44px !important;
-        font-size: 1.4rem !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
     }
     
     .contact-btn {
@@ -5028,4 +5023,51 @@ body.dark-mode .sidebar-content {
     .product-card:nth-child(4) { animation-delay: 0.2s; }
     .product-card:nth-child(5) { animation-delay: 0.25s; }
     .product-card:nth-child(6) { animation-delay: 0.3s; }
+}
+
+/* Better product image display on mobile */
+@media (max-width: 768px) {
+    .product-detail {
+        gap: 30px; /* Reduce gap between image and info */
+    }
+    
+    .main-image-container {
+        height: 400px; /* Slightly shorter on mobile */
+    }
+    
+    .main-product-image {
+        max-width: 95%;
+        max-height: 95%;
+        cursor: pointer; /* Indicate it's clickable */
+    }
+    
+    /* Make it obvious images can be swiped */
+    .main-image-container:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: linear-gradient(
+            to right, 
+            transparent 48%, 
+            rgba(212, 175, 55, 0.1) 50%, 
+            transparent 52%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .main-image-container:hover:after {
+        opacity: 1;
+    }
+    
+    /* Image counter */
+    .image-counter {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+        background: rgba(0, 0, 0, 0.8);
+    }
 }

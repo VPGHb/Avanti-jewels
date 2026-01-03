@@ -1404,3 +1404,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// SIMPLE MOBILE SWIPE - Add to product-detail.js
+function setupSimpleMobileSwipe() {
+    const mainImage = document.querySelector('.main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    if (!mainImage || window.innerWidth > 768) return;
+    
+    let touchStartX = 0;
+    let images = [];
+    let currentIndex = 0;
+    
+    // Collect all images
+    images.push(mainImage.src);
+    thumbnails.forEach(thumb => {
+        const img = thumb.querySelector('img');
+        if (img && img.src) images.push(img.src);
+    });
+    
+    // Remove duplicates
+    images = [...new Set(images)];
+    if (images.length <= 1) return;
+    
+    // Touch events
+    mainImage.parentElement.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    
+    mainImage.parentElement.addEventListener('touchend', function(e) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) {
+                // Swipe left - next image
+                currentIndex = (currentIndex + 1) % images.length;
+            } else {
+                // Swipe right - previous image
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            }
+            
+            mainImage.src = images[currentIndex];
+            
+            // Update thumbnail selection
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === (currentIndex - 1));
+            });
+        }
+    }, { passive: true });
+}
+
+document.addEventListener('DOMContentLoaded', setupSimpleMobileSwipe);
