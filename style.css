@@ -5041,17 +5041,17 @@ body.dark-mode .sidebar-content {
     }
     
     .swipe-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-        transition: all 0.3s ease;
-    }
-    
-    .swipe-dot.active {
-        background: #d4af37;
-        transform: scale(1.2);
-    }
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    transition: all 0.3s ease;
+}
+
+.swipe-dot.active {
+    background: rgba(212, 175, 55, 0.9); /* Semi-transparent gold */
+    transform: scale(1.3);
+}
     
     /* Swipe hint */
     .swipe-hint {
