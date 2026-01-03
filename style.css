@@ -77,12 +77,15 @@ body {
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.5rem; /* CHANGED: from 2rem to 2.5rem */
     color: #b8860b;
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 0.5px;
     transition: color 0.3s;
+    white-space: nowrap; /* ADDED: forces single line */
+    display: inline-block; /* ADDED: better control */
+    line-height: 1.2; /* ADDED: consistent height */
 }
 
 .nav-actions {
@@ -768,7 +771,13 @@ body.dark-mode footer {
     }
     
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.8rem !important; /* CHANGED: from 1.5rem to 1.8rem */
+        white-space: nowrap !important; /* ADDED: single line on mobile */
+        max-width: 200px !important; /* ADDED: enough space */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        flex-shrink: 0; /* ADDED: don't shrink */
+        margin: 0 10px; /* ADDED: spacing */
     }
     
     .hero-section {
@@ -892,7 +901,12 @@ body.dark-mode .hero-content p {
     }
     
     .logo {
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
+        white-space: nowrap !important;
+        max-width: 170px !important;
+        margin: 0 5px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 }
 
@@ -4277,7 +4291,12 @@ body.dark-mode .sidebar-content {
     }
     
     .logo {
-        font-size: 1.1rem;
+        font-size: 1.6rem !important; /* CHANGED: from 1.1rem to 1.6rem */
+        max-width: 170px !important;
+        margin: 0 5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
     
     .sidebar-toggle {
@@ -4451,13 +4470,15 @@ body.dark-mode .sidebar-content {
     
     /* Make logo smaller and fit in one line */
     .logo {
-        font-size: 1.2rem !important;
-        padding: 0;
-        margin: 0 5px;
-        max-width: 120px;
-        white-space: normal;
-        line-height: 1.2;
-        text-align: center;
+        font-size: 1.8rem !important; /* CHANGED: from 1.2rem to 1.8rem */
+        padding: 0 !important;
+        margin: 0 10px !important;
+        max-width: 200px !important;
+        white-space: nowrap !important; /* CHANGED: from normal to nowrap */
+        line-height: 1.2 !important;
+        text-align: left !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
     
     /* Make Contact Us button smaller */
@@ -4577,4 +4598,88 @@ body.dark-mode .sidebar-content {
         font-size: 0.9rem !important;
         max-width: 90px;
     }
+}
+/* ===== FINAL LOGO FIXES - OVERRIDE EVERYTHING ===== */
+
+/* Ensure logo is always single line */
+.nav-container .logo {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    display: inline-block !important;
+}
+
+/* Desktop logo size */
+.logo {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+}
+
+/* Tablet logo */
+@media (max-width: 1024px) {
+    .logo {
+        font-size: 2.2rem !important;
+        max-width: 250px !important;
+    }
+}
+
+/* Mobile logo */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.8rem !important;
+        max-width: 200px !important;
+        margin: 0 10px !important;
+    }
+    
+    /* Make sure nav items don't squeeze logo */
+    .nav-container {
+        justify-content: space-between !important;
+        gap: 5px !important;
+    }
+    
+    .sidebar-toggle {
+        min-width: auto !important;
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .contact-btn {
+        min-width: auto !important;
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Small phone logo */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.6rem !important;
+        max-width: 170px !important;
+        margin: 0 5px !important;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    .logo {
+        font-size: 1.4rem !important;
+        max-width: 140px !important;
+        letter-spacing: 0.3px !important;
+    }
+}
+
+/* Ensure nav container provides enough space */
+.top-nav {
+    min-height: 70px;
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        min-height: 60px;
+    }
+}
+
+/* Make sure logo doesn't shrink */
+.nav-container .logo {
+    flex-shrink: 0 !important;
 }
