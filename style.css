@@ -4048,9 +4048,14 @@ body.dark-mode .sidebar-content {
     }
     
     .theme-toggle {
-        width: 35px;
-        height: 35px;
-        font-size: 1.1rem;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.4rem !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
     .contact-btn {
