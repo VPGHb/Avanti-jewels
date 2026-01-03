@@ -1276,4 +1276,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
-
+// MOBILE DROPDOWN FIX - SIMPLE VERSION
+document.addEventListener('DOMContentLoaded', function() {
+    const filterSelect = document.querySelector('.filter-select');
+    
+    if (!filterSelect) return;
+    
+    // Only run on mobile
+    if (window.innerWidth > 768) return;
+    
+    console.log('Mobile device detected, applying dropdown fix');
+    
+    // Force width to be 100% on mobile
+    filterSelect.style.width = '100%';
+    filterSelect.style.maxWidth = '100%';
+    
+    // Update on resize/orientation change
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            filterSelect.style.width = '100%';
+            filterSelect.style.maxWidth = '100%';
+        } else {
+            filterSelect.style.width = '';
+            filterSelect.style.maxWidth = '';
+        }
+    });
+    
+    // Special handling for Chrome on focus
+    if (/Chrome/.test(navigator.userAgent) && /Mobile/.test(navigator.userAgent)) {
+        console.log('Chrome mobile detected');
+        
+        filterSelect.addEventListener('focus', function() {
+            // When dropdown opens, make it full viewport width
+            this.style.width = '100vw';
+            this.style.maxWidth = '100vw';
+            this.style.position = 'relative';
+            this.style.left = '50%';
+            this.style.transform = 'translateX(-50%)';
+        });
+        
+        filterSelect.addEventListener('blur', function() {
+            // Reset when closed
+            this.style.width = '100%';
+            this.style.maxWidth = '100%';
+            this.style.position = '';
+            this.style.left = '';
+            this.style.transform = '';
+        });
+    }
+});

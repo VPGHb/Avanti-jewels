@@ -992,16 +992,31 @@ body.dark-mode .coming-soon {
     font-weight: 500;
     cursor: pointer;
     min-width: 220px;
-    max-width: 100%; 
+    max-width: 100%;
     transition: all 0.3s;
-
-    appearance: auto;
-    -webkit-appearance: menulist;
-    -moz-appearance: menulist;
+    width: auto; /* CHANGED: from default to auto */
+    box-sizing: border-box;
     
-    /* Ensure proper padding for browser arrow */
-    padding-right: 2.5rem;
-    box-sizing: border-box; /* ADDED: include padding in width */
+    /* Chrome/Safari specific */
+    -webkit-appearance: none; /* CHANGED: from menulist to none */
+    -moz-appearance: none; /* CHANGED: from menulist to none */
+    appearance: none;
+    
+    /* Custom dropdown arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+    padding-right: 3.5rem !important; /* More space for custom arrow */
+}
+
+/* For Firefox - keep native look */
+@-moz-document url-prefix() {
+    .filter-select {
+        -moz-appearance: menulist;
+        background-image: none;
+        padding-right: 2.5rem;
+    }
 }
 
 .filter-select:focus {
@@ -4835,5 +4850,64 @@ body.dark-mode .sidebar-content {
         z-index: 9999 !important;
         background: #333 !important;
         border: 2px solid #d4af37 !important;
+    }
+}/* ===== CLEAN CHROME MOBILE DROPDOWN FIX ===== */
+
+/* Base mobile styles for ALL browsers */
+@media (max-width: 768px) {
+    .filter-select {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 0.95rem !important;
+        padding: 0.8rem 3rem 0.8rem 1rem !important;
+        
+        /* Custom arrow for all browsers */
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1rem center !important;
+        background-size: 1rem !important;
+    }
+    
+    /* Make dropdown options wrap */
+    .filter-select option {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        padding: 0.8rem !important;
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        max-width: 100vw !important;
+    }
+}
+
+/* Chrome-specific emergency fix */
+@media (max-width: 768px) and (-webkit-min-device-pixel-ratio:0) {
+    .filter-select:focus,
+    .filter-select:active {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        position: relative;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Horizontal mode */
+@media (max-width: 768px) and (orientation: landscape) {
+    .filter-select:focus {
+        width: 80vw !important;
+        max-width: 500px !important;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .filter-select {
+        font-size: 0.9rem !important;
+        padding: 0.7rem 2.5rem 0.7rem 0.8rem !important;
     }
 }
