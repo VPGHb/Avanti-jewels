@@ -88,7 +88,7 @@ const productsData = {
             description: "Includes: Necklace and Earrings<br>Product ID: 808",
             price: 35.00,
             images: [
-                "Bundle/8/Mainimage.png",
+                "Bundle/8/mainimage.png",
                 "Bundle/8/manikin.png"
             ],
             status: "in-stock",
@@ -464,7 +464,7 @@ const productsData = {
             name: "Bracelet with Ring",
             description: "Includes: Bracelet with Ring</br>Product ID: 115",
             price: 30.00,
-            images: ["Bracelet/15/Mainimage.png", "Bracelet/15/Manakin.png"],
+            images: ["Bracelet/15/MainImage.png", "Bracelet/15/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
         },
@@ -475,7 +475,7 @@ const productsData = {
             name: "Mang Tikka",
             description: "Includes: Mang Tikka</br>Product ID: 201",
             price: 20.00,
-            images: ["mandtikka/1/Mainimage.png"],
+            images: ["Mandtikka/1/Mainimage.png"],
             status: "in-stock",
             category: "mang-tikka"
         },
@@ -486,14 +486,14 @@ const productsData = {
             price: 25.00,
             images: ["mandtikka/2/Mainimage.png"],
             status: "in-stock",
-            category: "mang-tikka"
+            category: "Mang-tikka"
         },
         {
             id: 203,
             name: "Mang Tikka",
             description: "Includes: Mang Tikka</br>Product ID: 203",
             price: 25.00,
-            images: ["mandtikka/3/Mainimage.png"],
+            images: ["Mandtikka/3/Mainimage.png"],
             status: "in-stock",
             category: "mang-tikka"
         },
@@ -502,7 +502,7 @@ const productsData = {
             name: "Mang Tikka",
             description: "Includes: Mang Tikka</br>Product ID: 204",
             price: 25.00,
-            images: ["mandtikka/4/Mainimage.png"],
+            images: ["Mandtikka/4/Mainimage.png"],
             status: "in-stock",
             category: "mang-tikka"
         },
@@ -513,7 +513,7 @@ const productsData = {
             name: "Pendant",
             description: "Includes: Pendant</br>Product ID: 301",
             price: 10.00,
-            images: ["pandant/1/Mainimage.png"],
+            images: ["Pandant/1/Mainimage.png"],
             status: "in-stock",
             category: "pendants"
         },
@@ -522,7 +522,7 @@ const productsData = {
             name: "Pendant",
             description: "Includes: Pendant</br>Product ID: 302",
             price: 10.00,
-            images: ["pandant/2/Mainimage.png"],
+            images: ["Pandant/2/Mainimage.png"],
             status: "in-stock",
             category: "pendants"
         },
@@ -780,7 +780,7 @@ const productsData = {
             name: "Ring",
             description: "Include: Ring</br>Product ID: 519",
             price: 20.00,
-            images: ["ring/19/Mainimage.png"],
+            images: ["ring/19/MainImage.png"],
             status: "in-stock",
             category: "rings"
         },
@@ -789,7 +789,7 @@ const productsData = {
             name: "Ring",
             description: "Include: Ring</br>Product ID: 520",
             price: 20.00,
-            images: ["ring/20/Mainimage.png"],
+            images: ["ring/20/MainImage.png"],
             status: "in-stock",
             category: "rings"
         }
@@ -922,7 +922,7 @@ const productsData = {
             name: "Kamarband",
             description: "Includes: Kamarband</br>Product ID: 701",
             price: 40.00,
-            images: ["kamarband/1/Mainimage.png"],
+            images: ["Kamarband/1/Mainimage.png"],
             status: "in-stock",
             category: "kamarband"
         },
@@ -931,7 +931,7 @@ const productsData = {
             name: "Kamarband",
             description: "Includes: Kamarband</br>Product ID: 702",
             price: 30.00,
-            images: ["kamarband/2/Mainimage.png"],
+            images: ["Kamarband/2/Mainimage.png"],
             status: "in-stock",
             category: "kamarband"
         },
@@ -940,7 +940,7 @@ const productsData = {
             name: "Kamarband",
             description: "Includes: Kamarband</br>Product ID: 703",
             price: 25.00,
-            images: ["kamarband/3/Mainimage.png"],
+            images: ["Kamarband/3/Mainimage.png"],
             status: "in-stock",
             category: "kamarband"
         },
@@ -949,7 +949,7 @@ const productsData = {
             name: "Kamarband",
             description: "Includes: Kamarband</br>Product ID: 704",
             price: 50.00,
-            images: ["kamarband/4/Mainimage.png"],
+            images: ["Kamarband/4/Mainimage.png"],
             status: "in-stock",
             category: "kamarband"
         }
@@ -1274,4 +1274,5 @@ document.addEventListener('DOMContentLoaded', function() {
             loadMoreProducts();
         });
     }
+
 });
