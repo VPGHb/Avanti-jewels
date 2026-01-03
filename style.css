@@ -5025,49 +5025,194 @@ body.dark-mode .sidebar-content {
     .product-card:nth-child(6) { animation-delay: 0.3s; }
 }
 
-/* Better product image display on mobile */
+/* ===== MOBILE PRODUCT IMAGE SWIPE STYLES ===== */
+
 @media (max-width: 768px) {
-    .product-detail {
-        gap: 30px; /* Reduce gap between image and info */
-    }
-    
-    .main-image-container {
-        height: 400px; /* Slightly shorter on mobile */
-    }
-    
-    .main-product-image {
-        max-width: 95%;
-        max-height: 95%;
-        cursor: pointer; /* Indicate it's clickable */
-    }
-    
-    /* Make it obvious images can be swiped */
-    .main-image-container:after {
-        content: '';
+    /* Swipe indicators (dots) */
+    .swipe-indicators {
         position: absolute;
-        top: 0;
+        bottom: 15px;
         left: 0;
         right: 0;
-        bottom: 0;
-        pointer-events: none;
-        background: linear-gradient(
-            to right, 
-            transparent 48%, 
-            rgba(212, 175, 55, 0.1) 50%, 
-            transparent 52%
-        );
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 20;
+    }
+    
+    .swipe-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transition: all 0.3s ease;
+    }
+    
+    .swipe-dot.active {
+        background: #d4af37;
+        transform: scale(1.2);
+    }
+    
+    /* Swipe hint */
+    .swipe-hint {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        z-index: 30;
+        animation: fadeInUp 0.5s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .swipe-hint.fade-out {
         opacity: 0;
-        transition: opacity 0.3s;
+        transform: translateX(-50%) translateY(-10px);
+        transition: all 0.5s ease;
     }
     
-    .main-image-container:hover:after {
-        opacity: 1;
+    .swipe-hint i {
+        color: #d4af37;
     }
     
-    /* Image counter */
-    .image-counter {
-        font-size: 0.9rem;
+    /* Swipe transition */
+    .swipe-transition {
+        animation: swipeTransition 0.3s ease;
+    }
+    
+    @keyframes swipeTransition {
+        0% { opacity: 0.5; transform: translateX(10px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Make thumbnails more visible on mobile */
+    .image-thumbnails {
+        justify-content: center;
+        margin-top: 15px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+    }
+    
+    .thumbnail {
+        width: 70px;
+        height: 70px;
+        border: 2px solid #ddd;
+    }
+    
+    .thumbnail.active {
+        border-color: #d4af37;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+    
+    /* Make main image container more swipe-friendly */
+    .main-image-container {
+        touch-action: pan-y pinch-zoom;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    /* Hide desktop-specific elements */
+    .enlarge-btn {
+        display: none !important; /* Hide enlarge button on mobile */
+    }
+}
+
+/* Mobile lightbox swipe */
+@media (max-width: 768px) {
+    .lightbox-image-container {
+        touch-action: pan-y pinch-zoom;
+    }
+    
+    /* Lightbox navigation buttons - bigger for mobile */
+    .lightbox-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .lightbox-nav.prev {
+        left: 10px;
+    }
+    
+    .lightbox-nav.next {
+        right: 10px;
+    }
+    
+    /* Lightbox thumbnails - scrollable on mobile */
+    .lightbox-thumbnails {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    
+    .lightbox-thumbnail {
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .swipe-hint {
+        font-size: 0.8rem;
         padding: 6px 12px;
-        background: rgba(0, 0, 0, 0.8);
+        bottom: 40px;
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .swipe-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+/* ===== MOBILE SCROLL PROMPT ===== */
+
+@media (max-width: 768px) {
+    .mobile-scroll-prompt {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(212, 175, 55, 0.9);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        animation: bouncePrompt 2s infinite;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        display: none; /* Hidden by default */
+    }
+    
+    .mobile-scroll-prompt.show {
+        display: flex;
+    }
+    
+    .mobile-scroll-prompt i {
+        font-size: 1rem;
+    }
+    
+    @keyframes bouncePrompt {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
     }
 }

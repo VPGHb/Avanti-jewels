@@ -1091,16 +1091,74 @@ function loadMoreProducts() {
             setTimeout(() => {
                 const viewportHeight = window.innerHeight;
                 const contentHeight = document.documentElement.scrollHeight;
-                
-                // If content doesn't fill viewport after loading, load more
-                if (contentHeight < viewportHeight * 1.5 && displayedCount < allProducts.length) {
-                    console.log('Content too short, auto-loading more...');
+                const scrollPosition = window.scrollY;
+        
+                // MORE AGGRESSIVE: Load more if content is less than 1.2x viewport height
+                // OR if user is already near the bottom
+                const shouldLoadMore = 
+                      contentHeight < viewportHeight * 1.2 ||  // Changed from 1.5 to 1.2
+                     (scrollPosition > 0 && (contentHeight - scrollPosition - viewportHeight) < 300);
+            
+                if (shouldLoadMore && displayedCount < allProducts.length) {
+                    console.log('Mobile: Content too short or user near bottom, auto-loading more...');
                     loadMoreProducts();
                 }
             }, 100);
         }
     }, 500);
 }
+// Add to your product.js
+function setupMobileScrollPrompt() {
+    if (window.innerWidth > 768) return;
+    
+    const prompt = document.createElement('div');
+    prompt.className = 'mobile-scroll-prompt';
+    prompt.innerHTML = '<i class="fas fa-arrow-down"></i> Scroll for more';
+    document.body.appendChild(prompt);
+    
+    let promptTimeout;
+    
+    // Show prompt when user is near bottom and there are more products
+    function checkScrollPrompt() {
+        if (displayedCount >= allProducts.length) {
+            prompt.classList.remove('show');
+            return;
+        }
+        
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const pageHeight = document.documentElement.scrollHeight;
+        const distanceFromBottom = pageHeight - scrollPosition;
+        
+        // Show prompt when user is 300px from bottom and there are more products
+        if (distanceFromBottom < 300 && displayedCount < allProducts.length) {
+            prompt.classList.add('show');
+            
+            // Auto-hide after 3 seconds
+            clearTimeout(promptTimeout);
+            promptTimeout = setTimeout(() => {
+                prompt.classList.remove('show');
+            }, 3000);
+        } else {
+            prompt.classList.remove('show');
+        }
+    }
+    
+    window.addEventListener('scroll', checkScrollPrompt);
+    
+    // Also hide prompt when products are loading
+    const originalLoadMore = loadMoreProducts;
+    loadMoreProducts = function() {
+        prompt.classList.remove('show');
+        return originalLoadMore.apply(this, arguments);
+    };
+}
+
+// Call it in your DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... your existing code ...
+    
+    setupMobileScrollPrompt();
+});
 
 function updateLoadMoreButton() {
     const loadMoreContainer = document.querySelector('.load-more-container');
@@ -1233,6 +1291,7 @@ function handleProductCardClick(event) {
 
 function setupInfiniteScroll() {
     let scrollTimeout;
+    let lastScrollPosition = 0;
     
     // First, hide the load more button on mobile initially
     const loadMoreBtn = document.getElementById('load-more-btn');
@@ -1254,16 +1313,47 @@ function setupInfiniteScroll() {
             const scrollPosition = window.innerHeight + window.scrollY;
             const pageHeight = document.documentElement.scrollHeight;
             
-            // Calculate threshold based on device
-            const threshold = window.innerWidth <= 768 ? 300 : 800;
+            // EARLIER TRIGGER ON MOBILE - 150px instead of 300px
+            const threshold = window.innerWidth <= 768 ? 150 : 800;
             
-            // Load more when near bottom
-            if (scrollPosition >= pageHeight - threshold) {
-                console.log('Auto-loading more products...');
+            // Also trigger when user is scrolling down (not up)
+            const isScrollingDown = window.scrollY > lastScrollPosition;
+            lastScrollPosition = window.scrollY;
+            
+            // Load more when near bottom AND scrolling down
+            if (isScrollingDown && scrollPosition >= pageHeight - threshold) {
+                console.log('Auto-loading more products...', {
+                    scrollPosition,
+                    pageHeight,
+                    threshold,
+                    remaining: pageHeight - scrollPosition
+                });
                 loadMoreProducts();
             }
-        }, 100);
+        }, 50); // Faster check (50ms instead of 100ms)
     });
+    
+    // NEW: Also trigger load when user reaches 70% of page height on mobile
+    if (window.innerWidth <= 768) {
+        const checkEarlyLoad = () => {
+            if (!isLoading && displayedCount < allProducts.length) {
+                const scrollPosition = window.innerHeight + window.scrollY;
+                const pageHeight = document.documentElement.scrollHeight;
+                
+                // Load when user has seen 70% of current content
+                if (scrollPosition >= pageHeight * 0.7) {
+                    console.log('Early load triggered at 70% of page');
+                    loadMoreProducts();
+                }
+            }
+        };
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkEarlyLoad);
+        
+        // Also check immediately in case page is too short
+        setTimeout(checkEarlyLoad, 500);
+    }
     
     // Handle window resize to show/hide button appropriately
     window.addEventListener('resize', function() {
@@ -1405,54 +1495,178 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// SIMPLE MOBILE SWIPE - Add to product-detail.js
-function setupSimpleMobileSwipe() {
-    const mainImage = document.querySelector('.main-product-image');
+/* ===== MOBILE IMAGE SWIPE FUNCTIONALITY ===== */
+
+function setupMobileImageSwipe() {
+    const mainImageContainer = document.querySelector('.main-image-container');
+    const mainProductImage = document.querySelector('.main-product-image');
     const thumbnails = document.querySelectorAll('.thumbnail');
+    const lightboxImage = document.getElementById('lightbox-image');
     
-    if (!mainImage || window.innerWidth > 768) return;
+    if (!mainImageContainer || !mainProductImage) return;
+    
+    // Only enable on mobile
+    if (window.innerWidth > 768) return;
+    
+    console.log('Setting up mobile swipe functionality');
     
     let touchStartX = 0;
-    let images = [];
-    let currentIndex = 0;
+    let touchEndX = 0;
+    let currentImageIndex = 0;
+    let allImages = [];
     
-    // Collect all images
-    images.push(mainImage.src);
-    thumbnails.forEach(thumb => {
-        const img = thumb.querySelector('img');
-        if (img && img.src) images.push(img.src);
+    // Get all product images
+    function getAllImages() {
+        const images = [];
+        
+        // Get main image
+        const mainImg = mainProductImage.src;
+        if (mainImg) images.push(mainImg);
+        
+        // Get thumbnail images
+        thumbnails.forEach(thumb => {
+            const img = thumb.querySelector('img');
+            if (img && img.src) images.push(img.src);
+        });
+        
+        return images.filter((img, index, self) => 
+            img && self.indexOf(img) === index
+        );
+    }
+    
+    allImages = getAllImages();
+    if (allImages.length <= 1) return; // No need swipe for single image
+    
+    // Create swipe indicators (dots)
+    function createSwipeIndicators() {
+        // Remove existing indicators
+        const existingIndicators = document.querySelector('.swipe-indicators');
+        if (existingIndicators) existingIndicators.remove();
+        
+        if (allImages.length <= 1) return;
+        
+        const indicators = document.createElement('div');
+        indicators.className = 'swipe-indicators';
+        
+        for (let i = 0; i < allImages.length; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'swipe-dot';
+            if (i === 0) dot.classList.add('active');
+            indicators.appendChild(dot);
+        }
+        
+        mainImageContainer.appendChild(indicators);
+    }
+    
+    createSwipeIndicators();
+    
+    // Update indicators
+    function updateIndicators(index) {
+        const dots = document.querySelectorAll('.swipe-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    
+    // Change image
+    function changeImage(index) {
+        if (index < 0 || index >= allImages.length) return;
+        
+        currentImageIndex = index;
+        mainProductImage.src = allImages[index];
+        
+        // Also update thumbnail selection
+        thumbnails.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === (index - 1)); // -1 because thumbnails start from second image
+        });
+        
+        updateIndicators(index);
+        
+        // Add swipe animation
+        mainProductImage.classList.add('swipe-transition');
+        setTimeout(() => {
+            mainProductImage.classList.remove('swipe-transition');
+        }, 300);
+    }
+    
+    // Touch events for swipe
+    mainImageContainer.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    mainImageContainer.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum swipe distance in pixels
+        
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - next image
+            const nextIndex = (currentImageIndex + 1) % allImages.length;
+            changeImage(nextIndex);
+        }
+        
+        if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - previous image
+            const prevIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+            changeImage(prevIndex);
+        }
+    }
+    
+    // Also handle thumbnail clicks
+    thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const img = this.querySelector('img');
+            if (img && img.src) {
+                // Find which image index this is
+                const imgIndex = allImages.indexOf(img.src);
+                if (imgIndex !== -1) {
+                    changeImage(imgIndex);
+                }
+            }
+        });
     });
     
-    // Remove duplicates
-    images = [...new Set(images)];
-    if (images.length <= 1) return;
-    
-    // Touch events
-    mainImage.parentElement.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    
-    mainImage.parentElement.addEventListener('touchend', function(e) {
-        const touchEndX = e.changedTouches[0].clientX;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > 50) { // Minimum swipe distance
-            if (diff > 0) {
-                // Swipe left - next image
-                currentIndex = (currentIndex + 1) % images.length;
-            } else {
-                // Swipe right - previous image
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-            }
+    // Add swipe hint for first-time users
+    setTimeout(() => {
+        if (!localStorage.getItem('swipeHintShown')) {
+            const hint = document.createElement('div');
+            hint.className = 'swipe-hint';
+            hint.innerHTML = '<i class="fas fa-arrows-left-right"></i> Swipe to see more images';
+            mainImageContainer.appendChild(hint);
             
-            mainImage.src = images[currentIndex];
+            setTimeout(() => {
+                hint.classList.add('fade-out');
+                setTimeout(() => hint.remove(), 1000);
+            }, 3000);
             
-            // Update thumbnail selection
-            thumbnails.forEach((thumb, i) => {
-                thumb.classList.toggle('active', i === (currentIndex - 1));
-            });
+            localStorage.setItem('swipeHintShown', 'true');
         }
-    }, { passive: true });
+    }, 1000);
+    
+    // Handle orientation change
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            allImages = getAllImages();
+            createSwipeIndicators();
+            updateIndicators(currentImageIndex);
+        }
+    });
 }
 
-document.addEventListener('DOMContentLoaded', setupSimpleMobileSwipe);
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for product images to load
+    setTimeout(setupMobileImageSwipe, 500);
+    
+    // Also run when images are loaded
+    const mainImage = document.querySelector('.main-product-image');
+    if (mainImage) {
+        mainImage.addEventListener('load', setupMobileImageSwipe);
+    }
+});
