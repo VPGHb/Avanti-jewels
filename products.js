@@ -1084,23 +1084,6 @@ function loadMoreProducts() {
         updateLoadMoreButton();
         
         isLoading = false;
-        // At the end of loadMoreProducts(), after loading is done:
-        if (displayedCount >= allProducts.length && allProducts.length > 0) 
-        {
-            const productsGrid = document.getElementById('products-grid');
-    
-            // Remove any existing end message
-            const existingEnd = productsGrid.querySelector('.end-of-products');
-            if (existingEnd) existingEnd.remove();
-    
-            // Add end message
-            const endHTML = `
-                <div class="end-of-products">
-                 <i class="fas fa-check-circle"></i> All ${allProducts.length} products loaded
-                </div>
-            `;
-            productsGrid.insertAdjacentHTML('beforeend', endHTML);
-        }
         
         // On mobile, if we just loaded products, check if we need to load more
         // (in case the new content doesn't fill the screen)
