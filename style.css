@@ -1801,12 +1801,12 @@ body.dark-mode .page-link.active {
 /* Hover effect to show thumbnails */
 .product-card {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .product-thumbnails {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(100%); 
     max-height: 0;
     padding: 0;
     transition: all 0.3s ease;
@@ -1821,8 +1821,17 @@ body.dark-mode .page-link.active {
 }
 
 .product-card:hover .product-thumbnails {
-    opacity: 1;
-    transform: translateY(0);
+        display: none !important;
+ }
+
+    /* Hide image count badge */
+.image-count-badge {
+        display: none !important;
+}
+    
+    /* Make sure card hides overflow */
+.product-card {
+        overflow: hidden !important;
 }
 
 /* Dark Mode Styles */
@@ -1913,26 +1922,31 @@ body.dark-mode .thumbnail {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .product-thumbnails {
-        position: absolute;
-        opacity: 0.9; /* Slightly visible on mobile */
-        transform: translateY(0);
-        padding: 0.6rem;
-        background: rgba(0, 0, 0, 0.7);
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
     }
     
     .product-card:hover .product-thumbnails {
-        opacity: 1;
-        transform: translateY(0);
+        display: none !important;
     }
     
     .thumbnail {
-        width: 45px;
-        height: 45px;
+        width: 0;
+        height: 0;
+        overflow: hidden;
     }
     
     .more-images {
-        min-width: 45px;
-        font-size: 0.7rem;
+        display: none !important;
+    }
+
+    .image-count-badge {
+        display: none !important;
     }
 }
 
@@ -4909,5 +4923,65 @@ body.dark-mode .sidebar-content {
     .filter-select {
         font-size: 0.9rem !important;
         padding: 0.7rem 2.5rem 0.7rem 0.8rem !important;
+    }
+}
+/* ===== EMERGENCY FIX: HIDE THUMBNAILS ON MOBILE ===== */
+
+/* Completely remove thumbnail feature on mobile */
+@media (max-width: 768px) {
+    /* Target all thumbnail-related elements */
+    .product-thumbnails,
+    .thumbnail,
+    .more-images,
+    .image-count-badge {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+    }
+    
+    /* Make sure product image container doesn't have extra space */
+    .product-image {
+        border-radius: 12px 12px 0 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Ensure no bottom margin/padding from thumbnails */
+    .product-card {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Remove any hover effects that might show thumbnails */
+    .product-card:hover {
+        transform: translateY(-5px); /* Keep the hover effect */
+    }
+    
+    .product-card:hover .product-thumbnails {
+        display: none !important;
+    }
+}
+
+/* Extra fix for very small screens */
+@media (max-width: 480px) {
+    .product-card {
+        overflow: hidden !important;
+    }
+    
+    /* Make sure no gray bar shows at bottom */
+    .product-info {
+        border-bottom: none !important;
+        padding-bottom: 1.2rem !important;
+    }
+    
+    .price {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 }
