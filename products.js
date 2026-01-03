@@ -1670,3 +1670,217 @@ document.addEventListener('DOMContentLoaded', function() {
         mainImage.addEventListener('load', setupMobileImageSwipe);
     }
 });
+/* ===== MOBILE IMAGE LIGHTBOX WITH SWIPE ===== */
+
+function setupMobileLightbox() {
+    const mainImage = document.querySelector('.main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const closeLightbox = document.querySelector('.close-lightbox');
+    const lightboxPrev = document.querySelector('.lightbox-nav.prev');
+    const lightboxNext = document.querySelector('.lightbox-nav.next');
+    
+    if (!mainImage || !lightbox || !lightboxImage) return;
+    
+    // Collect all images
+    let allImages = [];
+    let currentLightboxIndex = 0;
+    
+    function getAllImages() {
+        const images = [];
+        
+        // Get main image
+        if (mainImage.src) images.push(mainImage.src);
+        
+        // Get thumbnail images
+        thumbnails.forEach(thumb => {
+            const img = thumb.querySelector('img');
+            if (img && img.src) images.push(img.src);
+        });
+        
+        return images.filter((img, index, self) => 
+            img && self.indexOf(img) === index
+        );
+    }
+    
+    // Open lightbox on image click (mobile only)
+    if (window.innerWidth <= 768) {
+        mainImage.style.cursor = 'zoom-in';
+        
+        mainImage.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            allImages = getAllImages();
+            if (allImages.length === 0) return;
+            
+            // Find which image we clicked
+            currentLightboxIndex = allImages.indexOf(this.src);
+            if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+            
+            // Show lightbox
+            lightboxImage.src = allImages[currentLightboxIndex];
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+            
+            // Update image counter
+            updateLightboxCounter();
+            
+            console.log('Mobile lightbox opened');
+        });
+    }
+    
+    // Close lightbox
+    if (closeLightbox) {
+        closeLightbox.addEventListener('click', function() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close on overlay click
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-overlay')) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Lightbox navigation
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigateLightbox(-1);
+        });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigateLightbox(1);
+        });
+    }
+    
+    // Lightbox swipe for mobile
+    let lightboxTouchStartX = 0;
+    
+    lightbox.addEventListener('touchstart', function(e) {
+        lightboxTouchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    
+    lightbox.addEventListener('touchend', function(e) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = lightboxTouchStartX - touchEndX;
+        const swipeThreshold = 50;
+        
+        if (diff > swipeThreshold) {
+            // Swipe left - next image
+            navigateLightbox(1);
+        } else if (diff < -swipeThreshold) {
+            // Swipe right - previous image
+            navigateLightbox(-1);
+        }
+    }, { passive: true });
+    
+    function navigateLightbox(direction) {
+        if (allImages.length <= 1) return;
+        
+        currentLightboxIndex = (currentLightboxIndex + direction + allImages.length) % allImages.length;
+        lightboxImage.src = allImages[currentLightboxIndex];
+        
+        // Add transition effect
+        lightboxImage.classList.add('lightbox-transition');
+        setTimeout(() => {
+            lightboxImage.classList.remove('lightbox-transition');
+        }, 300);
+        
+        updateLightboxCounter();
+    }
+    
+    function updateLightboxCounter() {
+        const counter = document.querySelector('.image-counter');
+        if (counter) {
+            counter.textContent = `${currentLightboxIndex + 1} / ${allImages.length}`;
+        }
+    }
+    
+    // Also make thumbnails open lightbox
+    thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (window.innerWidth <= 768) {
+                allImages = getAllImages();
+                const img = this.querySelector('img');
+                if (img && img.src) {
+                    currentLightboxIndex = allImages.indexOf(img.src);
+                    if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+                    
+                    lightboxImage.src = allImages[currentLightboxIndex];
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    updateLightboxCounter();
+                }
+            }
+        });
+    });
+    
+    // Keyboard navigation for testing
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'ArrowLeft') {
+            navigateLightbox(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateLightbox(1);
+        } else if (e.key === 'Escape') {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Handle orientation change
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            mainImage.style.cursor = 'zoom-in';
+        } else {
+            mainImage.style.cursor = '';
+        }
+    });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(setupMobileLightbox, 500);
+});
+
+// Add swipe hint to lightbox
+function addLightboxSwipeHint() {
+    if (window.innerWidth > 768) return;
+    if (localStorage.getItem('lightboxSwipeHintShown')) return;
+    
+    const hint = document.createElement('div');
+    hint.className = 'lightbox-swipe-hint';
+    hint.innerHTML = '<i class="fas fa-arrows-left-right"></i> Swipe to navigate';
+    
+    const lightboxContent = document.querySelector('.lightbox-content');
+    if (lightboxContent) {
+        lightboxContent.appendChild(hint);
+        
+        // Remove hint after 3 seconds
+        setTimeout(() => {
+            hint.style.opacity = '0';
+            hint.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => hint.remove(), 500);
+        }, 3000);
+        
+        localStorage.setItem('lightboxSwipeHintShown', 'true');
+    }
+}
+
+// Call this when lightbox opens
+// Add this inside the lightbox open event:
+addLightboxSwipeHint();

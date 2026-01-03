@@ -5216,3 +5216,181 @@ body.dark-mode .sidebar-content {
         }
     }
 }
+/* ===== MOBILE LIGHTBOX IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+    /* Make main image clickable on mobile */
+    .main-product-image {
+        cursor: zoom-in !important;
+        transition: transform 0.3s ease;
+    }
+    
+    .main-product-image:active {
+        transform: scale(0.98);
+    }
+    
+    /* Mobile lightbox styles */
+    .lightbox.active {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .lightbox-overlay {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    
+    .lightbox-content {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    .lightbox-image-container {
+        height: 70vh !important;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    #lightbox-image {
+        max-width: 95% !important;
+        max-height: 95% !important;
+        cursor: grab;
+    }
+    
+    #lightbox-image:active {
+        cursor: grabbing;
+    }
+    
+    /* Lightbox navigation buttons - optimized for mobile */
+    .lightbox-nav {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.5rem !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .lightbox-nav:hover {
+        background: rgba(0, 0, 0, 0.9) !important;
+        border-color: #d4af37;
+    }
+    
+    .lightbox-nav.prev {
+        left: 10px !important;
+    }
+    
+    .lightbox-nav.next {
+        right: 10px !important;
+    }
+    
+    /* Close button - easier to tap */
+    .close-lightbox {
+        top: 20px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 2rem !important;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Image counter */
+    .image-counter {
+        top: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Lightbox thumbnails at bottom */
+    .lightbox-thumbnails {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        padding: 10px;
+        overflow-x: auto;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+    
+    .lightbox-thumbnail {
+        width: 60px;
+        height: 60px;
+        opacity: 0.6;
+        border: 2px solid transparent;
+    }
+    
+    .lightbox-thumbnail.active {
+        opacity: 1;
+        border-color: #d4af37;
+    }
+    
+    /* Swipe transition */
+    .lightbox-transition {
+        animation: lightboxSwipe 0.3s ease;
+    }
+    
+    @keyframes lightboxSwipe {
+        0% { opacity: 0.5; transform: translateX(20px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Swipe hint in lightbox */
+    .lightbox-swipe-hint {
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0;
+        animation: fadeInHint 1s ease 1s forwards;
+    }
+    
+    @keyframes fadeInHint {
+        to { opacity: 1; }
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .lightbox-nav {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.3rem !important;
+    }
+    
+    .close-lightbox {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.8rem !important;
+    }
+    
+    .lightbox-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .image-counter {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+}
