@@ -5719,3 +5719,68 @@ body.dark-mode .sidebar-content {
         font-size: 14px;
     }
 }
+/* ===== DROPDOWN AND LABEL ON SAME LINE ===== */
+
+@media (max-width: 768px) {
+    .filter-group {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .filter-label {
+        margin-bottom: 0 !important;
+        white-space: nowrap !important;
+        font-size: 15px !important;
+        flex-shrink: 0 !important; /* Don't let label shrink */
+    }
+    
+    .filter-select {
+        width: auto !important;
+        min-width: 180px !important;
+        max-width: 200px !important;
+        flex-shrink: 0 !important; /* Don't let select shrink */
+        margin: 0 !important;
+    }
+}
+
+/* For smaller screens */
+@media (max-width: 480px) {
+    .filter-group {
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+    }
+    
+    .filter-label {
+        font-size: 14px !important;
+    }
+    
+    .filter-select {
+        min-width: 160px !important;
+        max-width: 180px !important;
+    }
+}
+
+/* Very small screens - stack if needed */
+@media (max-width: 360px) {
+    .filter-group {
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+    }
+    
+    .filter-label,
+    .filter-select {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .filter-select {
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+}
