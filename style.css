@@ -5613,3 +5613,94 @@ body.dark-mode .sidebar-content {
         100% { opacity: 1; transform: translateX(0); }
     }
 }
+
+/* ===== EMERGENCY FIX: PREVENT DROPDOWN ZOOM & MOVEMENT ===== */
+
+@media (max-width: 768px) {
+    /* Nuclear option: Prevent zoom on focus */
+    .filter-select {
+        font-size: 16px !important; /* Prevents iOS zoom */
+        transform: none !important;
+        transition: none !important;
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 35px 10px 15px !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        background-color: #333 !important;
+        color: white !important;
+        border: 2px solid #d4af37 !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        
+        /* Custom arrow */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 12px center !important;
+        background-size: 16px !important;
+    }
+    
+    /* When dropdown is focused/opened - KEEP IT IN PLACE */
+    .filter-select:focus,
+    .filter-select:active {
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        outline: none !important;
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3) !important;
+        z-index: 100 !important;
+    }
+    
+    /* Make the parent container prevent weird behavior */
+    .filter-group {
+        position: relative;
+        width: 100%;
+        overflow: visible;
+    }
+    
+    /* Smaller font for options */
+    .filter-select option {
+        font-size: 14px !important;
+        padding: 12px 8px !important;
+        background: #333 !important;
+        color: white !important;
+    }
+    
+    /* Prevent body scrolling when dropdown is open */
+    .filter-select:focus {
+        position: relative !important;
+    }
+    
+    /* Fix for Chrome mobile */
+    @media (hover: none) and (pointer: coarse) {
+        .filter-select {
+            min-height: 44px !important; /* Minimum touch target */
+            line-height: 1.5 !important;
+        }
+    }
+    
+    /* iOS Safari specific */
+    @supports (-webkit-touch-callout: none) {
+        .filter-select {
+            font-size: 16px !important;
+            padding: 12px 35px 12px 15px !important;
+        }
+    }
+}
+
+/* DEBUG: Show what's happening on mobile */
+@media (max-width: 768px) {
+    .filter-select:focus {
+        border: 3px solid red !important;
+        background: yellow !important;
+        color: black !important;
+    }
+}
