@@ -5784,3 +5784,70 @@ body.dark-mode .sidebar-content {
         max-width: 100% !important;
     }
 }
+/* ===== IPHONE PLUS FIX ===== */
+
+@media (max-width: 430px) and (min-width: 390px) {
+    /* Target iPhone 14/15/16 Plus size (430px wide) */
+    .filter-group {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+    }
+    
+    .filter-label {
+        white-space: nowrap !important;
+        margin-bottom: 0 !important;
+        font-size: 14px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .filter-select {
+        width: 170px !important;
+        min-width: 170px !important;
+        max-width: 170px !important;
+        font-size: 13px !important;
+        padding: 7px 25px 7px 10px !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* Also adjust for slightly larger Plus screens */
+@media (max-width: 450px) and (min-width: 391px) {
+    .filter-group {
+        gap: 10px !important;
+    }
+    
+    .filter-select {
+        width: 180px !important;
+        min-width: 180px !important;
+        max-width: 180px !important;
+    }
+}
+
+/* For all mobile devices - ensure they stay on same line */
+@media (max-width: 768px) {
+    .filter-controls {
+        justify-content: center !important;
+    }
+    
+    .filter-group {
+        display: inline-flex !important; /* Changed from flex to inline-flex */
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: auto !important; /* Let it size to content */
+        max-width: 100% !important;
+    }
+    
+    .active-filters {
+        text-align: center !important;
+        padding: 1rem !important;
+        overflow: visible !important;
+    }
+}
