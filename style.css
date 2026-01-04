@@ -5613,24 +5613,26 @@ body.dark-mode .sidebar-content {
         100% { opacity: 1; transform: translateX(0); }
     }
 }
-
-/* ===== EMERGENCY FIX: PREVENT DROPDOWN ZOOM & MOVEMENT ===== */
+/* ===== NARROWER DROPDOWN BAR FOR MOBILE ===== */
 
 @media (max-width: 768px) {
-    /* Nuclear option: Prevent zoom on focus */
     .filter-select {
-        font-size: 16px !important; /* Prevents iOS zoom */
+        /* Make the visible bar narrower */
+        width: 200px !important; /* Instead of 100% */
+        max-width: 200px !important;
+        min-width: 180px !important;
+        font-size: 14px !important; /* Smaller text */
+        padding: 8px 30px 8px 12px !important; /* Smaller padding */
+        
+        /* Reset any positioning that might be causing issues */
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
         transform: none !important;
-        transition: none !important;
-        position: static !important;
-        left: auto !important;
-        top: auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 10px 35px 10px 15px !important;
-        -webkit-appearance: none !important;
-        appearance: none !important;
+        margin: 0 auto !important; /* Center it in its container */
+        display: block !important;
+        
+        /* Keep it looking good */
         background-color: #333 !important;
         color: white !important;
         border: 2px solid #d4af37 !important;
@@ -5640,67 +5642,80 @@ body.dark-mode .sidebar-content {
         /* Custom arrow */
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
         background-repeat: no-repeat !important;
-        background-position: right 12px center !important;
-        background-size: 16px !important;
+        background-position: right 10px center !important;
+        background-size: 14px !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
     }
     
-    /* When dropdown is focused/opened - KEEP IT IN PLACE */
+    /* Make sure the filter group centers the select */
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    /* When focused - prevent it from moving */
     .filter-select:focus,
     .filter-select:active {
+        width: 200px !important; /* Keep same width */
+        max-width: 200px !important;
         position: relative !important;
         left: 0 !important;
         top: 0 !important;
         transform: none !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
         outline: none !important;
         box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3) !important;
-        z-index: 100 !important;
     }
     
-    /* Make the parent container prevent weird behavior */
-    .filter-group {
-        position: relative;
-        width: 100%;
-        overflow: visible;
+    /* Make the "Sort by:" label sit nicely above */
+    .filter-label {
+        text-align: center;
+        margin-bottom: 8px;
+        font-size: 15px;
+        white-space: nowrap;
     }
     
-    /* Smaller font for options */
-    .filter-select option {
-        font-size: 14px !important;
-        padding: 12px 8px !important;
-        background: #333 !important;
-        color: white !important;
-    }
-    
-    /* Prevent body scrolling when dropdown is open */
-    .filter-select:focus {
-        position: relative !important;
-    }
-    
-    /* Fix for Chrome mobile */
-    @media (hover: none) and (pointer: coarse) {
-        .filter-select {
-            min-height: 44px !important; /* Minimum touch target */
-            line-height: 1.5 !important;
-        }
-    }
-    
-    /* iOS Safari specific */
-    @supports (-webkit-touch-callout: none) {
-        .filter-select {
-            font-size: 16px !important;
-            padding: 12px 35px 12px 15px !important;
-        }
+    /* Container adjustments */
+    .filter-controls {
+        align-items: center !important;
     }
 }
 
-/* DEBUG: Show what's happening on mobile */
-@media (max-width: 768px) {
-    .filter-select:focus {
-        border: 3px solid red !important;
-        background: yellow !important;
-        color: black !important;
+/* Even narrower for very small screens */
+@media (max-width: 480px) {
+    .filter-select {
+        width: 180px !important;
+        max-width: 180px !important;
+        min-width: 160px !important;
+        font-size: 13px !important;
+        padding: 7px 28px 7px 10px !important;
+    }
+    
+    .filter-select:focus,
+    .filter-select:active {
+        width: 180px !important;
+        max-width: 180px !important;
+    }
+}
+
+/* Smallest phones */
+@media (max-width: 360px) {
+    .filter-select {
+        width: 160px !important;
+        max-width: 160px !important;
+        min-width: 140px !important;
+        font-size: 12px !important;
+    }
+    
+    .filter-select:focus,
+    .filter-select:active {
+        width: 160px !important;
+        max-width: 160px !important;
+    }
+    
+    .filter-label {
+        font-size: 14px;
     }
 }
