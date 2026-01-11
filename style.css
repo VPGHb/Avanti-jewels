@@ -6012,8 +6012,8 @@ body.dark-mode .sidebar-content {
 }
 
 .category-grid {
-    display: flex;
-    overflow-x: auto;
+    display: flex !important;
+    overflow-x: auto !important;
     gap: 2rem;
     padding: 2rem 3rem;
     scroll-snap-type: x mandatory;
@@ -6024,7 +6024,7 @@ body.dark-mode .sidebar-content {
 }
 
 .category-grid::-webkit-scrollbar {
-    display: none;
+    display: none !important;
 }
 
 /* Minimal Fade Effect - Just a Hint */
@@ -6077,7 +6077,7 @@ body.dark-mode .category-carousel-container::after {
 }
 
 .category-card {
-    flex: 0 0 320px;
+    flex: 0 0 320px !important;
     scroll-snap-align: start;
     background: white;
     padding: 2rem;
@@ -6346,4 +6346,32 @@ body.dark-mode .scroll-hint {
     .category-carousel-container::after {
         width: 150px;
     }
+}
+
+/* ===== NUCLEAR OVERRIDE: Force carousel on ALL devices ===== */
+.category-preview .category-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+}
+
+.category-preview .category-card {
+    flex: 0 0 auto !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    margin-right: 2rem !important;
+}
+
+/* Hide any grid-related styles */
+.category-preview .category-grid[class*="grid"],
+.category-preview .category-grid[style*="grid"] {
+    display: flex !important;
+}
+
+/* Ensure container allows scrolling */
+.category-preview {
+    overflow: visible !important;
 }
