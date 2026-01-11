@@ -5851,43 +5851,77 @@ body.dark-mode .sidebar-content {
         overflow: visible !important;
     }
 }
-/* Alternative: Mobile-first horizontal scroll */
+/* Update in your style.css - Replace the current .category-grid styles */
+
 .category-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    padding: 1rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .category-card {
-    flex: 0 0 280px; /* Fixed width for cards */
-    scroll-snap-align: start;
-    height: auto;
     padding: 1.5rem;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Hide scrollbar but keep functionality */
-.category-grid::-webkit-scrollbar {
-    display: none;
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 768px) {
+/* Remove .featured class or make all cards consistent */
+.category-card.featured {
+    border: 1px solid #d4af37; /* Lighter border instead of thick */
+    background-color: #fffdf9;
+}
+
+/* Smaller category icons */
+.category-icon {
+    font-size: 2rem;
+    color: #b8860b;
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.category-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
     .category-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        overflow: visible;
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .category-card {
-        flex: none;
-    }
-}
-
-@media (min-width: 1024px) {
-    .category-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3x3 grid */
+        padding: 1.2rem;
     }
 }
