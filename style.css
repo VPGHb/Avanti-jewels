@@ -6562,3 +6562,134 @@ body.dark-mode .scroll-hint {
         width: 150px;
     }
 }
+
+/* ===== COMPLETELY REMOVE ALL FADE EFFECTS ===== */
+.category-carousel-container::before,
+.category-carousel-container::after {
+    display: none !important;
+}
+/* ===== IMAGE-BASED CAROUSEL CARDS ===== */
+
+/* Card with background image */
+.category-card {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 0 !important; /* Remove old padding */
+    min-height: 400px !important; /* Taller for images */
+    justify-content: flex-end; /* Push content to bottom */
+}
+
+/* Dark gray overlay */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+/* Make overlay darker on hover */
+.category-card:hover .image-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Content container */
+.category-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+
+/* Category title - white text */
+.category-card h3 {
+    color: white !important;
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-family: 'Playfair Display', serif;
+}
+
+/* View button - gold with white text */
+.category-btn {
+    background-color: #d4af37 !important;
+    color: white !important;
+    padding: 0.8rem 2rem !important;
+    border-radius: 25px !important;
+    border: 2px solid white !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.category-btn:hover {
+    background-color: white !important;
+    color: #d4af37 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Remove old category icon and description */
+.category-icon,
+.category-card p {
+    display: none !important;
+}
+
+/* Featured card special styling */
+.category-card.featured {
+    border: 3px solid #d4af37 !important;
+}
+
+.category-card.featured::before {
+    content: "⭐ Featured";
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d4af37;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 25;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .category-card {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .category-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .category-card {
+        min-height: 350px !important;
+        flex: 0 0 calc(90vw - 3rem) !important;
+    }
+    
+    .category-card h3 {
+        font-size: 1.6rem !important;
+    }
+    
+    .category-content {
+        padding: 1.5rem;
+    }
+}
