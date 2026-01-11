@@ -129,6 +129,7 @@
         </section>
 
         <!-- Category Preview Section - Horizontal Carousel -->
+        
         <section class="category-preview container" id="collections">
             <h2 class="section-title">Our Collections</h2>
             <p class="section-subtitle">Browse our complete range of jewelry categories</p>
@@ -353,97 +354,97 @@
             localStorage.setItem('theme', 'light');
         }
     });
-
+    
     // ===== CATEGORY CAROUSEL FUNCTIONALITY =====
     document.addEventListener('DOMContentLoaded', function() {
-        const categoryCarousel = document.getElementById('categoryCarousel');
-        const carouselNav = document.getElementById('carouselNav');
-        const scrollHint = document.getElementById('scrollHint');
+    const categoryCarousel = document.getElementById('categoryCarousel');
+    const carouselNav = document.getElementById('carouselNav');
+    const scrollHint = document.getElementById('scrollHint');
+    
+    // Only run if elements exist
+    if (!categoryCarousel || !carouselNav || !scrollHint) return;
+    
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    // Only enable carousel features on mobile
+    function isMobile() {
+        return window.innerWidth < 768;
+    }
+    
+    // Update active dot based on scroll position
+    function updateActiveDot() {
+        if (!isMobile()) return;
         
-        // Only run if elements exist
-        if (!categoryCarousel || !carouselNav || !scrollHint) return;
+        const scrollLeft = categoryCarousel.scrollLeft;
+        const cardWidth = 320 + 24; // card width + gap
+        const activeIndex = Math.round(scrollLeft / cardWidth);
         
-        const dots = document.querySelectorAll('.carousel-dot');
-        
-        // Only enable carousel features on mobile
-        function isMobile() {
-            return window.innerWidth < 768;
-        }
-        
-        // Update active dot based on scroll position
-        function updateActiveDot() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeIndex);
+        });
+    }
+    
+    // Dot click navigation
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
             if (!isMobile()) return;
             
-            const scrollLeft = categoryCarousel.scrollLeft;
-            const cardWidth = 280 + 12; // card width + gap
-            const activeIndex = Math.round(scrollLeft / cardWidth);
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === activeIndex);
+            const index = parseInt(this.dataset.index);
+            const cardWidth = 320 + 24;
+            categoryCarousel.scrollTo({
+                left: index * cardWidth,
+                behavior: 'smooth'
             });
-        }
-        
-        // Dot click navigation
-        dots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                if (!isMobile()) return;
-                
-                const index = parseInt(this.dataset.index);
-                const cardWidth = 280 + 12;
-                categoryCarousel.scrollTo({
-                    left: index * cardWidth,
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Show/hide scroll hint on mobile
-        function checkScrollHint() {
-            if (!isMobile()) {
-                scrollHint.style.display = 'none';
-                return;
-            }
-            
-            // Only show hint if there's overflow
-            const hasOverflow = categoryCarousel.scrollWidth > categoryCarousel.clientWidth;
-            const hasScrolled = categoryCarousel.scrollLeft > 10;
-            
-            if (hasOverflow && !hasScrolled) {
-                scrollHint.style.display = 'flex';
-            } else {
-                scrollHint.style.display = 'none';
-            }
-        }
-        
-        // Listen for scroll events
-        categoryCarousel.addEventListener('scroll', function() {
-            updateActiveDot();
-            checkScrollHint();
-        });
-        
-        // Initialize on load
-        checkScrollHint();
-        updateActiveDot();
-        
-        // Re-check on resize
-        window.addEventListener('resize', function() {
-            checkScrollHint();
-            updateActiveDot();
-        });
-        
-        // Auto-hide scroll hint after first scroll
-        let hasScrolled = false;
-        categoryCarousel.addEventListener('scroll', function() {
-            if (!hasScrolled && this.scrollLeft > 50) {
-                hasScrolled = true;
-                scrollHint.style.opacity = '0';
-                setTimeout(() => {
-                    scrollHint.style.display = 'none';
-                    scrollHint.style.opacity = '1';
-                }, 300);
-            }
         });
     });
+    
+    // Show/hide scroll hint on mobile
+    function checkScrollHint() {
+        if (!isMobile()) {
+            scrollHint.style.display = 'none';
+            return;
+        }
+        
+        // Only show hint if there's overflow
+        const hasOverflow = categoryCarousel.scrollWidth > categoryCarousel.clientWidth;
+        const hasScrolled = categoryCarousel.scrollLeft > 10;
+        
+        if (hasOverflow && !hasScrolled) {
+            scrollHint.style.display = 'flex';
+        } else {
+            scrollHint.style.display = 'none';
+        }
+    }
+    
+    // Listen for scroll events
+    categoryCarousel.addEventListener('scroll', function() {
+        updateActiveDot();
+        checkScrollHint();
+    });
+    
+    // Initialize on load
+    checkScrollHint();
+    updateActiveDot();
+    
+    // Re-check on resize
+    window.addEventListener('resize', function() {
+        checkScrollHint();
+        updateActiveDot();
+    });
+    
+    // Auto-hide scroll hint after first scroll
+    let hasScrolled = false;
+    categoryCarousel.addEventListener('scroll', function() {
+        if (!hasScrolled && this.scrollLeft > 50) {
+            hasScrolled = true;
+            scrollHint.style.opacity = '0';
+            setTimeout(() => {
+                scrollHint.style.display = 'none';
+                scrollHint.style.opacity = '1';
+            }, 300);
+        }
+    });
+});
 </script>
 
 </body>
