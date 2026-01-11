@@ -5851,77 +5851,239 @@ body.dark-mode .sidebar-content {
         overflow: visible !important;
     }
 }
-/* Update in your style.css - Replace the current .category-grid styles */
+/* ===== HORIZONTAL SCROLLING CAROUSEL ===== */
+.category-preview {
+    padding: 3rem 0;
+    background-color: #faf9f7;
+    border-radius: 30px;
+    margin: 3rem auto;
+    transition: background-color 0.3s;
+}
 
 .category-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-    gap: 1.5rem;
-    margin-top: 2rem;
+    display: flex;
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding: 1.5rem 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    margin: 0 -1rem; /* Negative margin for full-width effect */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.category-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .category-card {
-    padding: 1.5rem;
-    text-align: center;
+    flex: 0 0 280px; /* Fixed width cards for consistent scrolling */
+    scroll-snap-align: start;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 1.8rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    min-height: 300px;
+}
+
+.category-card.featured {
+    border: 2px solid #d4af37;
+    background-color: #fffdf9;
+    position: relative;
+}
+
+.category-card.featured::before {
+    content: "⭐ Featured";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d4af37;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .category-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Remove .featured class or make all cards consistent */
-.category-card.featured {
-    border: 1px solid #d4af37; /* Lighter border instead of thick */
-    background-color: #fffdf9;
-}
-
-/* Smaller category icons */
 .category-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #b8860b;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1);
 }
 
 .category-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-bottom: 0.8rem;
     color: #333;
+    transition: color 0.3s;
 }
 
 .category-card p {
-    font-size: 0.9rem;
     color: #666;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.5;
+    font-size: 0.95rem;
     flex-grow: 1;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .category-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+.category-btn {
+    display: inline-block;
+    background-color: #4a4a4a;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.category-btn:hover {
+    background-color: #d4af37;
+    transform: translateY(-2px);
+}
+
+/* Navigation dots for carousel */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-dot.active {
+    background: #d4af37;
+    transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+    background: #b8860b;
+}
+
+/* Scroll hint for mobile */
+.scroll-hint {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.scroll-hint i {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    60% {
+        transform: translateX(3px);
     }
 }
 
-@media (max-width: 768px) {
+/* Desktop layout - switch to grid */
+@media (min-width: 768px) {
     .category-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+        gap: 1.8rem;
+        padding: 2rem 0;
+        margin: 0;
     }
     
     .category-card {
-        padding: 1.2rem;
+        flex: none;
+        min-height: 320px;
     }
+    
+    .carousel-nav,
+    .scroll-hint {
+        display: none !important;
+    }
+}
+
+/* Tablet layout - 2 columns */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large desktop - 3x3 grid */
+@media (min-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Dark mode styles */
+body.dark-mode .category-preview {
+    background-color: rgba(17, 34, 64, 0.5);
+}
+
+body.dark-mode .category-card {
+    background: rgba(17, 34, 64, 0.7);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .category-card.featured {
+    border-color: #d4af37;
+    background: rgba(17, 34, 64, 0.8);
+}
+
+body.dark-mode .category-card h3 {
+    color: #e6f1ff;
+}
+
+body.dark-mode .category-card p {
+    color: #8892b0;
+}
+
+body.dark-mode .carousel-dot {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .carousel-dot.active {
+    background: #d4af37;
+}
+
+body.dark-mode .scroll-hint {
+    color: #8892b0;
 }
