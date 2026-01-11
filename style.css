@@ -5851,3 +5851,43 @@ body.dark-mode .sidebar-content {
         overflow: visible !important;
     }
 }
+/* Alternative: Mobile-first horizontal scroll */
+.category-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-card {
+    flex: 0 0 280px; /* Fixed width for cards */
+    scroll-snap-align: start;
+    height: auto;
+    padding: 1.5rem;
+}
+
+/* Hide scrollbar but keep functionality */
+.category-grid::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+        gap: 1.5rem;
+    }
+    
+    .category-card {
+        flex: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3x3 grid */
+    }
+}
