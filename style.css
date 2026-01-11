@@ -6468,7 +6468,7 @@ body.dark-mode .scroll-hint {
     display: none;
 }
 
-/* Minimal Fade Effect */
+/* Minimal Fade Effect - Just a Hint */
 .category-carousel-container::before,
 .category-carousel-container::after {
     content: '';
@@ -6495,7 +6495,7 @@ body.dark-mode .scroll-hint {
         rgba(250, 249, 247, 0.3) 100%);
 }
 
-/* Dark mode fade effect */
+/* Dark mode */
 body.dark-mode .category-carousel-container::before {
     background: linear-gradient(90deg, 
         rgba(17, 34, 64, 1) 0%, 
