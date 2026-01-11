@@ -298,158 +298,153 @@
 
     <!-- JavaScript -->
     <script>
-        // Get elements
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const closeSidebar = document.getElementById('closeSidebar');
-        const catalogSidebar = document.getElementById('catalogSidebar');
-        const overlay = document.getElementById('overlay');
-        const viewCatalogBtn = document.getElementById('viewCatalogBtn');
-        const ctaCatalogBtn = document.getElementById('ctaCatalogBtn');
-        const themeToggle = document.getElementById('themeToggle');
+    // Get elements
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const catalogSidebar = document.getElementById('catalogSidebar');
+    const overlay = document.getElementById('overlay');
+    const viewCatalogBtn = document.getElementById('viewCatalogBtn');
+    const ctaCatalogBtn = document.getElementById('ctaCatalogBtn');
+    const themeToggle = document.getElementById('themeToggle');
 
-        // Function to open sidebar
-        function openSidebar() {
-            catalogSidebar.classList.add('active');
-            overlay.classList.add('active');
+    // Function to open sidebar
+    function openSidebar() {
+        catalogSidebar.classList.add('active');
+        overlay.classList.add('active');
+    }
+
+    // Function to close sidebar
+    function closeSidebarFunc() {
+        catalogSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
+    // Sidebar event listeners
+    sidebarToggle.addEventListener('click', openSidebar);
+    closeSidebar.addEventListener('click', closeSidebarFunc);
+    overlay.addEventListener('click', closeSidebarFunc);
+    viewCatalogBtn.addEventListener('click', openSidebar);
+    ctaCatalogBtn.addEventListener('click', openSidebar);
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!catalogSidebar.contains(event.target) && 
+            !sidebarToggle.contains(event.target) &&
+            !viewCatalogBtn.contains(event.target) &&
+            !ctaCatalogBtn.contains(event.target)) {
+            closeSidebarFunc();
         }
+    });
 
-        // Function to close sidebar
-        function closeSidebarFunc() {
-            catalogSidebar.classList.remove('active');
-            overlay.classList.remove('active');
+    // Theme Toggle Functionality
+    // Check for saved theme or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        // Save preference
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
         }
+    });
 
-        // Sidebar event listeners
-        sidebarToggle.addEventListener('click', openSidebar);
-        closeSidebar.addEventListener('click', closeSidebarFunc);
-        overlay.addEventListener('click', closeSidebarFunc);
-        viewCatalogBtn.addEventListener('click', openSidebar);
-        ctaCatalogBtn.addEventListener('click', openSidebar);
-
-        // Close sidebar when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!catalogSidebar.contains(event.target) && 
-                !sidebarToggle.contains(event.target) &&
-                !viewCatalogBtn.contains(event.target) &&
-                !ctaCatalogBtn.contains(event.target)) {
-                closeSidebarFunc();
-            }
-        });
-
-        // Theme Toggle Functionality
-        // Check for saved theme or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            // Save preference
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Category Carousel Functionality
+    // ===== CATEGORY CAROUSEL FUNCTIONALITY =====
     document.addEventListener('DOMContentLoaded', function() {
-    const categoryCarousel = document.getElementById('categoryCarousel');
-    const carouselNav = document.getElementById('carouselNav');
-    const scrollHint = document.getElementById('scrollHint');
-    const dots = document.querySelectorAll('.carousel-dot');
-    
-    // Only enable carousel features on mobile
-    function isMobile() {
-        return window.innerWidth < 768;
-    }
-    
-    // Update active dot based on scroll position
-    function updateActiveDot() {
-        if (!isMobile() || !categoryCarousel) return;
+        const categoryCarousel = document.getElementById('categoryCarousel');
+        const carouselNav = document.getElementById('carouselNav');
+        const scrollHint = document.getElementById('scrollHint');
         
-        const scrollLeft = categoryCarousel.scrollLeft;
-        const cardWidth = 280 + 12; // card width + gap
-        const activeIndex = Math.round(scrollLeft / cardWidth);
+        // Only run if elements exist
+        if (!categoryCarousel || !carouselNav || !scrollHint) return;
         
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeIndex);
-        });
-    }
-    
-    // Dot click navigation
-    dots.forEach(dot => {
-        dot.addEventListener('click', function() {
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        // Only enable carousel features on mobile
+        function isMobile() {
+            return window.innerWidth < 768;
+        }
+        
+        // Update active dot based on scroll position
+        function updateActiveDot() {
             if (!isMobile()) return;
             
-            const index = parseInt(this.dataset.index);
-            const cardWidth = 280 + 12;
-            categoryCarousel.scrollTo({
-                left: index * cardWidth,
-                behavior: 'smooth'
+            const scrollLeft = categoryCarousel.scrollLeft;
+            const cardWidth = 280 + 12; // card width + gap
+            const activeIndex = Math.round(scrollLeft / cardWidth);
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+        
+        // Dot click navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                if (!isMobile()) return;
+                
+                const index = parseInt(this.dataset.index);
+                const cardWidth = 280 + 12;
+                categoryCarousel.scrollTo({
+                    left: index * cardWidth,
+                    behavior: 'smooth'
+                });
             });
         });
-    });
-    
-    // Show/hide scroll hint on mobile
-    function checkScrollHint() {
-        if (!isMobile()) {
-            if (scrollHint) scrollHint.style.display = 'none';
-            return;
+        
+        // Show/hide scroll hint on mobile
+        function checkScrollHint() {
+            if (!isMobile()) {
+                scrollHint.style.display = 'none';
+                return;
+            }
+            
+            // Only show hint if there's overflow
+            const hasOverflow = categoryCarousel.scrollWidth > categoryCarousel.clientWidth;
+            const hasScrolled = categoryCarousel.scrollLeft > 10;
+            
+            if (hasOverflow && !hasScrolled) {
+                scrollHint.style.display = 'flex';
+            } else {
+                scrollHint.style.display = 'none';
+            }
         }
         
-        if (!categoryCarousel || !scrollHint) return;
-        
-        // Only show hint if there's overflow
-        const hasOverflow = categoryCarousel.scrollWidth > categoryCarousel.clientWidth;
-        const hasScrolled = categoryCarousel.scrollLeft > 10;
-        
-        if (hasOverflow && !hasScrolled) {
-            scrollHint.style.display = 'flex';
-        } else {
-            scrollHint.style.display = 'none';
-        }
-    }
-    
-    // Listen for scroll events
-    if (categoryCarousel) {
+        // Listen for scroll events
         categoryCarousel.addEventListener('scroll', function() {
             updateActiveDot();
             checkScrollHint();
         });
-    }
-    
-    // Initialize on load and resize
-    window.addEventListener('load', function() {
+        
+        // Initialize on load
         checkScrollHint();
         updateActiveDot();
-    });
-    
-    window.addEventListener('resize', function() {
-        checkScrollHint();
-        updateActiveDot();
-    });
-    
-    // Auto-hide scroll hint after first scroll
-    let hasScrolled = false;
-    if (categoryCarousel) {
+        
+        // Re-check on resize
+        window.addEventListener('resize', function() {
+            checkScrollHint();
+            updateActiveDot();
+        });
+        
+        // Auto-hide scroll hint after first scroll
+        let hasScrolled = false;
         categoryCarousel.addEventListener('scroll', function() {
             if (!hasScrolled && this.scrollLeft > 50) {
                 hasScrolled = true;
-                if (scrollHint) {
-                    scrollHint.style.opacity = '0';
-                    setTimeout(() => {
-                        scrollHint.style.display = 'none';
-                        scrollHint.style.opacity = '1';
-                    }, 300);
-                }
+                scrollHint.style.opacity = '0';
+                setTimeout(() => {
+                    scrollHint.style.display = 'none';
+                    scrollHint.style.opacity = '1';
+                }, 300);
             }
         });
-    }
-});
-    </script>
+    });
+</script>
 
 </body>
 </html>
