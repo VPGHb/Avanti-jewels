@@ -6029,45 +6029,6 @@ body.dark-mode .sidebar-content {
     display: none !important;
 }
 
-/* Minimal Fade Effect - Just a Hint */
-.category-carousel-container::before,
-.category-carousel-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 40px;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-.category-carousel-container::before {
-    left: 0;
-    background: linear-gradient(90deg, 
-        rgba(250, 249, 247, 1) 0%, 
-        rgba(250, 249, 247, 0.3) 100%);
-}
-
-.category-carousel-container::after {
-    right: 0;
-    background: linear-gradient(270deg, 
-        rgba(250, 249, 247, 1) 0%, 
-        rgba(250, 249, 247, 0.3) 100%);
-}
-
-/* Dark mode */
-body.dark-mode .category-carousel-container::before {
-    background: linear-gradient(90deg, 
-        rgba(17, 34, 64, 1) 0%, 
-        rgba(17, 34, 64, 0.3) 100%);
-}
-
-body.dark-mode .category-carousel-container::after {
-    background: linear-gradient(270deg, 
-        rgba(17, 34, 64, 1) 0%, 
-        rgba(17, 34, 64, 0.3) 100%);
-}
 
 .category-card {
     flex: 0 0 320px !important;
@@ -6468,45 +6429,6 @@ body.dark-mode .scroll-hint {
     display: none;
 }
 
-/* Minimal Fade Effect - Just a Hint */
-.category-carousel-container::before,
-.category-carousel-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 40px;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-.category-carousel-container::before {
-    left: 0;
-    background: linear-gradient(90deg, 
-        rgba(250, 249, 247, 1) 0%, 
-        rgba(250, 249, 247, 0.3) 100%);
-}
-
-.category-carousel-container::after {
-    right: 0;
-    background: linear-gradient(270deg, 
-        rgba(250, 249, 247, 1) 0%, 
-        rgba(250, 249, 247, 0.3) 100%);
-}
-
-/* Dark mode */
-body.dark-mode .category-carousel-container::before {
-    background: linear-gradient(90deg, 
-        rgba(17, 34, 64, 1) 0%, 
-        rgba(17, 34, 64, 0.3) 100%);
-}
-
-body.dark-mode .category-carousel-container::after {
-    background: linear-gradient(270deg, 
-        rgba(17, 34, 64, 1) 0%, 
-        rgba(17, 34, 64, 0.3) 100%);
-}
 
 /* Fix category cards for horizontal layout */
 .category-card {
