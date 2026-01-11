@@ -4134,12 +4134,7 @@ body.dark-mode .sidebar-content {
         font-size: 1.2rem;
     }
     
-    /* 5. FIX CATEGORY PREVIEW */
-    .category-preview {
-        padding: 2rem 0;
-        margin: 2rem auto;
-        border-radius: 20px;
-    }
+
     
     .section-title {
         font-size: 1.8rem;
