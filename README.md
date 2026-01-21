@@ -10,7 +10,6 @@ A fully responsive e-commerce website for Avanti Jewels, a traditional jewelry b
 - **Dual Theme System** - Light/Dark mode with automatic preference saving
 - **Complete Product Catalog** - 9 jewelry categories with individual pages
 - **Interactive Elements** - Filtering, sorting, image galleries with lightbox
-- **Admin Panel** - Simple inventory management system
 - **Mobile Optimized** - Touch-friendly navigation and layouts
 - **No Dependencies** - Pure HTML, CSS, and JavaScript only
 
@@ -28,34 +27,43 @@ A fully responsive e-commerce website for Avanti Jewels, a traditional jewelry b
 - **Custom Domain** - avantijewels.com
 
 ## 📁 File Structure
-avantijewels/
-├── index.html # Homepage
-├── about.html # About page
-├── contact.html # Contact page
-├── admin.html # Admin panel
-├── style.css # Main stylesheet (3000+ lines)
-├── images/ # All images
-│ ├── jewelry-bg.jpeg # Hero background
-│ ├── 48x48.png # Favicon
-│ └── product-images/ # Product photos
-│
-├── Category Pages/
-│ ├── bangles.html
-│ ├── bracelets.html
-│ ├── bundles.html
-│ ├── earrings.html
-│ ├── kamarband.html
-│ ├── mang-tikka.html
-│ ├── necklaces.html
-│ ├── pendants.html
-│ └── rings.html
-│
-└── Product Pages/
-└── product-detail-template.html
-
+AVANTI-JEWELS/
+- .github/
+- Bangle/
+- Bracelet/
+- Bundle/
+- earring/
+- images/
+- Kamarband/
+- Mandtikka/
+- Necklace/
+- Pandant/
+- ring/
+- HTML Pages/
+  - index.html
+  - about.html
+  - contact.html
+  - bangles.html
+  - bracelets.html
+  - bundles.html
+  - earrings.html
+  - kamarband.html
+  - mang-tikka.html
+  - necklaces.html
+  - pendants.html
+  - rings.html
+  - product.html
+  - test-images.html
+- JavaScript Files/
+  - product-detail.js
+  - products.js
+- Data Files/
+  - products-data.json
+- style.css
+- README.md
 ## 🔧 What I Built
 ### 1. **Complete Website Structure**
-- 13+ HTML pages (Home, About, Contact, Admin, 9 categories)
+- 10+ HTML pages (Home, About, Contact,  9 categories)
 - Comprehensive CSS with 3000+ lines of custom styling
 - Interactive JavaScript for all site functionality
 
@@ -78,7 +86,6 @@ avantijewels/
 - Sidebar navigation menu
 - Product filtering and sorting
 - Image gallery lightbox
-- Admin stock management
 - Mobile responsiveness fixes
 
 ### 5. **Mobile Optimizations**
