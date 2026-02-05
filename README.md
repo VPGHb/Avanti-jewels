@@ -24,7 +24,8 @@ A fully responsive e-commerce website for Avanti Jewels, a traditional jewelry b
 ### Tools & Services
 - **VS Code** - Development environment
 - **Git & GitHub** - Version control and deployment
-- **Custom Domain** - avantijewels.com
+- **Custom Domain** - avantijewels.com smdsd
+- **SETO and Meta Data**  - Google Search Console  
 
 ## 📁 File Structure
 AVANTI-JEWELS/
@@ -109,7 +110,7 @@ AVANTI-JEWELS/
 - **Performance focused** with minimal dependencies
 
 ## 🔄 Deployment
-- **Hosting:** GitHub Pages or similar static hosting
+- **Hosting:** GitHub Pages 
 - **Domain:** Custom domain (avantijewels.com)
 - **SSL:** HTTPS enabled for security
 
