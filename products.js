@@ -58,7 +58,7 @@ const productsData = {
             status: "in-stock",
             category: "bundles"
         },
-        {
+        /*{
         id: 806,
             name: "Earring and Necklace Set",
             description: "Includes: Necklace and Earrings<br>Product ID: 806",
@@ -69,7 +69,7 @@ const productsData = {
             ],
             status: "in-stock",
             category: "bundles"
-        },
+        },*/
         {
         id: 807,
             name: "Earring and Necklace Set",
