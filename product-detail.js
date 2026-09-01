@@ -5,6 +5,13 @@ const productId = parseInt(urlParams.get('id')) || 1;
 // Global variables
 let currentProduct = null;
 let currentImageIndex = 0;
+let zoomScale = 1;
+let isDraggingImage = false;
+let dragStartX = 0;
+let dragStartY = 0;
+let dragScrollLeft = 0;
+let dragScrollTop = 0;
+let viewerReturnFocus = null;
 
 // Function to get all products from products.js
 function getAllProducts() {
@@ -56,10 +63,43 @@ function loadProductData() {
 
 // Display product details
 function displayProductDetails() {
-    document.title = `${currentProduct.name} - Avanti Jewels`;
+    document.title = `${currentProduct.name} | Avanti Jewels`;
+    const plainDescription = currentProduct.description.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) metaDescription.content = `${currentProduct.name}. ${plainDescription} View price, availability and inquire with Avanti Jewels in Hicksville, New York.`;
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = `https://avantijewels.com/product.html?id=${currentProduct.id}`;
+
+    const productSchema = document.createElement('script');
+    productSchema.type = 'application/ld+json';
+    productSchema.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: currentProduct.name,
+        description: plainDescription,
+        image: currentProduct.images.map(image => new URL(image, window.location.origin).href),
+        sku: String(currentProduct.id),
+        brand: { '@type': 'Brand', name: 'Avanti Jewels' },
+        offers: {
+            '@type': 'Offer',
+            url: `https://avantijewels.com/product.html?id=${currentProduct.id}`,
+            priceCurrency: 'USD',
+            price: currentProduct.price.toFixed(2),
+            availability: currentProduct.status === 'in-stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+            seller: { '@type': 'Organization', name: 'Avanti Jewels' }
+        }
+    });
+    document.head.appendChild(productSchema);
     document.getElementById('product-title').textContent = currentProduct.name;
     document.getElementById('product-price').textContent = `$${currentProduct.price.toFixed(2)}`;
     document.getElementById('product-description').innerHTML = currentProduct.description;
+    document.getElementById('product-number').textContent = currentProduct.id;
+    document.getElementById('product-category').textContent = currentProduct.category
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    document.getElementById('product-inquire').href = `contact.html?product=${currentProduct.id}`;
+    document.querySelector('.main-image-trigger').setAttribute('aria-label', `Open image viewer for ${currentProduct.name}`);
     
     const statusBadge = document.getElementById('product-status');
     statusBadge.textContent = currentProduct.status === 'in-stock' ? 'In Stock' : 'Sold Out';
@@ -75,25 +115,26 @@ function loadProductImages() {
     
     if (currentProduct.images && currentProduct.images.length > 0) {
         // Set main image
-        mainImage.src = currentProduct.images[0];
+        mainImage.loading = 'eager';
+        mainImage.fetchPriority = 'high';
+        setResponsiveImage(mainImage, currentProduct.images[0], '(max-width: 760px) 92vw, 50vw');
+        mainImage.alt = `${currentProduct.name}, view 1`;
         
         // Clear thumbnails
         thumbnailContainer.innerHTML = '';
         
         // Create thumbnails
         currentProduct.images.forEach((imgSrc, index) => {
-            const thumbnail = document.createElement('div');
+            const thumbnail = document.createElement('button');
+            thumbnail.type = 'button';
             thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+            thumbnail.setAttribute('aria-label', `View image ${index + 1} of ${currentProduct.images.length}`);
             
             const img = document.createElement('img');
-            img.src = imgSrc;
+            img.loading = 'lazy';
+            setResponsiveImage(img, imgSrc, '78px');
             img.alt = `${currentProduct.name} view ${index + 1}`;
             
-            // Add error handling
-            img.onerror = function() {
-                console.log(`Failed to load image: ${imgSrc}`);
-                this.src = 'https://via.placeholder.com/300x400/EEE1C6/666?text=Image+Not+Available';
-            };
             
             thumbnail.appendChild(img);
             thumbnail.addEventListener('click', () => {
@@ -114,7 +155,8 @@ function setMainImage(index) {
     const mainImage = document.getElementById('main-product-image');
     const thumbnails = document.querySelectorAll('.thumbnail');
     
-    mainImage.src = currentProduct.images[index];
+    setResponsiveImage(mainImage, currentProduct.images[index], '(max-width: 760px) 92vw, 50vw');
+    mainImage.alt = `${currentProduct.name}, view ${index + 1}`;
     currentImageIndex = index;
     
     thumbnails.forEach((thumb, i) => {
@@ -131,19 +173,27 @@ function openLightbox(index = currentImageIndex) {
     
     if (currentProduct.images && currentProduct.images.length > 0) {
         lightboxImage.src = currentProduct.images[index];
+        lightboxImage.alt = `${currentProduct.name}, view ${index + 1}`;
         currentImageIndex = index;
         currentIndexSpan.textContent = index + 1;
         totalImagesSpan.textContent = currentProduct.images.length;
-        
+        updateLightboxNavigation();
+        viewerReturnFocus = document.activeElement;
         lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        window.requestAnimationFrame(resetZoom);
+        window.setTimeout(() => lightbox.querySelector('.close-lightbox')?.focus(), 0);
     }
 }
 
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    resetZoom();
+    if (viewerReturnFocus instanceof HTMLElement) viewerReturnFocus.focus();
 }
 
 function changeLightboxImage(direction) {
@@ -152,8 +202,57 @@ function changeLightboxImage(direction) {
     if (newIndex >= 0 && newIndex < currentProduct.images.length) {
         currentImageIndex = newIndex;
         document.getElementById('lightbox-image').src = currentProduct.images[currentImageIndex];
+        document.getElementById('lightbox-image').alt = `${currentProduct.name}, view ${currentImageIndex + 1}`;
         document.getElementById('current-index').textContent = currentImageIndex + 1;
+        resetZoom();
+        updateLightboxNavigation();
     }
+}
+
+function updateLightboxNavigation() {
+    const previous = document.querySelector('.lightbox-nav.prev');
+    const next = document.querySelector('.lightbox-nav.next');
+    previous.disabled = currentImageIndex === 0;
+    next.disabled = currentImageIndex === currentProduct.images.length - 1;
+}
+
+function updateZoomViewer() {
+    const image = document.getElementById('lightbox-image');
+    const canvas = document.querySelector('.lightbox-image-container');
+    const zoomLevel = document.getElementById('zoom-level');
+    const zoomOut = document.getElementById('zoom-out');
+    const zoomIn = document.getElementById('zoom-in');
+
+    if (!image.naturalWidth || !image.naturalHeight || !canvas.clientWidth || !canvas.clientHeight) return;
+
+    const inset = window.innerWidth <= 760 ? 20 : 56;
+    const availableWidth = Math.max(canvas.clientWidth - inset, 1);
+    const availableHeight = Math.max(canvas.clientHeight - inset, 1);
+    const fittedScale = Math.min(availableWidth / image.naturalWidth, availableHeight / image.naturalHeight);
+    image.style.width = `${image.naturalWidth * fittedScale * zoomScale}px`;
+    image.style.height = `${image.naturalHeight * fittedScale * zoomScale}px`;
+    image.classList.toggle('is-zoomed', zoomScale > 1);
+    zoomLevel.value = `${Math.round(zoomScale * 100)}%`;
+    zoomLevel.textContent = `${Math.round(zoomScale * 100)}%`;
+    zoomOut.disabled = zoomScale <= 1;
+    zoomIn.disabled = zoomScale >= 3;
+
+    window.requestAnimationFrame(() => {
+        canvas.scrollLeft = Math.max(0, (canvas.scrollWidth - canvas.clientWidth) / 2);
+        canvas.scrollTop = Math.max(0, (canvas.scrollHeight - canvas.clientHeight) / 2);
+    });
+}
+
+function changeZoom(amount) {
+    const nextScale = Math.min(3, Math.max(1, zoomScale + amount));
+    zoomScale = nextScale;
+    updateZoomViewer();
+}
+
+function resetZoom() {
+    zoomScale = 1;
+    const image = document.getElementById('lightbox-image');
+    if (image) updateZoomViewer();
 }
 
 function displayRelatedProducts() {
@@ -166,7 +265,7 @@ function displayRelatedProducts() {
     );
     
     const related = sameCategory.slice(0, 3);
-    const categoryLink = `${currentProduct.category}.html`;
+    const categoryLink = `shop.html?category=${encodeURIComponent(currentProduct.category)}`;
     const categoryName = currentProduct.category.charAt(0).toUpperCase() + 
                         currentProduct.category.slice(1).replace('-', ' ');
     
@@ -190,10 +289,9 @@ function displayRelatedProducts() {
                      `https://via.placeholder.com/300x400/EEE1C6/666?text=${product.name}`;
         
         productsHTML += `
-        <div class="product-card" onclick="window.location.href='product.html?id=${product.id}'">
+        <a class="product-card" href="product.html?id=${product.id}">
             <div class="product-image">
-                <img src="${image}" alt="${product.name}" 
-                     onerror="this.src='https://via.placeholder.com/300x400/EEE1C6/666?text=${product.name}'">
+                <img ${imageAttributes(image, '(max-width: 760px) 46vw, 30vw')} alt="${product.name}" loading="lazy">
                 <span class="status-badge ${product.status}">
                     ${product.status === 'in-stock' ? 'In Stock' : 'Sold Out'}
                 </span>
@@ -202,7 +300,7 @@ function displayRelatedProducts() {
                 <h3>${product.name}</h3>
                 <p class="price">$${product.price.toFixed(2)}</p>
             </div>
-        </div>
+        </a>
         `;
     });
     
@@ -223,14 +321,76 @@ function displayRelatedProducts() {
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
     loadProductData();
-    
+
+    const viewer = document.getElementById('lightbox');
+    const viewerImage = document.getElementById('lightbox-image');
+    const viewerCanvas = document.querySelector('.lightbox-image-container');
+
+    viewerImage.addEventListener('dblclick', () => {
+        zoomScale = zoomScale > 1 ? 1 : 2;
+        updateZoomViewer();
+    });
+
+    viewerImage.addEventListener('load', resetZoom);
+
+    viewerCanvas.addEventListener('wheel', event => {
+        if (!viewer.classList.contains('active')) return;
+        event.preventDefault();
+        changeZoom(event.deltaY < 0 ? 0.25 : -0.25);
+    }, { passive: false });
+
+    viewerCanvas.addEventListener('pointerdown', event => {
+        if (zoomScale <= 1) return;
+        isDraggingImage = true;
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+        dragScrollLeft = viewerCanvas.scrollLeft;
+        dragScrollTop = viewerCanvas.scrollTop;
+        viewerCanvas.setPointerCapture(event.pointerId);
+        viewerCanvas.classList.add('is-dragging');
+    });
+
+    viewerCanvas.addEventListener('pointermove', event => {
+        if (!isDraggingImage) return;
+        viewerCanvas.scrollLeft = dragScrollLeft - (event.clientX - dragStartX);
+        viewerCanvas.scrollTop = dragScrollTop - (event.clientY - dragStartY);
+    });
+
+    const stopDragging = event => {
+        if (!isDraggingImage) return;
+        isDraggingImage = false;
+        viewerCanvas.classList.remove('is-dragging');
+        if (viewerCanvas.hasPointerCapture(event.pointerId)) viewerCanvas.releasePointerCapture(event.pointerId);
+    };
+    viewerCanvas.addEventListener('pointerup', stopDragging);
+    viewerCanvas.addEventListener('pointercancel', stopDragging);
+
+    window.addEventListener('resize', () => {
+        if (viewer.classList.contains('active')) updateZoomViewer();
+    });
+
     document.addEventListener('keydown', (e) => {
         const lightbox = document.getElementById('lightbox');
-        
+
         if (lightbox.classList.contains('active')) {
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') changeLightboxImage(-1);
             if (e.key === 'ArrowRight') changeLightboxImage(1);
+            if (e.key === '+' || e.key === '=') changeZoom(0.25);
+            if (e.key === '-' || e.key === '_') changeZoom(-0.25);
+            if (e.key === '0') resetZoom();
+            if (e.key === 'Tab') {
+                const focusable = [...lightbox.querySelectorAll('button:not(:disabled)')];
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         }
     });
 });

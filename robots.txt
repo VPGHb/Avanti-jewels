@@ -1,3 +1,6 @@
 User-agent: *
 Allow: /
 Sitemap: https://avantijewels.com/sitemap.xml
+
+# AI-readable business and catalog summary
+# https://avantijewels.com/llms.txt

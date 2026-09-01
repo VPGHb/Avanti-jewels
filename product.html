@@ -4,95 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - Avanti Jewels</title>
-    <link rel="icon" href="images/48x48.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="View product photographs, price and availability from the Avanti Jewels collection in Hicksville, New York.">
+    <link rel="canonical" href="https://avantijewels.com/product.html">
+    <link rel="icon" href="images/favicon-48.png" type="image/png">
+    <link rel="stylesheet" href="shop.css?v=9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ===== TOP NAVIGATION (SAME AS ABOUT PAGE) ===== -->
-    <nav class="top-nav">
-        <div class="nav-container">
-            <button class="sidebar-toggle">
-                <i class="fas fa-bars"></i> Catalog
-            </button>
-            <a href="index.html" class="logo">AVANTI<span>JEWELS</span></a>
-            <div class="nav-actions">
-                <button class="theme-toggle">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="contact.html" class="contact-btn">Contact Us</a>
-            </div>
+    <a class="skip-link" href="#product-detail">Skip to product details</a>
+    <div class="shop-announcement">Phone reservations held for 24 hours. Monday-Friday, 10 a.m.-5 p.m. ET.</div>
+    <header class="shop-header">
+        <nav class="shop-nav shop-nav-primary" aria-label="Primary navigation">
+            <a href="shop.html">Shop</a>
+            <a href="about.html">Our story</a>
+        </nav>
+        <a class="shop-menu-link" href="shop.html"><span aria-hidden="true">←</span> Shop</a>
+        <a class="shop-wordmark" href="shop.html" aria-label="Avanti Jewels shop">AVANTI<small>JEWELS</small></a>
+        <div class="shop-header-actions">
+            <a class="shop-all-link" href="shop.html">All jewelry</a>
+            <a class="shop-inquire" href="contact.html">Inquire</a>
         </div>
-    </nav>
-
-    <!-- ===== SIDEBAR CATALOG MENU (SAME AS ABOUT PAGE) ===== -->
-    <aside class="sidebar" id="catalogSidebar">
-    <div class="sidebar-header">
-        <h3>Our Collection</h3>
-        <button class="close-sidebar" id="closeSidebar">&times;</button>
-    </div>
-    <div class="sidebar-content">
-        <!-- Alphabetical Order (A-Z) -->
-        <a href="bangles.html" class="category-link">
-            <span>Bangles</span>
-        </a>
-        <a href="bracelets.html" class="category-link">
-            <span>Bracelets</span>
-        </a>
-        <a href="earrings.html" class="category-link">
-            <span>Earrings</span>
-        </a>
-        <a href="bundles.html" class="category-link">
-            <span>Heritage Sets</span>
-        </a>
-        <a href="kamarband.html" class="category-link">
-            <span>Kamarband</span>
-        </a>
-        <a href="mang-tikka.html" class="category-link">
-            <span>Mang Tikka</span>
-        </a>
-        <a href="necklaces.html" class="category-link">
-            <span>Necklaces</span>
-        </a>
-        <a href="pendants.html" class="category-link">
-            <span>Pendants</span>
-        </a>
-        <a href="rings.html" class="category-link">
-            <span>Rings</span>
-        </a>
-        
-        <div class="sidebar-divider"></div>
-        
-        <!-- About & Contact (Always at bottom) -->
-        <a href="about.html" class="category-link">
-            <i class="fas fa-info-circle"></i>
-            <span>About Us</span>
-        </a>
-        <a href="contact.html" class="category-link">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-    </div>
-    <div class="sidebar-footer">
-        <p>All items are ready to be picked up</p>
-    </div>
-</aside>
-
-    <!-- Overlay for closing sidebar -->
-    <div class="overlay"></div>
+    </header>
 
     <!-- ===== PRODUCT DETAIL CONTENT ===== -->
-    <main class="product-detail-container">
+    <main class="product-detail-container" id="product-detail">
         <div class="container">
+            <a class="product-back-link" href="shop.html">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                Back to all jewelry
+            </a>
             <div class="product-detail">
                 <!-- Left: Image Gallery -->
                 <div class="product-gallery">
                     <div class="main-image-container">
-                        <img id="main-product-image" src="" alt="Product Image" class="main-product-image">
+                        <button class="main-image-trigger" type="button" onclick="openLightbox()" aria-label="Open product image viewer">
+                            <img id="main-product-image" src="" alt="Product Image" class="main-product-image">
+                        </button>
                         <button class="enlarge-btn" onclick="openLightbox()">
-                            <i class="fas fa-expand"></i> Enlarge
+                            <i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i> View and zoom
                         </button>
                     </div>
                     <div class="image-thumbnails" id="thumbnail-container">
@@ -112,13 +61,26 @@
                         <h3>Description</h3>
                         <p id="product-description">Description will load here...</p>
                     </div>
+
+                    <dl class="product-facts" aria-label="Product information">
+                        <div><dt>Product number</dt><dd id="product-number"></dd></div>
+                        <div><dt>Collection</dt><dd id="product-category"></dd></div>
+                        <div><dt>Payment</dt><dd>Cash or Venmo</dd></div>
+                        <div><dt>Fulfillment</dt><dd>Local pickup or delivery</dd></div>
+                    </dl>
+
+                    <details class="product-guidance">
+                        <summary>Care guidance</summary>
+                        <p>Keep the piece dry, avoid direct contact with perfume and lotions, and store it separately in a soft pouch. Ask us for guidance specific to this piece.</p>
+                    </details>
                     
                     <!-- Inquire Button -->
                     <div class="action-buttons">
-                        <button class="inquire-btn" onclick="window.location.href='contact.html'">
-                            <i class="fas fa-shopping-cart"></i> Inquire About This Product
-                        </button>
+                        <a class="inquire-btn" id="product-inquire" href="contact.html">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Inquire About This Product
+                        </a>
                     </div>
+                    <p class="final-sale-note"><strong>All sales are final.</strong> No returns or exchanges. Phone reservations are held for 24 hours.</p>
                 </div>
             </div>
             
@@ -136,20 +98,33 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image viewer" aria-hidden="true">
         <div class="lightbox-content">
-            <button class="close-lightbox" onclick="closeLightbox()">
-                <i class="fas fa-times"></i>
+            <button class="close-lightbox" type="button" onclick="closeLightbox()" aria-label="Close image viewer">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
-            <button class="lightbox-nav prev" onclick="changeLightboxImage(-1)">
-                <i class="fas fa-chevron-left"></i>
+            <button class="lightbox-nav prev" type="button" onclick="changeLightboxImage(-1)" aria-label="Previous product image">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="lightbox-nav next" onclick="changeLightboxImage(1)">
-                <i class="fas fa-chevron-right"></i>
+            <button class="lightbox-nav next" type="button" onclick="changeLightboxImage(1)" aria-label="Next product image">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
-            
+
+            <div class="lightbox-toolbar" aria-label="Image zoom controls">
+                <button id="zoom-out" type="button" onclick="changeZoom(-0.25)" aria-label="Zoom out">
+                    <i class="fas fa-minus" aria-hidden="true"></i>
+                </button>
+                <output id="zoom-level" aria-live="polite">100%</output>
+                <button id="zoom-in" type="button" onclick="changeZoom(0.25)" aria-label="Zoom in">
+                    <i class="fas fa-plus" aria-hidden="true"></i>
+                </button>
+                <button id="zoom-reset" type="button" onclick="resetZoom()">Reset</button>
+            </div>
+
             <div class="lightbox-image-container">
-                <img id="lightbox-image" src="" alt="Product Image">
+                <div class="lightbox-image-stage">
+                    <img id="lightbox-image" src="" alt="Product Image" draggable="false">
+                </div>
                 <div class="image-counter">
                     <span id="current-index">1</span> / <span id="total-images">3</span>
                 </div>
@@ -158,91 +133,15 @@
         <div class="lightbox-overlay" onclick="closeLightbox()"></div>
     </div>
 
-    <!-- ===== FOOTER (SAME AS ABOUT PAGE) ===== -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo">AVANTI JEWELS</a>
-                <p>Crafting timeless elegance with precision and passion since 2024.</p>
-            </div>
-            <div class="footer-categories">
-                <h4>Shop By Category</h4>
-                <a href="bangles.html">Bangles</a>
-                <a href="bracelets.html">Bracelets</a>
-                <a href="bundles.html">Bundle Sets</a>
-                <a href="earrings.html">Earrings</a>
-                <a href="kamarband.html">Kamarband</a>
-                <a href="necklaces.html">Necklaces</a>
-                <a href="rings.html">Rings</a>
-            </div>
-            <div class="footer-categories">
-                <h4>Quick Links</h4>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-categories">
-                <h4>Connect With Us</h4>
-                <a href="https://www.instagram.com/avanti_jewels_ny?utm_source=qr"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://www.facebook.com/share/1a8qA1Vr3t/"><i class="fab fa-facebook"></i> Facebook</a>
-                <a href="https://www.tiktok.com/@avanti.patel"><i class="fab fa-tiktok"></i> TikTok</a>
-                <a href="mailto:avantijewelsny@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2026 Avanti Jewels. All rights reserved.</p>
-        </div>
+    <footer class="shop-footer">
+        <div><a class="footer-mark" href="shop.html">AVANTI <small>JEWELS</small></a><p>Indian jewelry in Hicksville, New York.</p></div>
+        <nav aria-label="Product footer"><a href="shop.html">Shop all jewelry</a><a href="about.html">Our story</a><a href="contact.html">Private inquiry</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav>
+        <p class="footer-meta"><span>© 2026 Avanti Jewels</span><a href="https://www.linkedin.com/in/p-vraj/" target="_blank" rel="author external noopener">Created by Vraj Patel</a></p>
     </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <!-- Include products.js first -->
-    <script src="products.js"></script>
-    <!-- Include product-detail.js -->
-    <script src="product-detail.js"></script>
-    
-    <!-- Theme and Sidebar Toggle Script (SAME AS ABOUT PAGE) -->
-    <script>
-        // Theme Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const body = document.body;
-        
-        // Check for saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        body.classList.toggle('dark-mode', savedTheme === 'dark');
-        
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-
-        // Sidebar Toggle
-        const sidebarToggle = document.querySelector('.sidebar-toggle');
-        const closeSidebar = document.querySelector('.close-sidebar');
-        const sidebar = document.querySelector('.sidebar');
-        const overlay = document.querySelector('.overlay');
-        
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-        });
-        
-        closeSidebar.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-        
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-
-        // Close sidebar when clicking on a link
-        document.querySelectorAll('.category-link').forEach(link => {
-            link.addEventListener('click', () => {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="products.js?v=20260831-mobile"></script>
+    <script src="image-manifest.js?v=1"></script>
+    <script src="image-utils.js?v=1"></script>
+    <script src="product-detail.js?v=7"></script>
 </body>
 </html>

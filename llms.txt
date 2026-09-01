@@ -1,0 +1,23 @@
+# Avanti Jewels
+
+Avanti Jewels is an Indian jewelry boutique serving Hicksville, New York. The full catalog includes necklaces, complete jewelry sets, bangles, bracelets, earrings, rings, pendants, mang tikka and kamarband. Products are browsed online and purchases, local pickup or local delivery are confirmed directly with Avanti Jewels.
+
+Available items may be reserved by phone for 24 hours with customer contact information. Payment is accepted by cash or Venmo. All sales are final, with no returns or exchanges. Avanti Jewels does not offer shipping, alterations, deposits, installment plans or custom orders.
+
+## Primary pages
+
+- Shop all jewelry: https://avantijewels.com/shop.html
+- Product details: https://avantijewels.com/product.html?id={product-number}
+- About: https://avantijewels.com/about.html
+- Contact: https://avantijewels.com/contact.html
+- Terms of Service: https://avantijewels.com/terms.html
+- Privacy Policy: https://avantijewels.com/privacy.html
+
+## Contact
+
+- Phone: +1 718 697 9678
+- Email: avantijewelsny@gmail.com
+- Location: Hicksville, New York, United States
+- Business hours: Monday-Friday, 10 a.m.-5 p.m. Eastern Time
+
+Product price and availability should be verified on the individual product page or directly with Avanti Jewels.

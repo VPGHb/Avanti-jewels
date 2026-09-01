@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const root = path.resolve(__dirname, '..');
+const source = fs.readFileSync(path.join(root, 'products.js'), 'utf8');
+const products = vm.runInNewContext(source.split('// ===== GLOBAL STATE =====')[0] + ';Object.values(productsData).flat()');
+const date = new Date().toISOString().slice(0, 10);
+const pages = [['shop.html','weekly','1.0'],['about.html','monthly','0.6'],['contact.html','monthly','0.6'],['terms.html','yearly','0.3'],['privacy.html','yearly','0.3']];
+const entry = (location, frequency, priority) => `  <url><loc>https://avantijewels.com/${location}</loc><lastmod>${date}</lastmod><changefreq>${frequency}</changefreq><priority>${priority}</priority></url>`;
+const urls = pages.map(page => entry(...page));
+for (const product of products) urls.push(entry(`product.html?id=${product.id}`.replace('&', '&amp;'), 'weekly', '0.7'));
+fs.writeFileSync(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`);
+console.log(`Wrote ${urls.length} sitemap entries.`);

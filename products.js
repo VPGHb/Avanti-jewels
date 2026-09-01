@@ -1,23 +1,25 @@
 // ===== PRODUCT DATA =====
+// Availability: "in-stock" for available items; "out-of-stock" or "sold-out" for unavailable items.
+// Capitalization and surrounding spaces are accepted, e.g. "Out-of-stock ".
 const productsData = {
     "bundles": [
         {
-            id: 801,
+            id: 801, 
             name: "Full Heritage Set",
-            description: "Includes: Necklace, Earrings & Mantika<br>Product ID: 801",
+            description: "A broad gold-tone set with repeating floral details and a fringe of bright green drops.<br><br>Includes: Necklace, Earrings & Mantika<br>Product ID: 801",
             price: 65.00,
             images: [
                 "Bundle/1/Mainimage.png",
                 "Bundle/1/Manakin.png"
             ],
-            status: "in-stock",
+            status: "sold-out",
             category: "bundles"
         },
         {
             id: 802,
             name: "Full Heritage Set",
-            description: "Includes: Necklace, Earrings & Mantika<br>Product ID: 802",
-            price: 60.00,
+            description: "A curved choker-style set with red and green patterns and clusters of small cream-colored drops.<br><br>Includes: Necklace, Earrings & Mantika<br>Product ID: 802",
+            price: 65.00,
             images: [
                 "Bundle/2/Mainimage.png"
             ],
@@ -27,8 +29,8 @@ const productsData = {
         {
             id: 803,
             name: "Full Heritage Set",
-            description: "Includes: Necklace, Earrings & Mantika<br>Product ID: 803",
-            price: 60.00,
+            description: "A wide set with pale blue and muted red floral patterns, reflective accents, and cream-colored drops.<br><br>Includes: Necklace, Earrings & Mantika<br>Product ID: 803",
+            price: 65.00,
             images: [
                 "Bundle/3/Mainimage.jpg"
             ],
@@ -38,8 +40,8 @@ const productsData = {
         {
             id: 804,
             name: "Full Heritage Set",
-            description: "Includes: Necklace, Earrings & Mantika<br>Product ID: 804",
-            price: 75.00,
+            description: "A layered gold-tone design with ornate rounded pendants, pink and green accents, and clustered drops.<br><br>Includes: Necklace, Earrings & Mantika<br>Product ID: 804",
+            price: 80.00,
             images: [
                 "Bundle/4/Mainimage.jpg"
             ],
@@ -49,8 +51,8 @@ const productsData = {
         {
         id: 805,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 805",
-            price: 35.00,
+            description: "A gold-tone necklace and earring design with rounded links, pink accents, and pale dangling beads.<br><br>Includes: Necklace and Earrings<br>Product ID: 805",
+            price: 40.00,
             images: [
                 "Bundle/5/Mainimage.png",
                 "Bundle/5/Manakin.png"
@@ -73,8 +75,8 @@ const productsData = {
         {
         id: 807,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 807",
-            price: 25.00,
+            description: "A fine gold-tone necklace with green and pink accents and a large oval pendant with hanging details.<br><br>Includes: Necklace and Earrings<br>Product ID: 807",
+            price: 30.00,
             images: [
                 "Bundle/7/Mainimage.png",
                 "Bundle/7/Manakin.png"
@@ -85,8 +87,8 @@ const productsData = {
         {
         id: 808,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 808",
-            price: 35.00,
+            description: "A curved design with rows of tiny white beads, green and red accents, and gold-tone hanging details.<br><br>Includes: Necklace and Earrings<br>Product ID: 808",
+            price: 50.00,
             images: [
                 "Bundle/8/mainimage.png",
                 "Bundle/8/manikin.png"
@@ -95,22 +97,22 @@ const productsData = {
             category: "bundles"
         },
         {
-        id: 809,
+        id: 809,  
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 809",
-            price: 35.00,
+            description: "White and dark red bead strands frame a large rounded gold-tone pendant with pink and green accents.<br><br>Includes: Necklace and Earrings<br>Product ID: 809",
+            price: 40.00,
             images: [
                 "Bundle/9/Mainimage.png",
                 "Bundle/9/Manakin.png"
             ],
-            status: "in-stock",
+            status: "sold-out",
             category: "bundles"
         },
         {
         id: 810,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 810",
-            price: 40.00,
+            description: "A gold-tone set with textured repeating motifs, red and green accents, and a bell-shaped central drop.<br><br>Includes: Necklace and Earrings<br>Product ID: 810",
+            price: 45.00,
             images: [
                 "Bundle/10/Mainimage.png",
                 "Bundle/10/Manakin.png"
@@ -121,8 +123,8 @@ const productsData = {
         {
         id: 811,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 811",
-            price: 35.00,
+            description: "White and deep red bead strands meet a patterned gold-tone front with floral shapes and small hanging drops.<br><br>Includes: Necklace and Earrings<br>Product ID: 811",
+            price: 40.00,
             images: [
                 "Bundle/11/Mainimage.png",
                 "Bundle/11/Manakin.png"
@@ -133,8 +135,8 @@ const productsData = {
         {
         id: 812,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 812",
-            price: 35.00,
+            description: "A gold-tone set with textured links, red and green accents, and an ornate pendant with curling details.<br><br>Includes: Necklace and Earrings<br>Product ID: 812",
+            price: 40.00,
             images: [
                 "Bundle/12/Mainimage.png",
                 "Bundle/12/Manakin.png"
@@ -145,8 +147,8 @@ const productsData = {
         {
         id: 813,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 813",
-            price: 30.00,
+            description: "A gold-tone design with a flower above a square pendant, red and green accents, and rounded drops.<br><br>Includes: Necklace and Earrings<br>Product ID: 813",
+            price: 35.00,
             images: [
                 "Bundle/13/Mainimage.png",
                 "Bundle/13/Manakin.png"
@@ -157,8 +159,8 @@ const productsData = {
         {
         id: 814,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 814",
-            price: 45.00,
+            description: "A gold-tone set with leaf-like shapes, a rounded pendant, and a fringe of small cream-colored beads.<br><br>Includes: Necklace and Earrings<br>Product ID: 814",
+            price: 50.00,
             images: [
                 "Bundle/14/Mainimage.png",
                 "Bundle/14/Manakin.png"
@@ -169,8 +171,8 @@ const productsData = {
         {
         id: 815,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 815",
-            price: 30.00,
+            description: "Fine white bead strands lead to a broad gold-tone pendant with pink accents and pale hanging beads.<br><br>Includes: Necklace and Earrings<br>Product ID: 815",
+            price: 35.00,
             images: [
                 "Bundle/15/Mainimage.png",
                 "Bundle/15/Manakin.png"
@@ -181,8 +183,8 @@ const productsData = {
         {
         id: 816,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 816",
-            price: 25.00,
+            description: "A fine gold-tone necklace with spaced green and pink accents and an ornate teardrop-shaped pendant.<br><br>Includes: Necklace and Earrings<br>Product ID: 816",
+            price: 30.00,
             images: [
                 "Bundle/16/Mainimage.png",
                 "Bundle/16/Manakin.png"
@@ -193,8 +195,8 @@ const productsData = {
         {
         id: 817,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 817",
-            price: 55.00,
+            description: "White bead strands frame a gold-tone centerpiece with floral shapes, green panels, and pink accents.<br><br>Includes: Necklace and Earrings<br>Product ID: 817",
+            price: 60.00,
             images: [
                 "Bundle/17/Mainimage.png",
                 "Bundle/17/Manakin.png"
@@ -203,22 +205,22 @@ const productsData = {
             category: "bundles"
         },
         {
-        id: 818,
+        id: 818, 
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 818",
-            price: 65.00,
+            description: "Multiple white bead strands lead to an ornate gold-tone pendant with small red and green accents.<br><br>Includes: Necklace and Earrings<br>Product ID: 818",
+            price: 70.00,
             images: [
                 "Bundle/18/Mainimage.png",
                 "Bundle/18/Manakin.png"
             ],
-            status: "in-stock",
+            status: "sold-out",
             category: "bundles"
         },
         {
         id: 819,
             name: "Earring and Necklace Set",
-            description: "Includes: Necklace and Earrings<br>Product ID: 819",
-            price: 55.00,
+            description: "A broad gold-tone set with circular floral motifs and a full fringe of pink and cream-colored beads.<br><br>Includes: Necklace and Earrings<br>Product ID: 819",
+            price: 60.00,
             images: [
                 "Bundle/19/Mainimage.png",
                 "Bundle/19/Manakin.png"
@@ -234,7 +236,7 @@ const productsData = {
         {
             id: 901,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 901",
+            description: "A slim gold-tone necklace with a row of clear accents and small oval drops.<br><br>Includes: Necklace</br>Product ID: 901",
             price: 10.00,
             images: ["Necklace/1/Mainimage.png", "Necklace/1/Manakin.png"],
             status: "in-stock",
@@ -243,7 +245,7 @@ const productsData = {
         {
             id: 902,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 902",
+            description: "A fine gold-tone chain with a curved row of round, clear dangling accents.<br><br>Includes: Necklace</br>Product ID: 902",
             price: 10.00,
             images: ["Necklace/2/Mainimage.png", "Necklace/2/Manakin.png"],
             status: "in-stock",
@@ -252,7 +254,7 @@ const productsData = {
         {
             id: 903,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 903",
+            description: "A fine gold-tone Y-shaped necklace with small heart details and a single hanging heart.<br><br>Includes: Necklace</br>Product ID: 903",
             price: 10.00,
             images: ["Necklace/3/Mainimage.png", "Necklace/3/Manakin.png"],
             status: "in-stock",
@@ -261,7 +263,7 @@ const productsData = {
         {
             id: 904,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 904",
+            description: "A slender necklace with clear accents along the front and a small butterfly-shaped pendant.<br><br>Includes: Necklace</br>Product ID: 904",
             price: 10.00,
             images: ["Necklace/4/Mainimage.png", "Necklace/4/Manakin.png"],
             status: "in-stock",
@@ -270,7 +272,7 @@ const productsData = {
         {
             id: 905,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 905",
+            description: "A fine gold-tone chain with small butterfly shapes in soft pink, blue, cream, and purple.<br><br>Includes: Necklace</br>Product ID: 905",
             price: 10.00,
             images: ["Necklace/5/Mainimage.png", "Necklace/5/Manakin.png"],
             status: "in-stock",
@@ -279,7 +281,7 @@ const productsData = {
         {
             id: 906,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 906",
+            description: "A fine gold-tone necklace with scattered charms, including a star and a round sunburst design.<br><br>Includes: Necklace</br>Product ID: 906",
             price: 10.00,
             images: ["Necklace/6/Mainimage.png", "Necklace/6/Manakin.png"],
             status: "in-stock",
@@ -288,7 +290,7 @@ const productsData = {
         {
             id: 907,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 907",
+            description: "A fine gold-tone chain with a small open heart pendant accented by clear details.<br><br>Includes: Necklace</br>Product ID: 907",
             price: 10.00,
             images: ["Necklace/7/Mainimage.png", "Necklace/7/Manakin.png"],
             status: "in-stock",
@@ -297,7 +299,7 @@ const productsData = {
         {
             id: 908,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 908",
+            description: "A fine gold-tone necklace with spaced rectangular drops in several bright colors.<br><br>Includes: Necklace</br>Product ID: 908",
             price: 10.00,
             images: ["Necklace/8/Mainimage.png", "Necklace/8/Manakin.png"],
             status: "in-stock",
@@ -306,7 +308,7 @@ const productsData = {
         {
             id: 909,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 909",
+            description: "A smooth gold-tone necklace with two four-petal shapes and fine dangling ends.<br><br>Includes: Necklace</br>Product ID: 909",
             price: 10.00,
             images: ["Necklace/9/Mainimage.png", "Necklace/9/Manakin.png"],
             status: "in-stock",
@@ -315,7 +317,7 @@ const productsData = {
         {
             id: 910,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 910",
+            description: "A fine gold-tone necklace with small round beads spaced along the chain.<br><br>Includes: Necklace</br>Product ID: 910",
             price: 10.00,
             images: ["Necklace/10/Mainimage.png", "Necklace/10/Manakin.png"],
             status: "in-stock",
@@ -324,7 +326,7 @@ const productsData = {
         {
             id: 911,
             name: "Necklace",
-            description: "Includes: Necklace</br>Product ID: 911",
+            description: "A slim gold-tone chain with short elongated details spaced along its length.<br><br>Includes: Necklace</br>Product ID: 911",
             price: 10.00,
             images: ["Necklace/11/Mainimage.png", "Necklace/11/Manakin.png"],
             status: "in-stock",
@@ -336,8 +338,8 @@ const productsData = {
         {
             id: 101,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 101",
-            price: 30.00,
+            description: "A wide gold-tone bracelet with scalloped edges, openwork patterns, and clear and pink accents.<br><br>Includes: Bracelet</br>Product ID: 101",
+            price: 40.00,
             images: ["Bracelet/1/Mainimage.png", "Bracelet/1/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -345,8 +347,8 @@ const productsData = {
         {
             id: 102,
             name: "Bracelet",
-            description: "Includes:Bracelet</br>Product ID: 102",
-            price: 35.00,
+            description: "A gold-tone bracelet with repeating round floral panels separated by narrow pink accents.<br><br>Includes:Bracelet</br>Product ID: 102",
+            price: 40.00,
             images: ["Bracelet/2/Mainimage.png", "Bracelet/2/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -354,26 +356,26 @@ const productsData = {
         {
             id: 103,
             name: "Watch Bracelet",
-            description: "Includes: Watch Bracelet</br>Product ID: 103",
+            description: "A gold-tone watch bracelet with a dark central face and ornate pink and green details.<br><br>Includes: Watch Bracelet</br>Product ID: 103",
             price: 25.00,
             images: ["Bracelet/3/Mainimage.png", "Bracelet/3/Manakin.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "bracelets"
         },
         {
             id: 104,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 104",
+            description: "A gold-tone bracelet with alternating square and round panels decorated with pink accents.<br><br>Includes: Bracelet</br>Product ID: 104",
             price: 30.00,
             images: ["Bracelet/4/Mainimage.png", "Bracelet/4/Manakin.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "bracelets"
         },
         {
             id: 105,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 105",
-            price: 15.00,
+            description: "A gold-tone bracelet with patterned side panels and a rounded center featuring pink and green accents.<br><br>Includes: Bracelet</br>Product ID: 105",
+            price: 20.00,
             images: ["Bracelet/5/Mainimage.png", "Bracelet/5/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -381,26 +383,26 @@ const productsData = {
         {
             id: 106,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 106",
+            description: "An ornate gold-tone bracelet with dark green side panels and a raised pink-accented center.<br><br>Includes: Bracelet</br>Product ID: 106",
             price: 15.00,
             images: ["Bracelet/6/Mainimage.png", "Bracelet/6/Manakin.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "bracelets"
         },
         {
             id: 107,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 107",
+            description: "A gold-tone bracelet with repeating small links and a round green floral centerpiece.<br><br>Includes: Bracelet</br>Product ID: 107",
             price: 15.00,
             images: ["Bracelet/7/Mainimage.png", "Bracelet/7/Manakin.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "bracelets"
         },
         {
             id: 108,
             name: "Hand Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 108",
-            price: 15.00,
+            description: "A fine gold-tone hand bracelet with a pink oval center, clear round accents, and pale beads.<br><br>Includes: Bracelet</br>Product ID: 108",
+            price: 20.00,
             images: ["Bracelet/8/Mainimage.png", "Bracelet/8/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -408,8 +410,8 @@ const productsData = {
         {
             id: 109,
             name: "Hand Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 109",
-            price: 25.00,
+            description: "A gold-tone hand bracelet with a line of clear teardrop shapes and small pink accents.<br><br>Includes: Bracelet</br>Product ID: 109",
+            price: 30.00,
             images: ["Bracelet/9/Mainimage.png", "Bracelet/9/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -417,7 +419,7 @@ const productsData = {
         {
             id: 110,
             name: "Mangalsutra Bracelet",
-            description: "Includes: Mangalsutra Bracelet</br>Product ID: 110",
+            description: "A slender bracelet with black beads, fine gold-tone chains, and a rounded decorative center.<br><br>Includes: Mangalsutra Bracelet</br>Product ID: 110",
             price: 10.00,
             images: ["Bracelet/10/Mainimage.png", "Bracelet/10/Manakin.png"],
             status: "in-stock",
@@ -426,7 +428,7 @@ const productsData = {
         {
             id: 111,
             name: "Mangalsutra Bracelet",
-            description: "Includes: Mangalsutra Bracelet</br>Product ID: 111",
+            description: "A slender black-bead bracelet with gold-tone floral details and a small elephant-shaped center.<br><br>Includes: Mangalsutra Bracelet</br>Product ID: 111",
             price: 10.00,
             images: ["Bracelet/11/Mainimage.png", "Bracelet/11/Manakin.png"],
             status: "in-stock",
@@ -435,7 +437,7 @@ const productsData = {
         {
             id: 112,
             name: "Mangalsutra Bracelet",
-            description: "Includes: Mangalsutra Bracelet</br>Product ID: 112",
+            description: "A double-row black-bead bracelet with an open square center and a small gold-tone hanging detail.<br><br>Includes: Mangalsutra Bracelet</br>Product ID: 112",
             price: 10.00,
             images: ["Bracelet/12/Mainimage.png", "Bracelet/12/Manakin.png"],
             status: "in-stock",
@@ -444,8 +446,8 @@ const productsData = {
         {
             id: 113,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 113",
-            price: 10.00,
+            description: "A smooth gold-tone bracelet with open rectangular details and a round blue-centered motif.<br><br>Includes: Bracelet</br>Product ID: 113",
+            price: 20.00,
             images: ["Bracelet/13/Mainimage.png", "Bracelet/13/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -453,8 +455,8 @@ const productsData = {
         {
             id: 114,
             name: "Bracelet",
-            description: "Includes: Bracelet</br>Product ID: 114",
-            price: 10.00,
+            description: "A slim gold-tone bracelet with butterfly shapes and rows of small clear accents.<br><br>Includes: Bracelet</br>Product ID: 114",
+            price: 20.00,
             images: ["Bracelet/14/Mainimage.png", "Bracelet/14/Manakin.png"],
             status: "in-stock",
             category: "bracelets"
@@ -462,10 +464,10 @@ const productsData = {
         {
             id: 115,
             name: "Bracelet with Ring",
-            description: "Includes: Bracelet with Ring</br>Product ID: 115",
+            description: "A gold-tone hand-jewelry design with patterned round motifs and fine white bead strands.<br><br>Includes: Bracelet with Ring</br>Product ID: 115",
             price: 30.00,
             images: ["Bracelet/15/MainImage.png", "Bracelet/15/Manakin.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "bracelets"
         },
     ],
@@ -473,7 +475,7 @@ const productsData = {
         {
             id: 201,
             name: "Mang Tikka",
-            description: "Includes: Mang Tikka</br>Product ID: 201",
+            description: "A gold-tone forehead ornament with a round green accent, a curved pink band, and rounded hanging drops.<br><br>Includes: Mang Tikka</br>Product ID: 201",
             price: 20.00,
             images: ["Mandtikka/1/Mainimage.png"],
             status: "in-stock",
@@ -482,7 +484,7 @@ const productsData = {
         {
             id: 202,
             name: "Mang Tikka",
-            description: "Includes: Mang Tikka</br>Product ID: 202",
+            description: "A gold-tone forehead ornament with pink and green floral details and clear teardrop-shaped accents.<br><br>Includes: Mang Tikka</br>Product ID: 202",
             price: 25.00,
             images: ["Mandtikka/2/Mainimage.png"],
             status: "in-stock",
@@ -491,7 +493,7 @@ const productsData = {
         {
             id: 203,
             name: "Mang Tikka",
-            description: "Includes: Mang Tikka</br>Product ID: 203",
+            description: "A gold-tone forehead ornament with a square upper detail, a crescent-shaped center, and dangling leaf-like shapes.<br><br>Includes: Mang Tikka</br>Product ID: 203",
             price: 25.00,
             images: ["Mandtikka/3/Mainimage.png"],
             status: "in-stock",
@@ -500,7 +502,7 @@ const productsData = {
         {
             id: 204,
             name: "Mang Tikka",
-            description: "Includes: Mang Tikka</br>Product ID: 204",
+            description: "A gold-tone forehead ornament with floral links, a round pink flower motif, and small hanging details.<br><br>Includes: Mang Tikka</br>Product ID: 204",
             price: 25.00,
             images: ["Mandtikka/4/Mainimage.png"],
             status: "in-stock",
@@ -511,7 +513,7 @@ const productsData = {
         {
             id: 301,
             name: "Pendant",
-            description: "Includes: Pendant</br>Product ID: 301",
+            description: "An open teardrop pendant with nested gold-tone outlines lined with small clear accents.<br><br>Includes: Pendant</br>Product ID: 301",
             price: 10.00,
             images: ["Pandant/1/Mainimage.png"],
             status: "in-stock",
@@ -520,7 +522,7 @@ const productsData = {
         {
             id: 302,
             name: "Pendant",
-            description: "Includes: Pendant</br>Product ID: 302",
+            description: "A rounded pendant with three swirling loops, clear accents, and a small clustered center.<br><br>Includes: Pendant</br>Product ID: 302",
             price: 10.00,
             images: ["Pandant/2/Mainimage.png"],
             status: "in-stock",
@@ -532,7 +534,7 @@ const productsData = {
         {
             id: 401,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 401",
+            description: "Long gold-tone earrings with clear floral tops and fine chain tassels tipped with green beads.<br><br>Includes: Earrings</br>Product ID: 401",
             price: 25.00,
             images: ["earring/1/Mainimage.png"],
             status: "in-stock",
@@ -541,7 +543,7 @@ const productsData = {
         {
             id: 402,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 402",
+            description: "Gold-tone drop earrings with deep pink accents, clear shapes, and bell-shaped ends with pale beads.<br><br>Includes: Earrings</br>Product ID: 402",
             price: 25.00,
             images: ["earring/2/Mainimage.png"],
             status: "in-stock",
@@ -550,7 +552,7 @@ const productsData = {
         {
             id: 403,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 403",
+            description: "Gold-tone earrings with green-centered floral tops, pink accents, and wide bell-shaped drops.<br><br>Includes: Earrings</br>Product ID: 403",
             price: 20.00,
             images: ["earring/3/Mainimage.png"],
             status: "in-stock",
@@ -559,7 +561,7 @@ const productsData = {
         {
             id: 404,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 404",
+            description: "Gold-tone earrings with flower tops, paired bird motifs, and large textured round drops.<br><br>Includes: Earrings</br>Product ID: 404",
             price: 20.00,
             images: ["earring/4/Mainimage.png"],
             status: "in-stock",
@@ -568,7 +570,7 @@ const productsData = {
         {
             id: 405,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 405",
+            description: "Gold-tone earrings with bright pink tops, green-centered circular details, and clustered hanging beads.<br><br>Includes: Earrings</br>Product ID: 405",
             price: 25.00,
             images: ["earring/5/Mainimage.png"],
             status: "in-stock",
@@ -577,7 +579,7 @@ const productsData = {
         {
             id: 406,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 406",
+            description: "Long gold-tone earrings with green teardrop tops, leaf-like links, and bell-shaped ends with pale beads.<br><br>Includes: Earrings</br>Product ID: 406",
             price: 10.00,
             images: ["earring/6/Mainimage.png"],
             status: "in-stock",
@@ -586,7 +588,7 @@ const productsData = {
         {
             id: 407,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 407",
+            description: "Ornate drop earrings with clear accents, pale green centers, and rounded mint-colored hanging beads.<br><br>Includes: Earrings</br>Product ID: 407",
             price: 25.00,
             images: ["earring/7/Mainimage.png"],
             status: "in-stock",
@@ -595,7 +597,7 @@ const productsData = {
         {
             id: 408,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 408",
+            description: "Gold-tone earrings with flower tops, paired bird shapes, and textured rounded drops with pink accents.<br><br>Includes: Earrings</br>Product ID: 408",
             price: 20.00,
             images: ["earring/8/Mainimage.png"],
             status: "in-stock",
@@ -604,7 +606,7 @@ const productsData = {
         {
             id: 409,
             name: "Earrings",
-            description: "Includes: Earrings</br>Product ID: 409",
+            description: "Gold-tone earrings with dark green teardrop tops, pink floral outlines, and small dangling details.<br><br>Includes: Earrings</br>Product ID: 409",
             price: 35.00,
             images: ["earring/9/Mainimage.png"],
             status: "in-stock",
@@ -616,7 +618,7 @@ const productsData = {
         {
             id: 501,
             name: "Dual Ring",
-            description: "Include: Dual Ring</br>Product ID: 501",
+            description: "Two oval gold-tone ring motifs joined by fine draped chains, with clear, pink, and green accents.<br><br>Include: Dual Ring</br>Product ID: 501",
             price: 25.00,
             images: ["ring/1/Mainimage.png"],
             status: "in-stock",
@@ -625,7 +627,7 @@ const productsData = {
         {
             id: 502,
             name: "Dual Ring",
-            description: "Include: Dual Ring</br>Product ID: 502",
+            description: "Two floral gold-tone ring motifs linked by draped chains, with small clear and colored accents.<br><br>Include: Dual Ring</br>Product ID: 502",
             price: 25.00,
             images: ["ring/2/Mainimage.png"],
             status: "in-stock",
@@ -634,7 +636,7 @@ const productsData = {
         {
             id: 503,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 503",
+            description: "An oval gold-tone ring with a green center, clear surrounding accents, and a narrow pink border.<br><br>Include: Ring</br>Product ID: 503",
             price: 15.00,
             images: ["ring/3/Mainimage.png"],
             status: "in-stock",
@@ -643,7 +645,7 @@ const productsData = {
         {
             id: 504,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 504",
+            description: "An oval ring with a dark patterned center framed by gold-tone edges and clear accents.<br><br>Include: Ring</br>Product ID: 504",
             price: 10.00,
             images: ["ring/4/Mainimage.png"],
             status: "in-stock",
@@ -652,7 +654,7 @@ const productsData = {
         {
             id: 505,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 505",
+            description: "A large round gold-tone ring with layered openwork, textured petals, and small rounded details.<br><br>Include: Ring</br>Product ID: 505",
             price: 15.00,
             images: ["ring/5/Mainimage.png"],
             status: "in-stock",
@@ -661,7 +663,7 @@ const productsData = {
         {
             id: 506,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 506",
+            description: "A round gold-tone ring with a pink floral center and a border of leaf-like shapes and green accents.<br><br>Include: Ring</br>Product ID: 506",
             price: 15.00,
             images: ["ring/6/Mainimage.png"],
             status: "in-stock",
@@ -670,7 +672,7 @@ const productsData = {
         {
             id: 507,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 507",
+            description: "A bright pink flower-shaped ring with a clear center and a border of tiny white beads.<br><br>Include: Ring</br>Product ID: 507",
             price: 10.00,
             images: ["ring/7/Mainimage.png"],
             status: "in-stock",
@@ -679,7 +681,7 @@ const productsData = {
         {
             id: 508,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 508",
+            description: "A gold-tone floral ring with pink petals, a green center, and a clear-accented outer edge.<br><br>Include: Ring</br>Product ID: 508",
             price: 10.00,
             images: ["ring/8/Mainimage.png"],
             status: "in-stock",
@@ -688,7 +690,7 @@ const productsData = {
         {
             id: 509,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 509",
+            description: "A silver-tone flower-shaped ring with a round clear center surrounded by elongated clear petals.<br><br>Include: Ring</br>Product ID: 509",
             price: 15.00,
             images: ["ring/9/Mainimage.png"],
             status: "in-stock",
@@ -697,7 +699,7 @@ const productsData = {
         {
             id: 510,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 510",
+            description: "An oval gold-tone ring with a pale green center and a border of pink, green, and clear shapes.<br><br>Include: Ring</br>Product ID: 510",
             price: 20.00,
             images: ["ring/10/Mainimage.png"],
             status: "in-stock",
@@ -706,7 +708,7 @@ const productsData = {
         {
             id: 511,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 511",
+            description: "An open oval gold-tone ring with a pink center and a fringe of small textured drops.<br><br>Include: Ring</br>Product ID: 511",
             price: 15.00,
             images: ["ring/11/Mainimage.png"],
             status: "in-stock",
@@ -715,7 +717,7 @@ const productsData = {
         {
             id: 512,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 512",
+            description: "A broad ring with a pale mint-colored center, a geometric inner outline, and clear petal-shaped accents.<br><br>Include: Ring</br>Product ID: 512",
             price: 20.00,
             images: ["ring/12/Mainimage.png"],
             status: "in-stock",
@@ -724,7 +726,7 @@ const productsData = {
         {
             id: 513,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 513",
+            description: "An oval gold-tone ring with a pale green face, pink flower detail, and clustered dangling drops.<br><br>Include: Ring</br>Product ID: 513",
             price: 25.00,
             images: ["ring/13/Mainimage.png"],
             status: "in-stock",
@@ -733,7 +735,7 @@ const productsData = {
         {
             id: 514,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 514",
+            description: "An ornate gold-tone ring with pink and clear accents, curling motifs, and a fringe of textured drops.<br><br>Include: Ring</br>Product ID: 514",
             price: 20.00,
             images: ["ring/14/Mainimage.png"],
             status: "in-stock",
@@ -742,7 +744,7 @@ const productsData = {
         {
             id: 515,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 515",
+            description: "A round gold-tone ring with a scalloped border, pink and green accents, and a clear-accented center.<br><br>Include: Ring</br>Product ID: 515",
             price: 15.00,
             images: ["ring/15/Mainimage.png"],
             status: "in-stock",
@@ -751,7 +753,7 @@ const productsData = {
         {
             id: 516,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 516",
+            description: "An elongated gold-tone ring with layered leaf-like patterns, clear accents, and a pale green teardrop detail.<br><br>Include: Ring</br>Product ID: 516",
             price: 15.00,
             images: ["ring/16/Mainimage.png"],
             status: "in-stock",
@@ -760,7 +762,7 @@ const productsData = {
         {
             id: 517,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 517",
+            description: "A gold-tone flower-shaped ring with alternating textured and clear-accented petals and small pink and green details.<br><br>Include: Ring</br>Product ID: 517",
             price: 15.00,
             images: ["ring/17/Mainimage.png"],
             status: "in-stock",
@@ -769,7 +771,7 @@ const productsData = {
         {
             id: 518,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 518",
+            description: "A teardrop-shaped gold-tone ring with a bright pink center surrounded by clear accents.<br><br>Include: Ring</br>Product ID: 518",
             price: 15.00,
             images: ["ring/18/Mainimage.png"],
             status: "in-stock",
@@ -778,7 +780,7 @@ const productsData = {
         {
             id: 519,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 519",
+            description: "A floral ring with a large round clear center, gold-tone petal outlines, and a silver-tone outer edge.<br><br>Include: Ring</br>Product ID: 519",
             price: 20.00,
             images: ["ring/19/MainImage.png"],
             status: "in-stock",
@@ -787,7 +789,7 @@ const productsData = {
         {
             id: 520,
             name: "Ring",
-            description: "Include: Ring</br>Product ID: 520",
+            description: "A broad silver-tone ring with a rectangular clear center, gold-tone outlines, and rows of small clear accents.<br><br>Include: Ring</br>Product ID: 520",
             price: 20.00,
             images: ["ring/20/MainImage.png"],
             status: "in-stock",
@@ -800,8 +802,8 @@ const productsData = {
         {
             id: 601,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 601",
-            price: 35.00,
+            description: "A wide gold-tone bangle design with repeating peacock motifs, blue and green details, and deep pink oval accents.<br><br>Includes: Bangle</br>Product ID: 601",
+            price: 40.00,
             images: ["Bangle/1/Mainimage.png", "Bangle/1/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -809,8 +811,8 @@ const productsData = {
         {
             id: 602,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 602",
-            price: 35.00,
+            description: "A broad gold-tone bangle design with openwork floral patterns and small pink, green, and clear accents.<br><br>Includes: Bangle</br>Product ID: 602",
+            price: 40.00,
             images: ["Bangle/2/Mainimage.png", "Bangle/2/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -818,8 +820,8 @@ const productsData = {
         {
             id: 603,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 603",
-            price: 35.00,
+            description: "A wide gold-tone bangle design with raised scrolling patterns, pink circular motifs, and green accents.<br><br>Includes: Bangle</br>Product ID: 603",
+            price: 40.00,
             images: ["Bangle/3/Mainimage.png", "Bangle/3/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -827,8 +829,8 @@ const productsData = {
         {
             id: 604,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 604",
-            price: 35.00,
+            description: "A wide gold-tone bangle design with pale green floral patterns, pink centers, and rounded borders.<br><br>Includes: Bangle</br>Product ID: 604",
+            price: 40.00,
             images: ["Bangle/4/Mainimage.png", "Bangle/4/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -836,8 +838,8 @@ const productsData = {
         {
             id: 605,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 605",
-            price: 35.00,
+            description: "A gold-tone bangle design with bird and floral motifs, soft green details, and pink accents.<br><br>Includes: Bangle</br>Product ID: 605",
+            price: 40.00,
             images: ["Bangle/5/Mainimage.png", "Bangle/5/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -845,8 +847,8 @@ const productsData = {
         {
             id: 606,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 606",
-            price: 35.00,
+            description: "A slim gold-tone bangle design with pale blue patterned panels, colored accents, and rounded edges.<br><br>Includes: Bangle</br>Product ID: 606",
+            price: 40.00,
             images: ["Bangle/6/Mainimage.png", "Bangle/6/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -854,8 +856,8 @@ const productsData = {
         {
             id: 607,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 607",
-            price: 15.00,
+            description: "A gold-tone bangle with a dark floral center, curling outlines, and rows of small clear accents.<br><br>Includes: Bangle</br>Product ID: 607",
+            price: 20.00,
             images: ["Bangle/7/Mainimage.png", "Bangle/7/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -863,8 +865,8 @@ const productsData = {
         {
             id: 608,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 608",
-            price: 30.00,
+            description: "A slim gold-tone bangle design with a continuous row of clear rectangular accents.<br><br>Includes: Bangle</br>Product ID: 608",
+            price: 35.00,
             images: ["Bangle/8/Mainimage.png", "Bangle/8/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -872,8 +874,8 @@ const productsData = {
         {
             id: 609,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 609",
-            price: 25.00,
+            description: "A slim bangle design with diagonal pastel-colored panels and narrow dotted gold-tone borders.<br><br>Includes: Bangle</br>Product ID: 609",
+            price: 30.00,
             images: ["Bangle/9/Mainimage.png", "Bangle/9/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -881,8 +883,8 @@ const productsData = {
         {
             id: 610,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 610",
-            price: 30.00,
+            description: "A gold-tone bangle design with two closely spaced rows of round clear accents.<br><br>Includes: Bangle</br>Product ID: 610",
+            price: 35.00,
             images: ["Bangle/10/Mainimage.png", "Bangle/10/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -890,8 +892,8 @@ const productsData = {
         {
             id: 611,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 611",
-            price: 30.00,
+            description: "A slender gold-tone bangle design with smooth sections alternating with clusters of clear accents.<br><br>Includes: Bangle</br>Product ID: 611",
+            price: 35.00,
             images: ["Bangle/11/Mainimage.png", "Bangle/11/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -899,8 +901,8 @@ const productsData = {
         {
             id: 612,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 612",
-            price: 35.00,
+            description: "A gold-tone bangle design with textured borders, bright pink squares, and small multicolored motifs.<br><br>Includes: Bangle</br>Product ID: 612",
+            price: 40.00,
             images: ["Bangle/12/Mainimage.png", "Bangle/12/Manakin.png"],
             status: "in-stock",
             category: "bangles"
@@ -908,10 +910,10 @@ const productsData = {
         {
             id: 613,
             name: "Bangle",
-            description: "Includes: Bangle</br>Product ID: 613",
-            price: 40.00,
+            description: "A patterned gold-tone bangle design with green panels, pink accents, and fine geometric details.<br><br>Includes: Bangle</br>Product ID: 613",
+            price: 45.00,
             images: ["Bangle/13/Mainimage.png", "Bangle/13/Manakin.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "bangles"
         },
     ],
@@ -920,26 +922,26 @@ const productsData = {
                 {
             id: 701,
             name: "Kamarband",
-            description: "Includes: Kamarband</br>Product ID: 701",
+            description: "A gold-tone waist ornament with draped chains, ornate side motifs, and bell-shaped hanging details.<br><br>Includes: Kamarband</br>Product ID: 701",
             price: 40.00,
             images: ["Kamarband/1/Mainimage.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "kamarband"
         },
         {
             id: 702,
             name: "Kamarband",
-            description: "Includes: Kamarband</br>Product ID: 702",
+            description: "A gold-tone waist ornament with layered chains, red and green accents, and small green-tipped drops.<br><br>Includes: Kamarband</br>Product ID: 702",
             price: 30.00,
             images: ["Kamarband/2/Mainimage.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "kamarband"
         },
         {
             id: 703,
             name: "Kamarband",
-            description: "Includes: Kamarband</br>Product ID: 703",
-            price: 25.00,
+            description: "A gold-tone waist ornament with floral links, a broad round motif, and a small bell-shaped drop.<br><br>Includes: Kamarband</br>Product ID: 703",
+            price: 30.00,
             images: ["Kamarband/3/Mainimage.png"],
             status: "in-stock",
             category: "kamarband"
@@ -947,16 +949,30 @@ const productsData = {
         {
             id: 704,
             name: "Kamarband",
-            description: "Includes: Kamarband</br>Product ID: 704",
+            description: "An elongated gold-tone waist ornament with pink and green accents and a fringe of fine dangling chains.<br><br>Includes: Kamarband</br>Product ID: 704",
             price: 50.00,
             images: ["Kamarband/4/Mainimage.png"],
-            status: "in-stock",
+            status: "sold-out",
             category: "kamarband"
         }
     ]
 };
 
+// Normalize once so catalog filters, detail pages, inquiries, and schema agree.
+function normalizeProductStatus(value) {
+    const status = String(value ?? '').trim().toLowerCase().replace(/[\s_]+/g, '-');
+    return status === 'out-of-stock' ? 'sold-out' : status;
+}
+
+Object.values(productsData).flat().forEach(product => {
+    product.status = normalizeProductStatus(product.status);
+});
+
 // ===== GLOBAL STATE =====
+// Legacy category-page behavior must not replace the redesigned gallery or controls.
+(() => {
+if (!document.getElementById('products-grid')) return;
+
 let currentCategory = "bundles";
 let currentSort = "price-low";
 let displayedCount = 0;
@@ -2244,4 +2260,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.closeLightbox = closeLightbox;
     window.changeLightboxImage = changeLightboxImage;
 });
+
+})();
 
