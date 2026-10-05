@@ -726,6 +726,358 @@ const productImageManifest = {
       }
     ]
   },
+  "Bundle/20/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1604985,
+    "variants": [
+      {
+        "src": "images/optimized/820-1-6530c5224f-320.webp",
+        "width": 320,
+        "bytes": 11976
+      },
+      {
+        "src": "images/optimized/820-1-6530c5224f-640.webp",
+        "width": 640,
+        "bytes": 39890
+      },
+      {
+        "src": "images/optimized/820-1-6530c5224f-960.webp",
+        "width": 960,
+        "bytes": 80154
+      }
+    ]
+  },
+  "Bundle/20/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1957081,
+    "variants": [
+      {
+        "src": "images/optimized/820-2-bbc1919af7-320.webp",
+        "width": 320,
+        "bytes": 9610
+      },
+      {
+        "src": "images/optimized/820-2-bbc1919af7-640.webp",
+        "width": 640,
+        "bytes": 31050
+      },
+      {
+        "src": "images/optimized/820-2-bbc1919af7-960.webp",
+        "width": 960,
+        "bytes": 70080
+      }
+    ]
+  },
+  "Bundle/21/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1707406,
+    "variants": [
+      {
+        "src": "images/optimized/821-1-38cca7569c-320.webp",
+        "width": 320,
+        "bytes": 13854
+      },
+      {
+        "src": "images/optimized/821-1-38cca7569c-640.webp",
+        "width": 640,
+        "bytes": 48284
+      },
+      {
+        "src": "images/optimized/821-1-38cca7569c-960.webp",
+        "width": 960,
+        "bytes": 96634
+      }
+    ]
+  },
+  "Bundle/21/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1978311,
+    "variants": [
+      {
+        "src": "images/optimized/821-2-c7fe938a3d-320.webp",
+        "width": 320,
+        "bytes": 9652
+      },
+      {
+        "src": "images/optimized/821-2-c7fe938a3d-640.webp",
+        "width": 640,
+        "bytes": 32692
+      },
+      {
+        "src": "images/optimized/821-2-c7fe938a3d-960.webp",
+        "width": 960,
+        "bytes": 73888
+      }
+    ]
+  },
+  "Bundle/22/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1655019,
+    "variants": [
+      {
+        "src": "images/optimized/822-1-b88dc1dfde-320.webp",
+        "width": 320,
+        "bytes": 12358
+      },
+      {
+        "src": "images/optimized/822-1-b88dc1dfde-640.webp",
+        "width": 640,
+        "bytes": 39980
+      },
+      {
+        "src": "images/optimized/822-1-b88dc1dfde-960.webp",
+        "width": 960,
+        "bytes": 78004
+      }
+    ]
+  },
+  "Bundle/22/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1987637,
+    "variants": [
+      {
+        "src": "images/optimized/822-2-cf65987f74-320.webp",
+        "width": 320,
+        "bytes": 9290
+      },
+      {
+        "src": "images/optimized/822-2-cf65987f74-640.webp",
+        "width": 640,
+        "bytes": 31102
+      },
+      {
+        "src": "images/optimized/822-2-cf65987f74-960.webp",
+        "width": 960,
+        "bytes": 73672
+      }
+    ]
+  },
+  "Bundle/23/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1341910,
+    "variants": [
+      {
+        "src": "images/optimized/823-1-1544638747-320.webp",
+        "width": 320,
+        "bytes": 8984
+      },
+      {
+        "src": "images/optimized/823-1-1544638747-640.webp",
+        "width": 640,
+        "bytes": 28818
+      },
+      {
+        "src": "images/optimized/823-1-1544638747-960.webp",
+        "width": 960,
+        "bytes": 56442
+      }
+    ]
+  },
+  "Bundle/23/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1808632,
+    "variants": [
+      {
+        "src": "images/optimized/823-2-ad6d2ce297-320.webp",
+        "width": 320,
+        "bytes": 7676
+      },
+      {
+        "src": "images/optimized/823-2-ad6d2ce297-640.webp",
+        "width": 640,
+        "bytes": 24848
+      },
+      {
+        "src": "images/optimized/823-2-ad6d2ce297-960.webp",
+        "width": 960,
+        "bytes": 56316
+      }
+    ]
+  },
+  "Bundle/24/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1767847,
+    "variants": [
+      {
+        "src": "images/optimized/824-1-2f9ee750f6-320.webp",
+        "width": 320,
+        "bytes": 14176
+      },
+      {
+        "src": "images/optimized/824-1-2f9ee750f6-640.webp",
+        "width": 640,
+        "bytes": 47654
+      },
+      {
+        "src": "images/optimized/824-1-2f9ee750f6-960.webp",
+        "width": 960,
+        "bytes": 95236
+      }
+    ]
+  },
+  "Bundle/24/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1988972,
+    "variants": [
+      {
+        "src": "images/optimized/824-2-f60428a599-320.webp",
+        "width": 320,
+        "bytes": 10324
+      },
+      {
+        "src": "images/optimized/824-2-f60428a599-640.webp",
+        "width": 640,
+        "bytes": 34046
+      },
+      {
+        "src": "images/optimized/824-2-f60428a599-960.webp",
+        "width": 960,
+        "bytes": 78572
+      }
+    ]
+  },
+  "Bundle/25/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1735328,
+    "variants": [
+      {
+        "src": "images/optimized/825-1-2b28928b20-320.webp",
+        "width": 320,
+        "bytes": 13584
+      },
+      {
+        "src": "images/optimized/825-1-2b28928b20-640.webp",
+        "width": 640,
+        "bytes": 45828
+      },
+      {
+        "src": "images/optimized/825-1-2b28928b20-960.webp",
+        "width": 960,
+        "bytes": 91670
+      }
+    ]
+  },
+  "Bundle/25/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1979139,
+    "variants": [
+      {
+        "src": "images/optimized/825-2-8dff08b365-320.webp",
+        "width": 320,
+        "bytes": 10068
+      },
+      {
+        "src": "images/optimized/825-2-8dff08b365-640.webp",
+        "width": 640,
+        "bytes": 33820
+      },
+      {
+        "src": "images/optimized/825-2-8dff08b365-960.webp",
+        "width": 960,
+        "bytes": 74138
+      }
+    ]
+  },
+  "Bundle/26/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1669075,
+    "variants": [
+      {
+        "src": "images/optimized/826-1-e0371e7da2-320.webp",
+        "width": 320,
+        "bytes": 12976
+      },
+      {
+        "src": "images/optimized/826-1-e0371e7da2-640.webp",
+        "width": 640,
+        "bytes": 44692
+      },
+      {
+        "src": "images/optimized/826-1-e0371e7da2-960.webp",
+        "width": 960,
+        "bytes": 88978
+      }
+    ]
+  },
+  "Bundle/26/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1986132,
+    "variants": [
+      {
+        "src": "images/optimized/826-2-8f2ab0b79e-320.webp",
+        "width": 320,
+        "bytes": 9250
+      },
+      {
+        "src": "images/optimized/826-2-8f2ab0b79e-640.webp",
+        "width": 640,
+        "bytes": 30482
+      },
+      {
+        "src": "images/optimized/826-2-8f2ab0b79e-960.webp",
+        "width": 960,
+        "bytes": 70328
+      }
+    ]
+  },
+  "Bundle/27/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1528576,
+    "variants": [
+      {
+        "src": "images/optimized/827-1-5c6fbfd3b7-320.webp",
+        "width": 320,
+        "bytes": 11686
+      },
+      {
+        "src": "images/optimized/827-1-5c6fbfd3b7-640.webp",
+        "width": 640,
+        "bytes": 38184
+      },
+      {
+        "src": "images/optimized/827-1-5c6fbfd3b7-960.webp",
+        "width": 960,
+        "bytes": 74876
+      }
+    ]
+  },
+  "Bundle/27/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1895953,
+    "variants": [
+      {
+        "src": "images/optimized/827-2-fb6975a57b-320.webp",
+        "width": 320,
+        "bytes": 9232
+      },
+      {
+        "src": "images/optimized/827-2-fb6975a57b-640.webp",
+        "width": 640,
+        "bytes": 29392
+      },
+      {
+        "src": "images/optimized/827-2-fb6975a57b-960.webp",
+        "width": 960,
+        "bytes": 63080
+      }
+    ]
+  },
   "Necklace/1/Mainimage.png": {
     "width": 1024,
     "height": 1024,
@@ -1867,6 +2219,930 @@ const productImageManifest = {
         "src": "images/optimized/115-2-d0a462bbf5-960.webp",
         "width": 960,
         "bytes": 35984
+      }
+    ]
+  },
+  "Bracelet/16/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1956460,
+    "variants": [
+      {
+        "src": "images/optimized/116-1-5ffc52db19-320.webp",
+        "width": 320,
+        "bytes": 22278
+      },
+      {
+        "src": "images/optimized/116-1-5ffc52db19-640.webp",
+        "width": 640,
+        "bytes": 73160
+      },
+      {
+        "src": "images/optimized/116-1-5ffc52db19-960.webp",
+        "width": 960,
+        "bytes": 134668
+      }
+    ]
+  },
+  "Bracelet/16/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1804330,
+    "variants": [
+      {
+        "src": "images/optimized/116-2-661b6fa6b5-320.webp",
+        "width": 320,
+        "bytes": 17252
+      },
+      {
+        "src": "images/optimized/116-2-661b6fa6b5-640.webp",
+        "width": 640,
+        "bytes": 59016
+      },
+      {
+        "src": "images/optimized/116-2-661b6fa6b5-960.webp",
+        "width": 960,
+        "bytes": 111564
+      }
+    ]
+  },
+  "Bracelet/17/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1733480,
+    "variants": [
+      {
+        "src": "images/optimized/117-1-b0cfc2218e-320.webp",
+        "width": 320,
+        "bytes": 13186
+      },
+      {
+        "src": "images/optimized/117-1-b0cfc2218e-640.webp",
+        "width": 640,
+        "bytes": 45424
+      },
+      {
+        "src": "images/optimized/117-1-b0cfc2218e-960.webp",
+        "width": 960,
+        "bytes": 88294
+      }
+    ]
+  },
+  "Bracelet/17/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1941289,
+    "variants": [
+      {
+        "src": "images/optimized/117-2-1cac7849a8-320.webp",
+        "width": 320,
+        "bytes": 12476
+      },
+      {
+        "src": "images/optimized/117-2-1cac7849a8-640.webp",
+        "width": 640,
+        "bytes": 43634
+      },
+      {
+        "src": "images/optimized/117-2-1cac7849a8-960.webp",
+        "width": 960,
+        "bytes": 89094
+      }
+    ]
+  },
+  "Bracelet/18/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1600928,
+    "variants": [
+      {
+        "src": "images/optimized/118-1-d846a3366d-320.webp",
+        "width": 320,
+        "bytes": 11186
+      },
+      {
+        "src": "images/optimized/118-1-d846a3366d-640.webp",
+        "width": 640,
+        "bytes": 39532
+      },
+      {
+        "src": "images/optimized/118-1-d846a3366d-960.webp",
+        "width": 960,
+        "bytes": 77690
+      }
+    ]
+  },
+  "Bracelet/18/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1769561,
+    "variants": [
+      {
+        "src": "images/optimized/118-2-577facd7b2-320.webp",
+        "width": 320,
+        "bytes": 10902
+      },
+      {
+        "src": "images/optimized/118-2-577facd7b2-640.webp",
+        "width": 640,
+        "bytes": 41588
+      },
+      {
+        "src": "images/optimized/118-2-577facd7b2-960.webp",
+        "width": 960,
+        "bytes": 89388
+      }
+    ]
+  },
+  "Bracelet/19/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1097168,
+    "variants": [
+      {
+        "src": "images/optimized/119-1-810fe77706-320.webp",
+        "width": 320,
+        "bytes": 5772
+      },
+      {
+        "src": "images/optimized/119-1-810fe77706-640.webp",
+        "width": 640,
+        "bytes": 17946
+      },
+      {
+        "src": "images/optimized/119-1-810fe77706-960.webp",
+        "width": 960,
+        "bytes": 34372
+      }
+    ]
+  },
+  "Bracelet/19/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1408619,
+    "variants": [
+      {
+        "src": "images/optimized/119-2-fc520af44c-320.webp",
+        "width": 320,
+        "bytes": 7242
+      },
+      {
+        "src": "images/optimized/119-2-fc520af44c-640.webp",
+        "width": 640,
+        "bytes": 25402
+      },
+      {
+        "src": "images/optimized/119-2-fc520af44c-960.webp",
+        "width": 960,
+        "bytes": 51430
+      }
+    ]
+  },
+  "Bracelet/20/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1150730,
+    "variants": [
+      {
+        "src": "images/optimized/120-1-5e1ee45bd7-320.webp",
+        "width": 320,
+        "bytes": 5960
+      },
+      {
+        "src": "images/optimized/120-1-5e1ee45bd7-640.webp",
+        "width": 640,
+        "bytes": 21194
+      },
+      {
+        "src": "images/optimized/120-1-5e1ee45bd7-960.webp",
+        "width": 960,
+        "bytes": 41040
+      }
+    ]
+  },
+  "Bracelet/20/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1684665,
+    "variants": [
+      {
+        "src": "images/optimized/120-2-8dbc6d6998-320.webp",
+        "width": 320,
+        "bytes": 9412
+      },
+      {
+        "src": "images/optimized/120-2-8dbc6d6998-640.webp",
+        "width": 640,
+        "bytes": 34956
+      },
+      {
+        "src": "images/optimized/120-2-8dbc6d6998-960.webp",
+        "width": 960,
+        "bytes": 74318
+      }
+    ]
+  },
+  "Bracelet/21/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1201684,
+    "variants": [
+      {
+        "src": "images/optimized/121-1-26b640703d-320.webp",
+        "width": 320,
+        "bytes": 6010
+      },
+      {
+        "src": "images/optimized/121-1-26b640703d-640.webp",
+        "width": 640,
+        "bytes": 21490
+      },
+      {
+        "src": "images/optimized/121-1-26b640703d-960.webp",
+        "width": 960,
+        "bytes": 43120
+      }
+    ]
+  },
+  "Bracelet/21/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1753584,
+    "variants": [
+      {
+        "src": "images/optimized/121-2-6e617a8af4-320.webp",
+        "width": 320,
+        "bytes": 9714
+      },
+      {
+        "src": "images/optimized/121-2-6e617a8af4-640.webp",
+        "width": 640,
+        "bytes": 40676
+      },
+      {
+        "src": "images/optimized/121-2-6e617a8af4-960.webp",
+        "width": 960,
+        "bytes": 90030
+      }
+    ]
+  },
+  "Bracelet/22/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1186634,
+    "variants": [
+      {
+        "src": "images/optimized/122-1-86953fd9f4-320.webp",
+        "width": 320,
+        "bytes": 6286
+      },
+      {
+        "src": "images/optimized/122-1-86953fd9f4-640.webp",
+        "width": 640,
+        "bytes": 21634
+      },
+      {
+        "src": "images/optimized/122-1-86953fd9f4-960.webp",
+        "width": 960,
+        "bytes": 42944
+      }
+    ]
+  },
+  "Bracelet/22/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1563731,
+    "variants": [
+      {
+        "src": "images/optimized/122-2-f51c449724-320.webp",
+        "width": 320,
+        "bytes": 7972
+      },
+      {
+        "src": "images/optimized/122-2-f51c449724-640.webp",
+        "width": 640,
+        "bytes": 28088
+      },
+      {
+        "src": "images/optimized/122-2-f51c449724-960.webp",
+        "width": 960,
+        "bytes": 59870
+      }
+    ]
+  },
+  "Bracelet/23/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1102671,
+    "variants": [
+      {
+        "src": "images/optimized/123-1-e6c6206519-320.webp",
+        "width": 320,
+        "bytes": 5134
+      },
+      {
+        "src": "images/optimized/123-1-e6c6206519-640.webp",
+        "width": 640,
+        "bytes": 16834
+      },
+      {
+        "src": "images/optimized/123-1-e6c6206519-960.webp",
+        "width": 960,
+        "bytes": 32504
+      }
+    ]
+  },
+  "Bracelet/23/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1853770,
+    "variants": [
+      {
+        "src": "images/optimized/123-2-fd878f8cfa-320.webp",
+        "width": 320,
+        "bytes": 6820
+      },
+      {
+        "src": "images/optimized/123-2-fd878f8cfa-640.webp",
+        "width": 640,
+        "bytes": 21396
+      },
+      {
+        "src": "images/optimized/123-2-fd878f8cfa-960.webp",
+        "width": 960,
+        "bytes": 43414
+      }
+    ]
+  },
+  "Bracelet/24/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1084534,
+    "variants": [
+      {
+        "src": "images/optimized/124-1-0733757852-320.webp",
+        "width": 320,
+        "bytes": 5494
+      },
+      {
+        "src": "images/optimized/124-1-0733757852-640.webp",
+        "width": 640,
+        "bytes": 17402
+      },
+      {
+        "src": "images/optimized/124-1-0733757852-960.webp",
+        "width": 960,
+        "bytes": 33858
+      }
+    ]
+  },
+  "Bracelet/24/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1681809,
+    "variants": [
+      {
+        "src": "images/optimized/124-2-478332810c-320.webp",
+        "width": 320,
+        "bytes": 9126
+      },
+      {
+        "src": "images/optimized/124-2-478332810c-640.webp",
+        "width": 640,
+        "bytes": 35244
+      },
+      {
+        "src": "images/optimized/124-2-478332810c-960.webp",
+        "width": 960,
+        "bytes": 67444
+      }
+    ]
+  },
+  "Bracelet/25/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1148608,
+    "variants": [
+      {
+        "src": "images/optimized/125-1-fe32a3ea09-320.webp",
+        "width": 320,
+        "bytes": 5674
+      },
+      {
+        "src": "images/optimized/125-1-fe32a3ea09-640.webp",
+        "width": 640,
+        "bytes": 18792
+      },
+      {
+        "src": "images/optimized/125-1-fe32a3ea09-960.webp",
+        "width": 960,
+        "bytes": 35940
+      }
+    ]
+  },
+  "Bracelet/25/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1547828,
+    "variants": [
+      {
+        "src": "images/optimized/125-2-4d2618afee-320.webp",
+        "width": 320,
+        "bytes": 8080
+      },
+      {
+        "src": "images/optimized/125-2-4d2618afee-640.webp",
+        "width": 640,
+        "bytes": 28100
+      },
+      {
+        "src": "images/optimized/125-2-4d2618afee-960.webp",
+        "width": 960,
+        "bytes": 53978
+      }
+    ]
+  },
+  "Bracelet/26/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1308392,
+    "variants": [
+      {
+        "src": "images/optimized/126-1-323458c70c-320.webp",
+        "width": 320,
+        "bytes": 6870
+      },
+      {
+        "src": "images/optimized/126-1-323458c70c-640.webp",
+        "width": 640,
+        "bytes": 23914
+      },
+      {
+        "src": "images/optimized/126-1-323458c70c-960.webp",
+        "width": 960,
+        "bytes": 47798
+      }
+    ]
+  },
+  "Bracelet/26/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1718938,
+    "variants": [
+      {
+        "src": "images/optimized/126-2-7268cd0cdd-320.webp",
+        "width": 320,
+        "bytes": 10810
+      },
+      {
+        "src": "images/optimized/126-2-7268cd0cdd-640.webp",
+        "width": 640,
+        "bytes": 39908
+      },
+      {
+        "src": "images/optimized/126-2-7268cd0cdd-960.webp",
+        "width": 960,
+        "bytes": 82220
+      }
+    ]
+  },
+  "Bracelet/27/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1597066,
+    "variants": [
+      {
+        "src": "images/optimized/127-1-e4c49cbcc2-320.webp",
+        "width": 320,
+        "bytes": 11178
+      },
+      {
+        "src": "images/optimized/127-1-e4c49cbcc2-640.webp",
+        "width": 640,
+        "bytes": 39986
+      },
+      {
+        "src": "images/optimized/127-1-e4c49cbcc2-960.webp",
+        "width": 960,
+        "bytes": 80522
+      }
+    ]
+  },
+  "Bracelet/27/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1874254,
+    "variants": [
+      {
+        "src": "images/optimized/127-2-43708c9650-320.webp",
+        "width": 320,
+        "bytes": 12644
+      },
+      {
+        "src": "images/optimized/127-2-43708c9650-640.webp",
+        "width": 640,
+        "bytes": 42762
+      },
+      {
+        "src": "images/optimized/127-2-43708c9650-960.webp",
+        "width": 960,
+        "bytes": 87476
+      }
+    ]
+  },
+  "Bracelet/28/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1363053,
+    "variants": [
+      {
+        "src": "images/optimized/128-1-5ce41524cd-320.webp",
+        "width": 320,
+        "bytes": 8890
+      },
+      {
+        "src": "images/optimized/128-1-5ce41524cd-640.webp",
+        "width": 640,
+        "bytes": 30326
+      },
+      {
+        "src": "images/optimized/128-1-5ce41524cd-960.webp",
+        "width": 960,
+        "bytes": 59620
+      }
+    ]
+  },
+  "Bracelet/28/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1595818,
+    "variants": [
+      {
+        "src": "images/optimized/128-2-506d7afc4b-320.webp",
+        "width": 320,
+        "bytes": 11636
+      },
+      {
+        "src": "images/optimized/128-2-506d7afc4b-640.webp",
+        "width": 640,
+        "bytes": 41118
+      },
+      {
+        "src": "images/optimized/128-2-506d7afc4b-960.webp",
+        "width": 960,
+        "bytes": 86974
+      }
+    ]
+  },
+  "Bracelet/29/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1604983,
+    "variants": [
+      {
+        "src": "images/optimized/129-1-b2fe2b8ad9-320.webp",
+        "width": 320,
+        "bytes": 11144
+      },
+      {
+        "src": "images/optimized/129-1-b2fe2b8ad9-640.webp",
+        "width": 640,
+        "bytes": 39716
+      },
+      {
+        "src": "images/optimized/129-1-b2fe2b8ad9-960.webp",
+        "width": 960,
+        "bytes": 79406
+      }
+    ]
+  },
+  "Bracelet/29/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1917081,
+    "variants": [
+      {
+        "src": "images/optimized/129-2-bea42aea1f-320.webp",
+        "width": 320,
+        "bytes": 13864
+      },
+      {
+        "src": "images/optimized/129-2-bea42aea1f-640.webp",
+        "width": 640,
+        "bytes": 49786
+      },
+      {
+        "src": "images/optimized/129-2-bea42aea1f-960.webp",
+        "width": 960,
+        "bytes": 101264
+      }
+    ]
+  },
+  "Bracelet/30/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1930102,
+    "variants": [
+      {
+        "src": "images/optimized/130-1-35912a9410-320.webp",
+        "width": 320,
+        "bytes": 16332
+      },
+      {
+        "src": "images/optimized/130-1-35912a9410-640.webp",
+        "width": 640,
+        "bytes": 50622
+      },
+      {
+        "src": "images/optimized/130-1-35912a9410-960.webp",
+        "width": 960,
+        "bytes": 92966
+      }
+    ]
+  },
+  "Bracelet/30/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1614051,
+    "variants": [
+      {
+        "src": "images/optimized/130-2-4d96518076-320.webp",
+        "width": 320,
+        "bytes": 9390
+      },
+      {
+        "src": "images/optimized/130-2-4d96518076-640.webp",
+        "width": 640,
+        "bytes": 28248
+      },
+      {
+        "src": "images/optimized/130-2-4d96518076-960.webp",
+        "width": 960,
+        "bytes": 52168
+      }
+    ]
+  },
+  "Bracelet/31/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1451833,
+    "variants": [
+      {
+        "src": "images/optimized/131-1-962bf83305-320.webp",
+        "width": 320,
+        "bytes": 9426
+      },
+      {
+        "src": "images/optimized/131-1-962bf83305-640.webp",
+        "width": 640,
+        "bytes": 32034
+      },
+      {
+        "src": "images/optimized/131-1-962bf83305-960.webp",
+        "width": 960,
+        "bytes": 63092
+      }
+    ]
+  },
+  "Bracelet/31/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1889586,
+    "variants": [
+      {
+        "src": "images/optimized/131-2-0e1f40403a-320.webp",
+        "width": 320,
+        "bytes": 12686
+      },
+      {
+        "src": "images/optimized/131-2-0e1f40403a-640.webp",
+        "width": 640,
+        "bytes": 48130
+      },
+      {
+        "src": "images/optimized/131-2-0e1f40403a-960.webp",
+        "width": 960,
+        "bytes": 101820
+      }
+    ]
+  },
+  "Bracelet/32/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1215141,
+    "variants": [
+      {
+        "src": "images/optimized/132-1-f4d29c340e-320.webp",
+        "width": 320,
+        "bytes": 6364
+      },
+      {
+        "src": "images/optimized/132-1-f4d29c340e-640.webp",
+        "width": 640,
+        "bytes": 20502
+      },
+      {
+        "src": "images/optimized/132-1-f4d29c340e-960.webp",
+        "width": 960,
+        "bytes": 39522
+      }
+    ]
+  },
+  "Bracelet/32/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1824721,
+    "variants": [
+      {
+        "src": "images/optimized/132-2-bb5e7570c7-320.webp",
+        "width": 320,
+        "bytes": 11236
+      },
+      {
+        "src": "images/optimized/132-2-bb5e7570c7-640.webp",
+        "width": 640,
+        "bytes": 39328
+      },
+      {
+        "src": "images/optimized/132-2-bb5e7570c7-960.webp",
+        "width": 960,
+        "bytes": 77792
+      }
+    ]
+  },
+  "Bracelet/33/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1781724,
+    "variants": [
+      {
+        "src": "images/optimized/133-1-5bb31b5888-320.webp",
+        "width": 320,
+        "bytes": 13764
+      },
+      {
+        "src": "images/optimized/133-1-5bb31b5888-640.webp",
+        "width": 640,
+        "bytes": 42708
+      },
+      {
+        "src": "images/optimized/133-1-5bb31b5888-960.webp",
+        "width": 960,
+        "bytes": 79618
+      }
+    ]
+  },
+  "Bracelet/33/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1676306,
+    "variants": [
+      {
+        "src": "images/optimized/133-2-d0687ff9cc-320.webp",
+        "width": 320,
+        "bytes": 10894
+      },
+      {
+        "src": "images/optimized/133-2-d0687ff9cc-640.webp",
+        "width": 640,
+        "bytes": 39448
+      },
+      {
+        "src": "images/optimized/133-2-d0687ff9cc-960.webp",
+        "width": 960,
+        "bytes": 77650
+      }
+    ]
+  },
+  "Bracelet/34/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1443012,
+    "variants": [
+      {
+        "src": "images/optimized/134-1-0acc6388a4-320.webp",
+        "width": 320,
+        "bytes": 9278
+      },
+      {
+        "src": "images/optimized/134-1-0acc6388a4-640.webp",
+        "width": 640,
+        "bytes": 32732
+      },
+      {
+        "src": "images/optimized/134-1-0acc6388a4-960.webp",
+        "width": 960,
+        "bytes": 64710
+      }
+    ]
+  },
+  "Bracelet/34/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1928170,
+    "variants": [
+      {
+        "src": "images/optimized/134-2-9a597648ef-320.webp",
+        "width": 320,
+        "bytes": 11440
+      },
+      {
+        "src": "images/optimized/134-2-9a597648ef-640.webp",
+        "width": 640,
+        "bytes": 43770
+      },
+      {
+        "src": "images/optimized/134-2-9a597648ef-960.webp",
+        "width": 960,
+        "bytes": 92268
+      }
+    ]
+  },
+  "Bracelet/35/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1743522,
+    "variants": [
+      {
+        "src": "images/optimized/135-1-d58d3712b9-320.webp",
+        "width": 320,
+        "bytes": 13346
+      },
+      {
+        "src": "images/optimized/135-1-d58d3712b9-640.webp",
+        "width": 640,
+        "bytes": 41946
+      },
+      {
+        "src": "images/optimized/135-1-d58d3712b9-960.webp",
+        "width": 960,
+        "bytes": 77590
+      }
+    ]
+  },
+  "Bracelet/35/Manakin.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1923657,
+    "variants": [
+      {
+        "src": "images/optimized/135-2-a73630ac5f-320.webp",
+        "width": 320,
+        "bytes": 8766
+      },
+      {
+        "src": "images/optimized/135-2-a73630ac5f-640.webp",
+        "width": 640,
+        "bytes": 27774
+      },
+      {
+        "src": "images/optimized/135-2-a73630ac5f-960.webp",
+        "width": 960,
+        "bytes": 53786
+      }
+    ]
+  },
+  "Bracelet/37/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1187951,
+    "variants": [
+      {
+        "src": "images/optimized/137-1-e714297293-320.webp",
+        "width": 320,
+        "bytes": 6800
+      },
+      {
+        "src": "images/optimized/137-1-e714297293-640.webp",
+        "width": 640,
+        "bytes": 22226
+      },
+      {
+        "src": "images/optimized/137-1-e714297293-960.webp",
+        "width": 960,
+        "bytes": 43026
+      }
+    ]
+  },
+  "Bracelet/37/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1628484,
+    "variants": [
+      {
+        "src": "images/optimized/137-2-8f205968d1-320.webp",
+        "width": 320,
+        "bytes": 9750
+      },
+      {
+        "src": "images/optimized/137-2-8f205968d1-640.webp",
+        "width": 640,
+        "bytes": 32196
+      },
+      {
+        "src": "images/optimized/137-2-8f205968d1-960.webp",
+        "width": 960,
+        "bytes": 61320
       }
     ]
   },
@@ -3212,6 +4488,380 @@ const productImageManifest = {
       }
     ]
   },
+  "Bangle/14/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 2722629,
+    "variants": [
+      {
+        "src": "images/optimized/614-1-92a9b3548b-320.webp",
+        "width": 320,
+        "bytes": 25886
+      },
+      {
+        "src": "images/optimized/614-1-92a9b3548b-640.webp",
+        "width": 640,
+        "bytes": 83154
+      },
+      {
+        "src": "images/optimized/614-1-92a9b3548b-960.webp",
+        "width": 960,
+        "bytes": 151684
+      }
+    ]
+  },
+  "Bangle/14/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1977839,
+    "variants": [
+      {
+        "src": "images/optimized/614-2-91500f2bd5-320.webp",
+        "width": 320,
+        "bytes": 17616
+      },
+      {
+        "src": "images/optimized/614-2-91500f2bd5-640.webp",
+        "width": 640,
+        "bytes": 62246
+      },
+      {
+        "src": "images/optimized/614-2-91500f2bd5-960.webp",
+        "width": 960,
+        "bytes": 122494
+      }
+    ]
+  },
+  "Bangle/15/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 2763945,
+    "variants": [
+      {
+        "src": "images/optimized/615-1-a67432bb41-320.webp",
+        "width": 320,
+        "bytes": 26908
+      },
+      {
+        "src": "images/optimized/615-1-a67432bb41-640.webp",
+        "width": 640,
+        "bytes": 86070
+      },
+      {
+        "src": "images/optimized/615-1-a67432bb41-960.webp",
+        "width": 960,
+        "bytes": 156902
+      }
+    ]
+  },
+  "Bangle/15/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2082470,
+    "variants": [
+      {
+        "src": "images/optimized/615-2-5ce6753c53-320.webp",
+        "width": 320,
+        "bytes": 17224
+      },
+      {
+        "src": "images/optimized/615-2-5ce6753c53-640.webp",
+        "width": 640,
+        "bytes": 63018
+      },
+      {
+        "src": "images/optimized/615-2-5ce6753c53-960.webp",
+        "width": 960,
+        "bytes": 131494
+      }
+    ]
+  },
+  "Bangle/16/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 2319519,
+    "variants": [
+      {
+        "src": "images/optimized/616-1-ae4ad69150-320.webp",
+        "width": 320,
+        "bytes": 20164
+      },
+      {
+        "src": "images/optimized/616-1-ae4ad69150-640.webp",
+        "width": 640,
+        "bytes": 68574
+      },
+      {
+        "src": "images/optimized/616-1-ae4ad69150-960.webp",
+        "width": 960,
+        "bytes": 130258
+      }
+    ]
+  },
+  "Bangle/16/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2030069,
+    "variants": [
+      {
+        "src": "images/optimized/616-2-06b407e51d-320.webp",
+        "width": 320,
+        "bytes": 20248
+      },
+      {
+        "src": "images/optimized/616-2-06b407e51d-640.webp",
+        "width": 640,
+        "bytes": 71772
+      },
+      {
+        "src": "images/optimized/616-2-06b407e51d-960.webp",
+        "width": 960,
+        "bytes": 145014
+      }
+    ]
+  },
+  "Bangle/17/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 2666237,
+    "variants": [
+      {
+        "src": "images/optimized/617-1-0e16aecd8d-320.webp",
+        "width": 320,
+        "bytes": 22602
+      },
+      {
+        "src": "images/optimized/617-1-0e16aecd8d-640.webp",
+        "width": 640,
+        "bytes": 75816
+      },
+      {
+        "src": "images/optimized/617-1-0e16aecd8d-960.webp",
+        "width": 960,
+        "bytes": 141360
+      }
+    ]
+  },
+  "Bangle/17/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2160724,
+    "variants": [
+      {
+        "src": "images/optimized/617-2-a3772c0db7-320.webp",
+        "width": 320,
+        "bytes": 23324
+      },
+      {
+        "src": "images/optimized/617-2-a3772c0db7-640.webp",
+        "width": 640,
+        "bytes": 81592
+      },
+      {
+        "src": "images/optimized/617-2-a3772c0db7-960.webp",
+        "width": 960,
+        "bytes": 157310
+      }
+    ]
+  },
+  "Bangle/18/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1431471,
+    "variants": [
+      {
+        "src": "images/optimized/618-1-9fb437e8cb-320.webp",
+        "width": 320,
+        "bytes": 17300
+      },
+      {
+        "src": "images/optimized/618-1-9fb437e8cb-640.webp",
+        "width": 640,
+        "bytes": 53640
+      },
+      {
+        "src": "images/optimized/618-1-9fb437e8cb-960.webp",
+        "width": 960,
+        "bytes": 98042
+      }
+    ]
+  },
+  "Bangle/18/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2149184,
+    "variants": [
+      {
+        "src": "images/optimized/618-2-63d47330f9-320.webp",
+        "width": 320,
+        "bytes": 21764
+      },
+      {
+        "src": "images/optimized/618-2-63d47330f9-640.webp",
+        "width": 640,
+        "bytes": 76956
+      },
+      {
+        "src": "images/optimized/618-2-63d47330f9-960.webp",
+        "width": 960,
+        "bytes": 144056
+      }
+    ]
+  },
+  "Anklet/1/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1132637,
+    "variants": [
+      {
+        "src": "images/optimized/1001-1-31fb977cb3-320.webp",
+        "width": 320,
+        "bytes": 4604
+      },
+      {
+        "src": "images/optimized/1001-1-31fb977cb3-640.webp",
+        "width": 640,
+        "bytes": 14658
+      },
+      {
+        "src": "images/optimized/1001-1-31fb977cb3-960.webp",
+        "width": 960,
+        "bytes": 27686
+      }
+    ]
+  },
+  "Anklet/2/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1100502,
+    "variants": [
+      {
+        "src": "images/optimized/1002-1-f68bb74697-320.webp",
+        "width": 320,
+        "bytes": 5016
+      },
+      {
+        "src": "images/optimized/1002-1-f68bb74697-640.webp",
+        "width": 640,
+        "bytes": 15788
+      },
+      {
+        "src": "images/optimized/1002-1-f68bb74697-960.webp",
+        "width": 960,
+        "bytes": 29270
+      }
+    ]
+  },
+  "Anklet/3/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1100636,
+    "variants": [
+      {
+        "src": "images/optimized/1003-1-4367911fd6-320.webp",
+        "width": 320,
+        "bytes": 4620
+      },
+      {
+        "src": "images/optimized/1003-1-4367911fd6-640.webp",
+        "width": 640,
+        "bytes": 14926
+      },
+      {
+        "src": "images/optimized/1003-1-4367911fd6-960.webp",
+        "width": 960,
+        "bytes": 28232
+      }
+    ]
+  },
+  "Anklet/4/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1052853,
+    "variants": [
+      {
+        "src": "images/optimized/1004-1-eedaa63b1a-320.webp",
+        "width": 320,
+        "bytes": 3676
+      },
+      {
+        "src": "images/optimized/1004-1-eedaa63b1a-640.webp",
+        "width": 640,
+        "bytes": 13330
+      },
+      {
+        "src": "images/optimized/1004-1-eedaa63b1a-960.webp",
+        "width": 960,
+        "bytes": 25572
+      }
+    ]
+  },
+  "Anklet/5/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1449656,
+    "variants": [
+      {
+        "src": "images/optimized/1005-1-bb51f6cbbd-320.webp",
+        "width": 320,
+        "bytes": 7528
+      },
+      {
+        "src": "images/optimized/1005-1-bb51f6cbbd-640.webp",
+        "width": 640,
+        "bytes": 25900
+      },
+      {
+        "src": "images/optimized/1005-1-bb51f6cbbd-960.webp",
+        "width": 960,
+        "bytes": 51198
+      }
+    ]
+  },
+  "Kamarband/16/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1456601,
+    "variants": [
+      {
+        "src": "images/optimized/912-1-0b4c0c9cee-320.webp",
+        "width": 320,
+        "bytes": 10774
+      },
+      {
+        "src": "images/optimized/912-1-0b4c0c9cee-640.webp",
+        "width": 640,
+        "bytes": 36142
+      },
+      {
+        "src": "images/optimized/912-1-0b4c0c9cee-960.webp",
+        "width": 960,
+        "bytes": 70980
+      }
+    ]
+  },
+  "Kamarband/17/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1836986,
+    "variants": [
+      {
+        "src": "images/optimized/913-1-30a60ddce1-320.webp",
+        "width": 320,
+        "bytes": 14254
+      },
+      {
+        "src": "images/optimized/913-1-30a60ddce1-640.webp",
+        "width": 640,
+        "bytes": 47492
+      },
+      {
+        "src": "images/optimized/913-1-30a60ddce1-960.webp",
+        "width": 960,
+        "bytes": 91632
+      }
+    ]
+  },
   "Kamarband/1/Mainimage.png": {
     "width": 1024,
     "height": 1024,
@@ -3297,6 +4947,314 @@ const productImageManifest = {
         "src": "images/optimized/704-1-90f79c23be-960.webp",
         "width": 960,
         "bytes": 55058
+      }
+    ]
+  },
+  "Kamarband/5/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1412657,
+    "variants": [
+      {
+        "src": "images/optimized/205-1-789c84e191-320.webp",
+        "width": 320,
+        "bytes": 8828
+      },
+      {
+        "src": "images/optimized/205-1-789c84e191-640.webp",
+        "width": 640,
+        "bytes": 30736
+      },
+      {
+        "src": "images/optimized/205-1-789c84e191-960.webp",
+        "width": 960,
+        "bytes": 60202
+      }
+    ]
+  },
+  "Kamarband/6/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1981120,
+    "variants": [
+      {
+        "src": "images/optimized/206-1-4eea68692a-320.webp",
+        "width": 320,
+        "bytes": 14894
+      },
+      {
+        "src": "images/optimized/206-1-4eea68692a-640.webp",
+        "width": 640,
+        "bytes": 51720
+      },
+      {
+        "src": "images/optimized/206-1-4eea68692a-960.webp",
+        "width": 960,
+        "bytes": 103786
+      }
+    ]
+  },
+  "Kamarband/7/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1790741,
+    "variants": [
+      {
+        "src": "images/optimized/207-1-c9bb1b5ba3-320.webp",
+        "width": 320,
+        "bytes": 12896
+      },
+      {
+        "src": "images/optimized/207-1-c9bb1b5ba3-640.webp",
+        "width": 640,
+        "bytes": 46226
+      },
+      {
+        "src": "images/optimized/207-1-c9bb1b5ba3-960.webp",
+        "width": 960,
+        "bytes": 92828
+      }
+    ]
+  },
+  "Kamarband/8/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1638871,
+    "variants": [
+      {
+        "src": "images/optimized/208-1-f50b258abf-320.webp",
+        "width": 320,
+        "bytes": 11088
+      },
+      {
+        "src": "images/optimized/208-1-f50b258abf-640.webp",
+        "width": 640,
+        "bytes": 39454
+      },
+      {
+        "src": "images/optimized/208-1-f50b258abf-960.webp",
+        "width": 960,
+        "bytes": 79736
+      }
+    ]
+  },
+  "Kamarband/9/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 1944912,
+    "variants": [
+      {
+        "src": "images/optimized/209-1-2a6e1af4a0-320.webp",
+        "width": 320,
+        "bytes": 14250
+      },
+      {
+        "src": "images/optimized/209-1-2a6e1af4a0-640.webp",
+        "width": 640,
+        "bytes": 49472
+      },
+      {
+        "src": "images/optimized/209-1-2a6e1af4a0-960.webp",
+        "width": 960,
+        "bytes": 96110
+      }
+    ]
+  },
+  "Kamarband/10/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1444234,
+    "variants": [
+      {
+        "src": "images/optimized/710-1-e095915f18-320.webp",
+        "width": 320,
+        "bytes": 6946
+      },
+      {
+        "src": "images/optimized/710-1-e095915f18-640.webp",
+        "width": 640,
+        "bytes": 22316
+      },
+      {
+        "src": "images/optimized/710-1-e095915f18-960.webp",
+        "width": 960,
+        "bytes": 42616
+      }
+    ]
+  },
+  "Kamarband/10/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1531291,
+    "variants": [
+      {
+        "src": "images/optimized/710-2-a7ea950d3b-320.webp",
+        "width": 320,
+        "bytes": 7406
+      },
+      {
+        "src": "images/optimized/710-2-a7ea950d3b-640.webp",
+        "width": 640,
+        "bytes": 21262
+      },
+      {
+        "src": "images/optimized/710-2-a7ea950d3b-960.webp",
+        "width": 960,
+        "bytes": 39488
+      }
+    ]
+  },
+  "Kamarband/11/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1192292,
+    "variants": [
+      {
+        "src": "images/optimized/711-1-f3e3f340df-320.webp",
+        "width": 320,
+        "bytes": 4592
+      },
+      {
+        "src": "images/optimized/711-1-f3e3f340df-640.webp",
+        "width": 640,
+        "bytes": 14444
+      },
+      {
+        "src": "images/optimized/711-1-f3e3f340df-960.webp",
+        "width": 960,
+        "bytes": 27118
+      }
+    ]
+  },
+  "Kamarband/11/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1483873,
+    "variants": [
+      {
+        "src": "images/optimized/711-2-0fe0a32c50-320.webp",
+        "width": 320,
+        "bytes": 6294
+      },
+      {
+        "src": "images/optimized/711-2-0fe0a32c50-640.webp",
+        "width": 640,
+        "bytes": 17768
+      },
+      {
+        "src": "images/optimized/711-2-0fe0a32c50-960.webp",
+        "width": 960,
+        "bytes": 33040
+      }
+    ]
+  },
+  "Kamarband/12/Mainimage.png": {
+    "width": 1600,
+    "height": 1600,
+    "bytes": 942262,
+    "variants": [
+      {
+        "src": "images/optimized/712-1-f1afcb11d5-320.webp",
+        "width": 320,
+        "bytes": 4788
+      },
+      {
+        "src": "images/optimized/712-1-f1afcb11d5-640.webp",
+        "width": 640,
+        "bytes": 15422
+      },
+      {
+        "src": "images/optimized/712-1-f1afcb11d5-960.webp",
+        "width": 960,
+        "bytes": 30058
+      }
+    ]
+  },
+  "Kamarband/12/Manakin.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1484653,
+    "variants": [
+      {
+        "src": "images/optimized/712-2-1a78eaf8d2-320.webp",
+        "width": 320,
+        "bytes": 6090
+      },
+      {
+        "src": "images/optimized/712-2-1a78eaf8d2-640.webp",
+        "width": 640,
+        "bytes": 18772
+      },
+      {
+        "src": "images/optimized/712-2-1a78eaf8d2-960.webp",
+        "width": 960,
+        "bytes": 35794
+      }
+    ]
+  },
+  "Kamarband/13/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1835701,
+    "variants": [
+      {
+        "src": "images/optimized/713-1-6a1bacdc30-320.webp",
+        "width": 320,
+        "bytes": 13656
+      },
+      {
+        "src": "images/optimized/713-1-6a1bacdc30-640.webp",
+        "width": 640,
+        "bytes": 49156
+      },
+      {
+        "src": "images/optimized/713-1-6a1bacdc30-960.webp",
+        "width": 960,
+        "bytes": 91784
+      }
+    ]
+  },
+  "Kamarband/14/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1587849,
+    "variants": [
+      {
+        "src": "images/optimized/714-1-faba246232-320.webp",
+        "width": 320,
+        "bytes": 9192
+      },
+      {
+        "src": "images/optimized/714-1-faba246232-640.webp",
+        "width": 640,
+        "bytes": 31724
+      },
+      {
+        "src": "images/optimized/714-1-faba246232-960.webp",
+        "width": 960,
+        "bytes": 60914
+      }
+    ]
+  },
+  "Kamarband/15/Mainimage.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1562564,
+    "variants": [
+      {
+        "src": "images/optimized/715-1-df7da0ebcf-320.webp",
+        "width": 320,
+        "bytes": 8900
+      },
+      {
+        "src": "images/optimized/715-1-df7da0ebcf-640.webp",
+        "width": 640,
+        "bytes": 32274
+      },
+      {
+        "src": "images/optimized/715-1-df7da0ebcf-960.webp",
+        "width": 960,
+        "bytes": 63262
       }
     ]
   }

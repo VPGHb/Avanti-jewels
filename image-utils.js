@@ -13,7 +13,7 @@ function responsiveImageData(source, sizes) {
 function imageAttributes(source, sizes) {
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const data = responsiveImageData(source, sizes);
-  return `src="${escape(data.src)}" srcset="${escape(data.srcset)}" sizes="${escape(data.sizes)}" width="${data.width}" height="${data.height}" decoding="async" data-original="${escape(source)}" onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.original"`;
+  return `src="${escape(data.src)}" srcset="${escape(data.srcset)}" sizes="${escape(data.sizes)}" width="${data.width}" height="${data.height}" decoding="async" data-original="${escape(source)}"`;
 }
 
 function setResponsiveImage(image, source, sizes) {

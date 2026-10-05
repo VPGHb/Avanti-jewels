@@ -1,6 +1,8 @@
 // Get product ID from URL
 const urlParams = new URLSearchParams(window.location.search);
-const productId = parseInt(urlParams.get('id')) || 1;
+// Preserve old duplicate-product links while showing the retained product.
+const requestedProductId = parseInt(urlParams.get('id')) || 1;
+const productId = requestedProductId === 136 ? 132 : requestedProductId;
 
 // Global variables
 let currentProduct = null;
@@ -18,7 +20,7 @@ function getAllProducts() {
     const allItems = [];
     
     if (typeof productsData !== 'undefined') {
-        const categories = ['bundles', 'necklaces', 'bracelets', 'earrings', 'rings', 'bangles', 'kamarband', 'mang-tikka', 'pendants'];
+        const categories = ['bundles', 'necklaces', 'bracelets', 'anklets', 'earrings', 'rings', 'bangles', 'kamarband', 'mang-tikka', 'pendants'];
         
         categories.forEach(category => {
             if (productsData[category]) {
@@ -39,13 +41,17 @@ function fixImagePath(imgPath) {
     return imgPath || '';
 }
 
+function escapeProductText(value) {
+    return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+}
+
 // Load product data
 function loadProductData() {
     const allProducts = getAllProducts();
     
     if (allProducts.length === 0) {
         console.error('No products found. Redirecting to home page.');
-        window.location.href = 'index.html';
+        window.location.replace('404.html');
         return;
     }
     
@@ -53,7 +59,7 @@ function loadProductData() {
     
     if (!currentProduct) {
         console.error('Product not found. Redirecting to home page.');
-        window.location.href = 'index.html';
+        window.location.replace('404.html');
         return;
     }
     
@@ -63,12 +69,24 @@ function loadProductData() {
 
 // Display product details
 function displayProductDetails() {
-    document.title = `${currentProduct.name} | Avanti Jewels`;
+    document.title = `${currentProduct.name} · No. ${currentProduct.id} | Avanti Jewels`;
     const plainDescription = currentProduct.description.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) metaDescription.content = `${currentProduct.name}. ${plainDescription} View price, availability and inquire with Avanti Jewels in Hicksville, New York.`;
+    if (metaDescription) metaDescription.content = `${currentProduct.name}. ${plainDescription} One-of-a-kind Indian jewelry. Contact Avanti Jewels for pricing and availability.`;
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = `https://avantijewels.com/product.html?id=${currentProduct.id}`;
+    const description = metaDescription?.content || plainDescription;
+    const shareImage = new URL(currentProduct.images[0], 'https://avantijewels.com/').href;
+    for (const [selector, value] of [
+        ['meta[property="og:title"]', document.title],
+        ['meta[property="og:description"]', description],
+        ['meta[property="og:url"]', canonical.href],
+        ['meta[property="og:image"]', shareImage],
+        ['meta[property="og:image:alt"]', `${currentProduct.name}, product ${currentProduct.id}`],
+        ['meta[name="twitter:title"]', document.title],
+        ['meta[name="twitter:description"]', description],
+        ['meta[name="twitter:image"]', shareImage]
+    ]) document.querySelector(selector)?.setAttribute('content', value);
 
     const productSchema = document.createElement('script');
     productSchema.type = 'application/ld+json';
@@ -77,22 +95,17 @@ function displayProductDetails() {
         '@type': 'Product',
         name: currentProduct.name,
         description: plainDescription,
-        image: currentProduct.images.map(image => new URL(image, window.location.origin).href),
+        url: canonical.href,
+        image: currentProduct.images.map(image => new URL(image, 'https://avantijewels.com/').href),
         sku: String(currentProduct.id),
         brand: { '@type': 'Brand', name: 'Avanti Jewels' },
-        offers: {
-            '@type': 'Offer',
-            url: `https://avantijewels.com/product.html?id=${currentProduct.id}`,
-            priceCurrency: 'USD',
-            price: currentProduct.price.toFixed(2),
-            availability: currentProduct.status === 'in-stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-            seller: { '@type': 'Organization', name: 'Avanti Jewels' }
-        }
+        additionalProperty: { '@type': 'PropertyValue', name: 'Edition size', value: 1 }
     });
     document.head.appendChild(productSchema);
     document.getElementById('product-title').textContent = currentProduct.name;
-    document.getElementById('product-price').textContent = `$${currentProduct.price.toFixed(2)}`;
-    document.getElementById('product-description').innerHTML = currentProduct.description;
+    document.getElementById('product-price').textContent = currentProduct.status === 'in-stock'
+        ? 'Pricing by personal inquiry' : 'This one-of-a-kind piece has sold';
+    document.getElementById('product-description').textContent = currentProduct.description.replace(/<\/?br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '');
     document.getElementById('product-number').textContent = currentProduct.id;
     document.getElementById('product-category').textContent = currentProduct.category
         .split('-')
@@ -102,7 +115,9 @@ function displayProductDetails() {
     document.querySelector('.main-image-trigger').setAttribute('aria-label', `Open image viewer for ${currentProduct.name}`);
     
     const statusBadge = document.getElementById('product-status');
-    statusBadge.textContent = currentProduct.status === 'in-stock' ? 'In Stock' : 'Sold Out';
+    statusBadge.textContent = currentProduct.status === 'in-stock'
+        ? 'One of one / Available'
+        : 'Sold';
     statusBadge.className = `status-badge ${currentProduct.status}`;
     
     loadProductImages();
@@ -115,10 +130,14 @@ function loadProductImages() {
     
     if (currentProduct.images && currentProduct.images.length > 0) {
         // Set main image
+        const status = document.getElementById('gallery-load-status');
+        const finishLoading = () => { if (status) status.hidden = true; };
+        mainImage.addEventListener('load', finishLoading);
         mainImage.loading = 'eager';
         mainImage.fetchPriority = 'high';
         setResponsiveImage(mainImage, currentProduct.images[0], '(max-width: 760px) 92vw, 50vw');
         mainImage.alt = `${currentProduct.name}, view 1`;
+        if (mainImage.complete && mainImage.naturalWidth > 1) finishLoading();
         
         // Clear thumbnails
         thumbnailContainer.innerHTML = '';
@@ -129,6 +148,7 @@ function loadProductImages() {
             thumbnail.type = 'button';
             thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
             thumbnail.setAttribute('aria-label', `View image ${index + 1} of ${currentProduct.images.length}`);
+            thumbnail.setAttribute('aria-pressed', String(index === 0));
             
             const img = document.createElement('img');
             img.loading = 'lazy';
@@ -161,6 +181,7 @@ function setMainImage(index) {
     
     thumbnails.forEach((thumb, i) => {
         thumb.classList.toggle('active', i === index);
+        thumb.setAttribute('aria-pressed', String(i === index));
     });
 }
 
@@ -179,6 +200,7 @@ function openLightbox(index = currentImageIndex) {
         totalImagesSpan.textContent = currentProduct.images.length;
         updateLightboxNavigation();
         viewerReturnFocus = document.activeElement;
+        lightbox.inert = false;
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -190,10 +212,10 @@ function openLightbox(index = currentImageIndex) {
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.remove('active');
+    lightbox.inert = true;
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    resetZoom();
-    if (viewerReturnFocus instanceof HTMLElement) viewerReturnFocus.focus();
+    if (viewerReturnFocus instanceof HTMLElement) viewerReturnFocus.focus({ preventScroll: true });
 }
 
 function changeLightboxImage(direction) {
@@ -291,14 +313,14 @@ function displayRelatedProducts() {
         productsHTML += `
         <a class="product-card" href="product.html?id=${product.id}">
             <div class="product-image">
-                <img ${imageAttributes(image, '(max-width: 760px) 46vw, 30vw')} alt="${product.name}" loading="lazy">
+                <img ${imageAttributes(image, '(max-width: 760px) 46vw, 30vw')} alt="${escapeProductText(product.name)}" loading="lazy">
                 <span class="status-badge ${product.status}">
-                    ${product.status === 'in-stock' ? 'In Stock' : 'Sold Out'}
+                    ${product.status === 'in-stock' ? 'Available' : 'Sold'}
                 </span>
             </div>
             <div class="product-info">
-                <h3>${product.name}</h3>
-                <p class="price">$${product.price.toFixed(2)}</p>
+                <h3>${escapeProductText(product.name)}</h3>
+                <p class="price">No. ${product.id} / One of one</p>
             </div>
         </a>
         `;
@@ -310,7 +332,7 @@ function displayRelatedProducts() {
     productsHTML += `
     <div class="see-more-container">
         <a href="${categoryLink}" class="see-more-btn">
-            View All ${categoryName} <i class="fas fa-arrow-right"></i>
+            View All ${categoryName} <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m12 5 7 7-7 7M5 12h14"/></svg>
         </a>
     </div>
     `;
@@ -321,6 +343,15 @@ function displayRelatedProducts() {
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
     loadProductData();
+    document.querySelector('.main-image-trigger').addEventListener('click', () => openLightbox());
+    document.querySelector('.enlarge-btn').addEventListener('click', () => openLightbox());
+    document.querySelector('.close-lightbox').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-nav.prev').addEventListener('click', () => changeLightboxImage(-1));
+    document.querySelector('.lightbox-nav.next').addEventListener('click', () => changeLightboxImage(1));
+    document.getElementById('zoom-out').addEventListener('click', () => changeZoom(-0.25));
+    document.getElementById('zoom-in').addEventListener('click', () => changeZoom(0.25));
+    document.getElementById('zoom-reset').addEventListener('click', resetZoom);
 
     const viewer = document.getElementById('lightbox');
     const viewerImage = document.getElementById('lightbox-image');

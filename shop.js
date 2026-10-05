@@ -2,6 +2,7 @@ const categoryLabels = {
   bundles: 'Complete Sets',
   necklaces: 'Necklaces',
   bracelets: 'Bracelets',
+  anklets: 'Anklets',
   earrings: 'Earrings',
   rings: 'Rings',
   bangles: 'Bangles',
@@ -10,7 +11,7 @@ const categoryLabels = {
   pendants: 'Pendants'
 };
 
-const categoryOrder = ['bundles', 'necklaces', 'earrings', 'bangles', 'bracelets', 'rings', 'pendants', 'mang-tikka', 'kamarband'];
+const categoryOrder = ['bundles', 'necklaces', 'earrings', 'bangles', 'bracelets', 'anklets', 'rings', 'pendants', 'mang-tikka', 'kamarband'];
 const catalogProducts = categoryOrder.flatMap(category => (productsData[category] || []).map(product => ({ ...product, category })));
 const state = { query: '', category: 'all', availability: 'all', sort: 'featured' };
 
@@ -35,7 +36,7 @@ function escapeHTML(value = '') {
 }
 
 function formatPrice(value) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+  return 'Price available by inquiry';
 }
 
 function buildCategoryButtons() {
@@ -45,19 +46,14 @@ function buildCategoryButtons() {
 
 function productCard(product) {
   const image = product.images?.[0] || '';
-  // Keep cards concise; the detail page retains the contents and product ID below.
-  const description = plainText(product.description.split(/<br\s*\/?>\s*<br\s*\/?>/i)[0]).replace(/Product ID:\s*\d+/i, '').trim();
+  // Browsing is photo-led; names and descriptions remain on the detail page.
   const soldOut = product.status === 'sold-out';
-  return `<a class="shop-product${soldOut ? ' is-sold-out' : ''}" href="product.html?id=${product.id}" aria-label="View ${escapeHTML(product.name)}, product ${product.id}${soldOut ? ', sold out' : ''}">
+  return `<a class="shop-product${soldOut ? ' is-sold-out' : ''}" href="product.html?id=${product.id}" aria-label="View ${escapeHTML(product.name)}, product ${product.id}${soldOut ? ', sold' : ''}">
     <div class="shop-product-image">
       <img ${imageAttributes(image, '(max-width: 760px) 46vw, (max-width: 1024px) 30vw, (max-width: 1560px) 23vw, 345px')} alt="${escapeHTML(product.name)} from Avanti Jewels" loading="lazy">
-      <span class="availability ${product.status}">${product.status === 'in-stock' ? 'Available' : 'Sold out'}</span>
-      ${soldOut ? '<span class="sold-out-banner" aria-hidden="true">Currently sold out</span>' : ''}
-      <span class="product-arrow" aria-hidden="true">↗</span>
-    </div>
-    <div class="shop-product-copy">
-      <div><h3>${escapeHTML(product.name)}</h3><p>${escapeHTML(description || categoryLabels[product.category])}</p></div>
-      <div><strong>${formatPrice(product.price)}</strong><small>No. ${product.id}</small></div>
+      <span class="product-id-overlay">No. ${product.id}</span>
+      <span class="availability ${product.status}">${soldOut ? 'Sold' : 'Available'}</span>
+      ${soldOut ? '<span class="sold-out-banner" aria-hidden="true">Sold</span>' : ''}
     </div>
   </a>`;
 }
@@ -71,8 +67,8 @@ function getFilteredProducts() {
       (state.availability === 'all' || product.status === state.availability);
   });
 
-  if (state.sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
-  if (state.sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
+  if (state.sort === 'id') filtered.sort((a, b) => a.id - b.id);
+  if (state.sort === 'featured') filtered.sort((a, b) => Number(a.status === 'sold-out') - Number(b.status === 'sold-out'));
   if (state.sort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
   return filtered;
 }
@@ -90,7 +86,7 @@ function render() {
   const products = getFilteredProducts();
   const groups = categoryOrder.map(category => ({ category, products: products.filter(product => product.category === category) })).filter(group => group.products.length);
   catalogSections.innerHTML = groups.map(group => `<section class="product-section" aria-labelledby="section-${group.category}">
-    <div class="product-section-heading"><div><p>Collection</p><h2 id="section-${group.category}">${categoryLabels[group.category]}</h2></div><span>${group.products.length} ${group.products.length === 1 ? 'piece' : 'pieces'}</span></div>
+    <div class="product-section-heading"><h2 id="section-${group.category}">${categoryLabels[group.category]}</h2><span>${group.products.length} ${group.products.length === 1 ? 'piece' : 'pieces'}</span></div>
     <div class="shop-product-grid">${group.products.map(productCard).join('')}</div>
   </section>`).join('');
   catalogSections.setAttribute('aria-busy', 'false');
@@ -101,7 +97,14 @@ function render() {
   resetButton.hidden = !hasFilters;
   clearSearch.hidden = !state.query;
   categoryFilter.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.category === state.category)));
+  document.querySelector('#toggle-collections').textContent = `${state.category === 'all' ? 'All jewelry' : categoryLabels[state.category]} / Change collection`;
   updateURL();
+  if (document.documentElement?.dataset.input === 'pointer' &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    catalogSections.getAnimations().forEach(animation => animation.cancel());
+    catalogSections.animate([{ opacity: .65, transform: 'translateY(4px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 180, easing: 'cubic-bezier(.23,1,.32,1)' });
+  }
 }
 
 function resetFilters() {
@@ -119,7 +122,7 @@ function hydrateFromURL() {
   state.category = categoryLabels[params.get('category')] ? params.get('category') : 'all';
   const availability = normalizeProductStatus(params.get('availability'));
   state.availability = ['in-stock', 'sold-out'].includes(availability) ? availability : 'all';
-  state.sort = ['price-low', 'price-high', 'name'].includes(params.get('sort')) ? params.get('sort') : 'featured';
+  state.sort = ['id', 'name'].includes(params.get('sort')) ? params.get('sort') : 'featured';
   searchInput.value = state.query;
   availabilitySelect.value = state.availability;
   sortSelect.value = state.sort;
@@ -133,10 +136,53 @@ searchInput.addEventListener('input', () => {
 clearSearch.addEventListener('click', () => { searchInput.value = ''; state.query = ''; render(); searchInput.focus(); });
 availabilitySelect.addEventListener('change', () => { state.availability = availabilitySelect.value; render(); });
 sortSelect.addEventListener('change', () => { state.sort = sortSelect.value; render(); });
-categoryFilter.addEventListener('click', event => { const button = event.target.closest('button[data-category]'); if (!button) return; state.category = button.dataset.category; render(); });
+categoryFilter.addEventListener('click', event => {
+  const button = event.target.closest('button[data-category]');
+  if (!button) return;
+  state.category = button.dataset.category;
+  render();
+  setCollectionsOpen(false);
+  if (mobileCollections.matches) collectionToggle.focus({ preventScroll: true });
+  scrollToCategoryStart();
+});
+const collectionToggle = document.querySelector('#toggle-collections');
+const collectionPanel = document.querySelector('#collections-panel');
+const mobileCollections = window.matchMedia('(max-width: 760px)');
+let categoryScrollRequest = 0;
+async function scrollToCategoryStart() {
+  const request = ++categoryScrollRequest;
+  // Measure the destination only after the mobile menu has finished collapsing.
+  if (mobileCollections.matches) {
+    await Promise.all(collectionPanel.getAnimations().map(animation => animation.finished.catch(() => {})));
+  }
+  if (request !== categoryScrollRequest) return;
+  const start = catalogSections.querySelector('.product-section-heading') || emptyState;
+  const smooth = document.documentElement.dataset.input === 'pointer' &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  start.scrollIntoView({ block: 'start', behavior: smooth ? 'smooth' : 'instant' });
+}
+function setCollectionsOpen(open) {
+  collectionToggle.setAttribute('aria-expanded', String(open));
+  document.querySelector('.catalog-sidebar').classList.toggle('is-open', open);
+  collectionPanel.inert = mobileCollections.matches && !open;
+  collectionPanel.style.height = mobileCollections.matches ? (open ? `${categoryFilter.scrollHeight}px` : '0px') : '';
+}
+collectionToggle.addEventListener('click', () => {
+  setCollectionsOpen(collectionToggle.getAttribute('aria-expanded') !== 'true');
+});
+collectionPanel.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && mobileCollections.matches) {
+    setCollectionsOpen(false);
+    collectionToggle.focus({ preventScroll: true });
+  }
+});
+window.addEventListener('resize', () => setCollectionsOpen(collectionToggle.getAttribute('aria-expanded') === 'true'));
+document.addEventListener('pointerdown', () => { document.documentElement.dataset.input = 'pointer'; }, { passive: true });
+document.addEventListener('keydown', () => { document.documentElement.dataset.input = 'keyboard'; });
 resetButton.addEventListener('click', resetFilters);
 document.querySelector('#empty-reset').addEventListener('click', resetFilters);
 
 hydrateFromURL();
 buildCategoryButtons();
 render();
+setCollectionsOpen(false);

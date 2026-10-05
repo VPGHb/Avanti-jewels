@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <script src="site-support.js?v=1" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - Avanti Jewels</title>
-    <meta name="description" content="View product photographs, price and availability from the Avanti Jewels collection in Hicksville, New York.">
+    <meta name="description" content="Discover one-of-a-kind Indian jewelry from Avanti Jewels. View photographs and contact us for pricing and availability.">
     <link rel="canonical" href="https://avantijewels.com/product.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Avanti Jewels">
+    <meta property="og:title" content="Indian Jewelry | Avanti Jewels">
+    <meta property="og:description" content="Explore one-of-a-kind Indian jewelry. Contact Avanti Jewels with the product number for pricing and availability.">
+    <meta property="og:url" content="https://avantijewels.com/product.html">
+    <meta property="og:image" content="https://avantijewels.com/Bundle/18/Manakin.png">
+    <meta property="og:image:alt" content="Avanti Jewels jewelry collection">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Indian Jewelry | Avanti Jewels">
+    <meta name="twitter:description" content="Discover one-of-a-kind Indian jewelry, with pricing by personal inquiry.">
+    <meta name="twitter:image" content="https://avantijewels.com/Bundle/18/Manakin.png">
     <link rel="icon" href="images/favicon-48.png" type="image/png">
-    <link rel="stylesheet" href="shop.css?v=9">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="shop.css?v=20261005-morph">
+    <script src="navigation-motion.js?v=7"></script>
+    <script src="catalog-memory.js?v=2" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#product-detail">Skip to product details</a>
@@ -28,20 +43,22 @@
 
     <!-- ===== PRODUCT DETAIL CONTENT ===== -->
     <main class="product-detail-container" id="product-detail">
+        <noscript><p>Please enable JavaScript to view product details, or <a href="contact.html">contact Avanti Jewels</a> with the product number for photographs and assistance.</p></noscript>
         <div class="container">
             <a class="product-back-link" href="shop.html">
-                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M5 12h14"/></svg>
                 Back to all jewelry
             </a>
             <div class="product-detail">
                 <!-- Left: Image Gallery -->
                 <div class="product-gallery">
                     <div class="main-image-container">
-                        <button class="main-image-trigger" type="button" onclick="openLightbox()" aria-label="Open product image viewer">
+                        <p class="gallery-load-status" id="gallery-load-status" role="status">Preparing product image…</p>
+                        <button class="main-image-trigger" type="button" aria-label="Open product image viewer">
                             <img id="main-product-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Product Image" class="main-product-image">
                         </button>
-                        <button class="enlarge-btn" onclick="openLightbox()">
-                            <i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i> View and zoom
+                        <button class="enlarge-btn">
+                            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg> View and zoom
                         </button>
                     </div>
                     <div class="image-thumbnails" id="thumbnail-container">
@@ -51,20 +68,21 @@
 
                 <!-- Right: Product Info -->
                 <div class="product-info">
-                    <h1 id="product-title" class="gold-title">Product Title</h1>
+                    <h1 id="product-title" class="gold-title">Loading product…</h1>
                     <div class="price-section">
-                        <span class="price" id="product-price">$0.00</span>
+                        <span class="price" id="product-price">Pricing by personal inquiry</span>
                         <span class="status-badge" id="product-status"></span>
                     </div>
                     
                     <div class="product-description">
-                        <h3>Description</h3>
-                        <p id="product-description">Description will load here...</p>
+                        <h2>Description</h2>
+                        <p id="product-description">Loading details…</p>
                     </div>
 
                     <dl class="product-facts" aria-label="Product information">
                         <div><dt>Product number</dt><dd id="product-number"></dd></div>
                         <div><dt>Collection</dt><dd id="product-category"></dd></div>
+                        <div><dt>Exclusivity</dt><dd>One of each design. No duplicate stock.</dd></div>
                         <div><dt>Payment</dt><dd>Cash or Venmo</dd></div>
                         <div><dt>Fulfillment</dt><dd>Local pickup or delivery</dd></div>
                     </dl>
@@ -77,10 +95,11 @@
                     <!-- Inquire Button -->
                     <div class="action-buttons">
                         <a class="inquire-btn" id="product-inquire" href="contact.html">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Inquire About This Product
+                            <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Inquire
                         </a>
                     </div>
-                    <p class="final-sale-note"><strong>All sales are final.</strong> No returns or exchanges. Phone reservations are held for 24 hours.</p>
+                    <p class="final-sale-note"><strong>All sales are final.</strong> No returns or exchanges, subject to rights that cannot legally be excluded. <a href="terms.html#returns">Read the final-sale policy</a> before payment. Phone reservations are held for 24 hours.</p>
+                    <p class="final-sale-note">Some photographs are digitally prepared or show illustrative displays. Ask for unedited photographs, measurements and confirmed material details before purchasing.</p>
                 </div>
             </div>
             
@@ -98,27 +117,27 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image viewer" aria-hidden="true">
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image viewer" aria-hidden="true" inert>
         <div class="lightbox-content">
-            <button class="close-lightbox" type="button" onclick="closeLightbox()" aria-label="Close image viewer">
-                <i class="fas fa-times" aria-hidden="true"></i>
+            <button class="close-lightbox" type="button" aria-label="Close image viewer">
+                <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
             </button>
-            <button class="lightbox-nav prev" type="button" onclick="changeLightboxImage(-1)" aria-label="Previous product image">
-                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <button class="lightbox-nav prev" type="button" aria-label="Previous product image">
+                <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
             </button>
-            <button class="lightbox-nav next" type="button" onclick="changeLightboxImage(1)" aria-label="Next product image">
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            <button class="lightbox-nav next" type="button" aria-label="Next product image">
+                <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
             </button>
 
             <div class="lightbox-toolbar" aria-label="Image zoom controls">
-                <button id="zoom-out" type="button" onclick="changeZoom(-0.25)" aria-label="Zoom out">
-                    <i class="fas fa-minus" aria-hidden="true"></i>
+                <button id="zoom-out" type="button" aria-label="Zoom out">
+                    <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14"/></svg>
                 </button>
                 <output id="zoom-level" aria-live="polite">100%</output>
-                <button id="zoom-in" type="button" onclick="changeZoom(0.25)" aria-label="Zoom in">
-                    <i class="fas fa-plus" aria-hidden="true"></i>
+                <button id="zoom-in" type="button" aria-label="Zoom in">
+                    <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
                 </button>
-                <button id="zoom-reset" type="button" onclick="resetZoom()">Reset</button>
+                <button id="zoom-reset" type="button">Reset</button>
             </div>
 
             <div class="lightbox-image-container">
@@ -130,18 +149,18 @@
                 </div>
             </div>
         </div>
-        <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+        <div class="lightbox-overlay"></div>
     </div>
 
     <footer class="shop-footer">
         <div><a class="footer-mark" href="shop.html">AVANTI <small>JEWELS</small></a><p>Indian jewelry in Hicksville, New York.</p></div>
-        <nav aria-label="Product footer"><a href="shop.html">Shop all jewelry</a><a href="about.html">Our story</a><a href="contact.html">Private inquiry</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav>
+        <nav aria-label="Product footer"><a href="accessibility.html">Accessibility</a><a href="shop.html">Shop all jewelry</a><a href="about.html">Our story</a><a href="contact.html">Private inquiry</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></nav>
         <p class="footer-meta"><span>© 2026 Avanti Jewels</span><a href="https://www.linkedin.com/in/p-vraj/" target="_blank" rel="author external noopener">Created by Vraj Patel</a></p>
     </footer>
 
-    <script src="products.js?v=20260831-mobile"></script>
+    <script src="products.js?v=20261005-private"></script>
     <script src="image-manifest.js?v=1"></script>
-    <script src="image-utils.js?v=1"></script>
-    <script src="product-detail.js?v=7"></script>
+    <script src="image-utils.js?v=2"></script>
+    <script src="product-detail.js?v=20261005-seo"></script>
 </body>
 </html>

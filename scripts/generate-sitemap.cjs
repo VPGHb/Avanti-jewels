@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(root, 'products.js'), 'utf8');
 const products = vm.runInNewContext(source.split('// ===== GLOBAL STATE =====')[0] + ';Object.values(productsData).flat()');
 const date = new Date().toISOString().slice(0, 10);
-const pages = [['shop.html','weekly','1.0'],['about.html','monthly','0.6'],['contact.html','monthly','0.6'],['terms.html','yearly','0.3'],['privacy.html','yearly','0.3']];
+const pages = [['shop.html','weekly','1.0'],['about.html','monthly','0.6'],['contact.html','monthly','0.6'],['terms.html','yearly','0.3'],['privacy.html','yearly','0.3'],['cookies.html','yearly','0.3'],['accessibility.html','yearly','0.3']];
 const entry = (location, frequency, priority) => `  <url><loc>https://avantijewels.com/${location}</loc><lastmod>${date}</lastmod><changefreq>${frequency}</changefreq><priority>${priority}</priority></url>`;
 const urls = pages.map(page => entry(...page));
 for (const product of products) urls.push(entry(`product.html?id=${product.id}`.replace('&', '&amp;'), 'weekly', '0.7'));

@@ -33,11 +33,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Validate catalog and price privacy
+        run: node --test tests/*.test.cjs
+      - name: Stage public storefront only
+        id: storefront
+        run: echo "path=$(node scripts/build-pages.cjs)" >> "$GITHUB_OUTPUT"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Do not publish draft photos, backups or internal notes.
+          path: ${{ steps.storefront.outputs.path }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

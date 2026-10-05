@@ -13,15 +13,17 @@ if (Number.isInteger(inquiryProductId) && typeof productsData !== 'undefined') {
 
   if (inquiryProduct) {
     const context = document.querySelector('#contact-product-context');
-    const inquiryText = `I am interested in ${inquiryProduct.name}, product ${inquiryProduct.id}.`;
+    const inquiryText = inquiryProduct.status === 'in-stock'
+      ? `Hello, I am interested in ${inquiryProduct.name}, product ${inquiryProduct.id}. Could you please confirm its price and availability?`
+      : `Hello, I saw the sold ${inquiryProduct.name}, product ${inquiryProduct.id}. Could you help me find another unique piece?`;
     const image = inquiryProduct.images?.[0] || '';
-    const status = inquiryProduct.status === 'in-stock' ? 'Available' : 'Sold out';
+    const status = inquiryProduct.status === 'in-stock' ? 'Available' : 'Sold';
     context.innerHTML = `
       <img ${imageAttributes(image, '88px')} alt="${escapeInquiryHTML(inquiryProduct.name)}" loading="lazy">
       <div>
         <span>Your selected piece</span>
         <a href="product.html?id=${inquiryProduct.id}">${escapeInquiryHTML(inquiryProduct.name)}</a>
-        <p>$${Number(inquiryProduct.price).toFixed(2)} &nbsp; Product ${inquiryProduct.id} &nbsp; ${status}</p>
+        <p>Product ${inquiryProduct.id} / ${status} / One of one</p>
       </div>`;
     context.hidden = false;
     document.querySelector('#contact-email').href = `mailto:avantijewelsny@gmail.com?subject=${encodeURIComponent(`Product inquiry ${inquiryProduct.id}`)}&body=${encodeURIComponent(inquiryText)}`;
