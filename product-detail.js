@@ -1,8 +1,8 @@
 // Get product ID from URL
 const urlParams = new URLSearchParams(window.location.search);
-// Preserve old duplicate-product links while showing the retained product.
+// Preserve shared product links after duplicate removal and category corrections.
 const requestedProductId = parseInt(urlParams.get('id')) || 1;
-const productId = requestedProductId === 136 ? 132 : requestedProductId;
+const productId = resolveProductId(requestedProductId);
 
 // Global variables
 let currentProduct = null;
@@ -20,7 +20,7 @@ function getAllProducts() {
     const allItems = [];
     
     if (typeof productsData !== 'undefined') {
-        const categories = ['bundles', 'necklaces', 'bracelets', 'anklets', 'earrings', 'rings', 'bangles', 'kamarband', 'mang-tikka', 'pendants'];
+        const categories = Object.keys(productsData);
         
         categories.forEach(category => {
             if (productsData[category]) {
@@ -107,10 +107,7 @@ function displayProductDetails() {
         ? 'Pricing by personal inquiry' : 'This one-of-a-kind piece has sold';
     document.getElementById('product-description').textContent = currentProduct.description.replace(/<\/?br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '');
     document.getElementById('product-number').textContent = currentProduct.id;
-    document.getElementById('product-category').textContent = currentProduct.category
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+    document.getElementById('product-category').textContent = productCategoryLabels[currentProduct.category];
     document.getElementById('product-inquire').href = `contact.html?product=${currentProduct.id}`;
     document.querySelector('.main-image-trigger').setAttribute('aria-label', `Open image viewer for ${currentProduct.name}`);
     
@@ -288,8 +285,7 @@ function displayRelatedProducts() {
     
     const related = sameCategory.slice(0, 3);
     const categoryLink = `shop.html?category=${encodeURIComponent(currentProduct.category)}`;
-    const categoryName = currentProduct.category.charAt(0).toUpperCase() + 
-                        currentProduct.category.slice(1).replace('-', ' ');
+    const categoryName = productCategoryLabels[currentProduct.category];
     
     if (related.length === 0) {
         relatedContainer.innerHTML = `

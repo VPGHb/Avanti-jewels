@@ -553,20 +553,6 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 103,
-            "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a dark central face and ornate pink and green details.<br><br>Includes: Watch Bracelet</br>Product ID: 103",
-            "price": null,
-            "images": [
-                "Bracelet/3/Mainimage.png",
-                "Bracelet/3/Manakin.png"
-            ],
-            "status": "sold-out",
-            "category": "bracelets",
-            "oneOfOne": true,
-            "quantity": 1
-        },
-        {
             "id": 104,
             "name": "Bracelet",
             "description": "A gold-tone bracelet with alternating square and round panels decorated with pink accents.<br><br>Includes: Bracelet</br>Product ID: 104",
@@ -735,23 +721,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 116,
-            "name": "Watch Bracelet",
-            "description": "An ornate gold-tone watch bracelet with a round face, pink and green floral side motifs, and bell-shaped fringe.<br><br>Includes: Watch Bracelet</br>Product ID: 116",
-            "price": null,
-            "images": [
-                "Bracelet/16/Mainimage.png",
-                "Bracelet/16/Manakin.png"
-            ],
-            "oneOfOne": true,
-            "status": "in-stock",
-            "category": "bracelets",
-            "quantity": 1
-        },
-        {
             "id": 117,
-            "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a square purple-and-green face and sculpted floral details.<br><br>Includes: Watch Bracelet</br>Product ID: 117",
+            "name": "Bracelet",
+            "description": "A gold-tone bracelet with a dark rectangular center, pink and green accents, floral motifs and dangling bead details.<br><br>Includes: Bracelet</br>Product ID: 117",
             "price": null,
             "images": [
                 "Bracelet/17/Mainimage.png",
@@ -764,8 +736,8 @@ const productsData = {
         },
         {
             "id": 118,
-            "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a rectangular pastel face and ornate openwork band.<br><br>Includes: Watch Bracelet</br>Product ID: 118",
+            "name": "Bracelet",
+            "description": "A gold-tone bracelet with a green rectangular center, pale bead edging, sculpted bird motifs and small hanging clusters.<br><br>Includes: Bracelet</br>Product ID: 118",
             "price": null,
             "images": [
                 "Bracelet/18/Mainimage.png",
@@ -777,23 +749,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 119,
-            "name": "Watch Bracelet",
-            "description": "A silver-tone watch bracelet with a round pale face and braided reflective links.<br><br>Includes: Watch Bracelet</br>Product ID: 119",
-            "price": null,
-            "images": [
-                "Bracelet/19/Mainimage.png",
-                "Bracelet/19/Manakin.png"
-            ],
-            "oneOfOne": true,
-            "status": "in-stock",
-            "category": "bracelets",
-            "quantity": 1
-        },
-        {
             "id": 120,
-            "name": "Watch Bracelet",
-            "description": "A multi-strand white-bead watch bracelet with a round blue face and gold-tone circular stations.<br><br>Includes: Watch Bracelet</br>Product ID: 120",
+            "name": "Bracelet",
+            "description": "A multi-strand bracelet with pale and lilac beads, a round teal center and decorative gold-tone circular stations.<br><br>Includes: Bracelet</br>Product ID: 120",
             "price": null,
             "images": [
                 "Bracelet/20/Mainimage.png",
@@ -831,11 +789,55 @@ const productsData = {
             "status": "in-stock",
             "category": "bracelets",
             "quantity": 1
+        }
+    ],
+    "watches": [
+        {
+            "id": 1101,
+            "name": "Watch Bracelet",
+            "description": "A gold-tone watch bracelet with a dark central face and ornate pink and green details.<br><br>Includes: Watch Bracelet</br>Product ID: 1101",
+            "price": null,
+            "images": [
+                "Bracelet/3/Mainimage.png",
+                "Bracelet/3/Manakin.png"
+            ],
+            "status": "sold-out",
+            "category": "watches",
+            "oneOfOne": true,
+            "quantity": 1
         },
         {
-            "id": 123,
+            "id": 1102,
             "name": "Watch Bracelet",
-            "description": "A slim gold-tone watch bracelet with an oval face and small pink and green details.<br><br>Includes: Watch Bracelet</br>Product ID: 123",
+            "description": "An ornate gold-tone watch bracelet with a round face, pink and green floral side motifs, and bell-shaped fringe.<br><br>Includes: Watch Bracelet</br>Product ID: 1102",
+            "price": null,
+            "images": [
+                "Bracelet/16/Mainimage.png",
+                "Bracelet/16/Manakin.png"
+            ],
+            "oneOfOne": true,
+            "status": "in-stock",
+            "category": "watches",
+            "quantity": 1
+        },
+        {
+            "id": 1103,
+            "name": "Watch Bracelet",
+            "description": "A silver-tone watch bracelet with a round pale face and braided reflective links.<br><br>Includes: Watch Bracelet</br>Product ID: 1103",
+            "price": null,
+            "images": [
+                "Bracelet/19/Mainimage.png",
+                "Bracelet/19/Manakin.png"
+            ],
+            "oneOfOne": true,
+            "status": "in-stock",
+            "category": "watches",
+            "quantity": 1
+        },
+        {
+            "id": 1104,
+            "name": "Watch Bracelet",
+            "description": "A slim gold-tone watch bracelet with an oval face and small pink and green details.<br><br>Includes: Watch Bracelet</br>Product ID: 1104",
             "price": null,
             "images": [
                 "Bracelet/23/Mainimage.png",
@@ -843,13 +845,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 124,
+            "id": 1105,
             "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a round face, bright pink side panels, and leaf-like links.<br><br>Includes: Watch Bracelet</br>Product ID: 124",
+            "description": "A gold-tone watch bracelet with a round face, bright pink side panels, and leaf-like links.<br><br>Includes: Watch Bracelet</br>Product ID: 1105",
             "price": null,
             "images": [
                 "Bracelet/24/Mainimage.png",
@@ -857,13 +859,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 125,
+            "id": 1106,
             "name": "Watch Bracelet",
-            "description": "A gold-tone rectangular watch bracelet with a smooth mesh-style band and rounded side accents.<br><br>Includes: Watch Bracelet</br>Product ID: 125",
+            "description": "A gold-tone rectangular watch bracelet with a smooth mesh-style band and rounded side accents.<br><br>Includes: Watch Bracelet</br>Product ID: 1106",
             "price": null,
             "images": [
                 "Bracelet/25/Mainimage.png",
@@ -871,13 +873,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 126,
+            "id": 1107,
             "name": "Watch Bracelet",
-            "description": "An elongated gold-tone watch bracelet with arched ornamental panels and multicolored accents.<br><br>Includes: Watch Bracelet</br>Product ID: 126",
+            "description": "An elongated gold-tone watch bracelet with arched ornamental panels and multicolored accents.<br><br>Includes: Watch Bracelet</br>Product ID: 1107",
             "price": null,
             "images": [
                 "Bracelet/26/Mainimage.png",
@@ -885,13 +887,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 127,
+            "id": 1108,
             "name": "Watch Bracelet",
-            "description": "An ornate gold-tone watch bracelet with a round face, geometric pink-and-green panels, and floral side details.<br><br>Includes: Watch Bracelet</br>Product ID: 127",
+            "description": "An ornate gold-tone watch bracelet with a round face, geometric pink-and-green panels, and floral side details.<br><br>Includes: Watch Bracelet</br>Product ID: 1108",
             "price": null,
             "images": [
                 "Bracelet/27/Mainimage.png",
@@ -899,13 +901,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 128,
+            "id": 1109,
             "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with an oval face, bow-shaped links, and pink and green stones.<br><br>Includes: Watch Bracelet</br>Product ID: 128",
+            "description": "A gold-tone watch bracelet with an oval face, bow-shaped links, and pink and green stones.<br><br>Includes: Watch Bracelet</br>Product ID: 1109",
             "price": null,
             "images": [
                 "Bracelet/28/Mainimage.png",
@@ -913,13 +915,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 129,
+            "id": 1110,
             "name": "Watch Bracelet",
-            "description": "An ornate gold-tone watch bracelet with a round face, pale beaded border, and scrolling floral panels.<br><br>Includes: Watch Bracelet</br>Product ID: 129",
+            "description": "An ornate gold-tone watch bracelet with a round face, pale beaded border, and scrolling floral panels.<br><br>Includes: Watch Bracelet</br>Product ID: 1110",
             "price": null,
             "images": [
                 "Bracelet/29/Mainimage.png",
@@ -927,13 +929,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 130,
+            "id": 1111,
             "name": "Watch Bracelet",
-            "description": "A delicate gold-tone watch bracelet with a square face and paired floral side ornaments.<br><br>Includes: Watch Bracelet</br>Product ID: 130",
+            "description": "A delicate gold-tone watch bracelet with a square face and paired floral side ornaments.<br><br>Includes: Watch Bracelet</br>Product ID: 1111",
             "price": null,
             "images": [
                 "Bracelet/30/Mainimage.png",
@@ -941,13 +943,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 131,
+            "id": 1112,
             "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a round face and repeating turquoise, pink, and clear oval medallions.<br><br>Includes: Watch Bracelet</br>Product ID: 131",
+            "description": "A gold-tone watch bracelet with a round face and repeating turquoise, pink, and clear oval medallions.<br><br>Includes: Watch Bracelet</br>Product ID: 1112",
             "price": null,
             "images": [
                 "Bracelet/31/Mainimage.png",
@@ -955,13 +957,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 132,
+            "id": 1113,
             "name": "Watch Bracelet",
-            "description": "A slim gold-tone watch bracelet with pink-and-clear circular accents along a narrow band.<br><br>Includes: Watch Bracelet</br>Product ID: 132",
+            "description": "A slim gold-tone watch bracelet with pink-and-clear circular accents along a narrow band.<br><br>Includes: Watch Bracelet</br>Product ID: 1113",
             "price": null,
             "images": [
                 "Bracelet/32/Mainimage.png",
@@ -969,13 +971,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 133,
+            "id": 1114,
             "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a round face, twin floral side medallions, and a fine chain band.<br><br>Includes: Watch Bracelet</br>Product ID: 133",
+            "description": "A gold-tone watch bracelet with a round face, twin floral side medallions, and a fine chain band.<br><br>Includes: Watch Bracelet</br>Product ID: 1114",
             "price": null,
             "images": [
                 "Bracelet/33/Mainimage.png",
@@ -983,13 +985,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 134,
+            "id": 1115,
             "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with a round face and broad circular panels in pale green and pink.<br><br>Includes: Watch Bracelet</br>Product ID: 134",
+            "description": "A gold-tone watch bracelet with a round face and broad circular panels in pale green and pink.<br><br>Includes: Watch Bracelet</br>Product ID: 1115",
             "price": null,
             "images": [
                 "Bracelet/34/Mainimage.png",
@@ -997,13 +999,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 135,
+            "id": 1116,
             "name": "Watch Bracelet",
-            "description": "A gold-tone square-face watch bracelet with sculpted floral ornaments and a fine chain band.<br><br>Includes: Watch Bracelet</br>Product ID: 135",
+            "description": "A gold-tone square-face watch bracelet with sculpted floral ornaments and a fine chain band.<br><br>Includes: Watch Bracelet</br>Product ID: 1116",
             "price": null,
             "images": [
                 "Bracelet/35/Mainimage.png",
@@ -1011,13 +1013,13 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         },
         {
-            "id": 137,
+            "id": 1117,
             "name": "Watch Bracelet",
-            "description": "A gold-tone watch bracelet with an oval blue face, pale pink stations, and a green-accented setting.<br><br>Includes: Watch Bracelet</br>Product ID: 137",
+            "description": "A gold-tone watch bracelet with an oval blue face, pale pink stations, and a green-accented setting.<br><br>Includes: Watch Bracelet</br>Product ID: 1117",
             "price": null,
             "images": [
                 "Bracelet/37/Mainimage.png",
@@ -1025,7 +1027,7 @@ const productsData = {
             ],
             "oneOfOne": true,
             "status": "in-stock",
-            "category": "bracelets",
+            "category": "watches",
             "quantity": 1
         }
     ],
@@ -1815,9 +1817,9 @@ const productsData = {
     ],
     "kamarband": [
         {
-            "id": 912,
+            "id": 716,
             "name": "Layered Kamarband",
-            "description": "A gold-tone layered waist ornament with round floral stations and fine draped chains.<br><br>Includes: Kamarband<br>Product ID: 912",
+            "description": "A gold-tone layered waist ornament with round floral stations and fine draped chains.<br><br>Includes: Kamarband<br>Product ID: 716",
             "price": null,
             "images": [
                 "Kamarband/16/Mainimage.png"
@@ -1828,9 +1830,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 913,
+            "id": 717,
             "name": "Layered Kamarband",
-            "description": "A gold-tone layered waist ornament with angular side motifs and floral-linked chains.<br><br>Includes: Kamarband<br>Product ID: 913",
+            "description": "A gold-tone layered waist ornament with angular side motifs and floral-linked chains.<br><br>Includes: Kamarband<br>Product ID: 717",
             "price": null,
             "images": [
                 "Kamarband/17/Mainimage.png"
@@ -1893,9 +1895,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 205,
+            "id": 705,
             "name": "Kamarband",
-            "description": "A gold-tone waist ornament with stacked geometric panels, pale accents, and bell-shaped fringe.<br><br>Includes: Kamarband</br>Product ID: 205",
+            "description": "A gold-tone waist ornament with stacked geometric panels, pale accents, and bell-shaped fringe.<br><br>Includes: Kamarband</br>Product ID: 705",
             "price": null,
             "images": [
                 "Kamarband/5/Mainimage.png"
@@ -1906,9 +1908,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 206,
+            "id": 706,
             "name": "Kamarband",
-            "description": "A gold-tone waist ornament with a large round pink-and-green centerpiece and layered bead tassels.<br><br>Includes: Kamarband</br>Product ID: 206",
+            "description": "A gold-tone waist ornament with a large round pink-and-green centerpiece and layered bead tassels.<br><br>Includes: Kamarband</br>Product ID: 706",
             "price": null,
             "images": [
                 "Kamarband/6/Mainimage.png"
@@ -1919,9 +1921,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 207,
+            "id": 707,
             "name": "Kamarband",
-            "description": "A long gold-tone waist ornament with blue floral medallions, crescent motifs, and bell-shaped drops.<br><br>Includes: Kamarband</br>Product ID: 207",
+            "description": "A long gold-tone waist ornament with blue floral medallions, crescent motifs, and bell-shaped drops.<br><br>Includes: Kamarband</br>Product ID: 707",
             "price": null,
             "images": [
                 "Kamarband/7/Mainimage.png"
@@ -1932,9 +1934,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 208,
+            "id": 708,
             "name": "Kamarband",
-            "description": "A gold-tone waist ornament with teardrop-shaped panels, pink and green accents, and multiple hanging drops.<br><br>Includes: Kamarband</br>Product ID: 208",
+            "description": "A gold-tone waist ornament with teardrop-shaped panels, pink and green accents, and multiple hanging drops.<br><br>Includes: Kamarband</br>Product ID: 708",
             "price": null,
             "images": [
                 "Kamarband/8/Mainimage.png"
@@ -1945,9 +1947,9 @@ const productsData = {
             "quantity": 1
         },
         {
-            "id": 209,
+            "id": 709,
             "name": "Kamarband",
-            "description": "A silver-tone waist ornament with layered teardrop motifs, bright pink accents, and clustered bead fringe.<br><br>Includes: Kamarband</br>Product ID: 209",
+            "description": "A silver-tone waist ornament with layered teardrop motifs, bright pink accents, and clustered bead fringe.<br><br>Includes: Kamarband</br>Product ID: 709",
             "price": null,
             "images": [
                 "Kamarband/9/Mainimage.png"
@@ -1955,48 +1957,6 @@ const productsData = {
             "oneOfOne": true,
             "status": "in-stock",
             "category": "kamarband",
-            "quantity": 1
-        },
-        {
-            "id": 710,
-            "name": "Kamarband",
-            "description": "A silver-tone hip chain with a bird-motif ornament, spaced round beads and three dangling clusters.<br><br>Includes: Kamarband<br>Product ID: 710",
-            "price": null,
-            "images": [
-                "Kamarband/10/Mainimage.png",
-                "Kamarband/10/Manakin.png"
-            ],
-            "status": "in-stock",
-            "category": "kamarband",
-            "oneOfOne": true,
-            "quantity": 1
-        },
-        {
-            "id": 711,
-            "name": "Kamarband",
-            "description": "A silver-tone hip chain with a round floral ornament, colorful leaf-shaped accents and dangling clusters.<br><br>Includes: Kamarband<br>Product ID: 711",
-            "price": null,
-            "images": [
-                "Kamarband/11/Mainimage.png",
-                "Kamarband/11/Manakin.png"
-            ],
-            "status": "in-stock",
-            "category": "kamarband",
-            "oneOfOne": true,
-            "quantity": 1
-        },
-        {
-            "id": 712,
-            "name": "Kamarband",
-            "description": "A silver-tone hip chain with a rounded bird-motif ornament, decorative links and dangling clusters.<br><br>Includes: Kamarband<br>Product ID: 712",
-            "price": null,
-            "images": [
-                "Kamarband/12/Mainimage.png",
-                "Kamarband/12/Manakin.png"
-            ],
-            "status": "in-stock",
-            "category": "kamarband",
-            "oneOfOne": true,
             "quantity": 1
         },
         {
@@ -2038,7 +1998,57 @@ const productsData = {
             "oneOfOne": true,
             "quantity": 1
         }
+    ],
+    "kandora": [
+        {
+            "id": 710,
+            "name": "Kandora",
+            "description": "A silver-tone hip chain with a bird-motif ornament, spaced round beads and three dangling clusters.<br><br>Includes: Kandora<br>Product ID: 710",
+            "price": null,
+            "images": [
+                "Kamarband/10/Mainimage.png"
+            ],
+            "status": "in-stock",
+            "category": "kandora",
+            "oneOfOne": true,
+            "quantity": 1
+        },
+        {
+            "id": 711,
+            "name": "Kandora",
+            "description": "A silver-tone hip chain with a round floral ornament, colorful leaf-shaped accents and dangling clusters.<br><br>Includes: Kandora<br>Product ID: 711",
+            "price": null,
+            "images": [
+                "Kamarband/11/Mainimage.png"
+            ],
+            "status": "in-stock",
+            "category": "kandora",
+            "oneOfOne": true,
+            "quantity": 1
+        },
+        {
+            "id": 712,
+            "name": "Kandora",
+            "description": "A silver-tone hip chain with a rounded bird-motif ornament, decorative links and dangling clusters.<br><br>Includes: Kandora<br>Product ID: 712",
+            "price": null,
+            "images": [
+                "Kamarband/12/Mainimage.png"
+            ],
+            "status": "in-stock",
+            "category": "kandora",
+            "oneOfOne": true,
+            "quantity": 1
+        }
     ]
+};
+
+// Display names are shared by catalog navigation and product/related details.
+// Keep the anklets URL key so existing category links continue to work.
+const productCategoryLabels = {
+    bundles: 'Complete Sets', necklaces: 'Necklaces', earrings: 'Earrings',
+    bangles: 'Bangles', bracelets: 'Bracelets', watches: 'Watches',
+    anklets: 'Payal', rings: 'Rings', pendants: 'Pendants',
+    'mang-tikka': 'Mang Tikka', kamarband: 'Kamarband', kandora: 'Kandora'
 };
 
 // Normalize once so catalog filters, detail pages, inquiries, and schema agree.
@@ -2050,6 +2060,17 @@ function normalizeProductStatus(value) {
 Object.values(productsData).flat().forEach(product => {
     product.status = normalizeProductStatus(product.status);
 });
+
+// Retain old shared links after category-ID corrections. Never reuse these IDs.
+const productIdAliases = Object.freeze({
+    136: 1113, 103: 1101, 116: 1102, 119: 1103, 123: 1104, 124: 1105, 125: 1106, 126: 1107, 127: 1108, 128: 1109, 129: 1110, 130: 1111, 131: 1112, 132: 1113, 133: 1114, 134: 1115, 135: 1116, 137: 1117,
+    205: 705, 206: 706, 207: 707, 208: 708, 209: 709,
+    912: 716, 913: 717
+});
+
+function resolveProductId(id) {
+    return productIdAliases[id] ?? id;
+}
 
 // ===== GLOBAL STATE =====
 // Legacy category-page behavior must not replace the redesigned gallery or controls.

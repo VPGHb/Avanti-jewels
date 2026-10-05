@@ -1,5 +1,5 @@
 const inquiryParams = new URLSearchParams(window.location.search);
-const inquiryProductId = Number.parseInt(inquiryParams.get('product'), 10);
+const inquiryProductId = resolveProductId(Number.parseInt(inquiryParams.get('product'), 10));
 
 const escapeInquiryHTML = value => String(value)
   .replaceAll('&', '&amp;')

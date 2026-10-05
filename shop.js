@@ -1,17 +1,6 @@
-const categoryLabels = {
-  bundles: 'Complete Sets',
-  necklaces: 'Necklaces',
-  bracelets: 'Bracelets',
-  anklets: 'Anklets',
-  earrings: 'Earrings',
-  rings: 'Rings',
-  bangles: 'Bangles',
-  kamarband: 'Kamarband',
-  'mang-tikka': 'Mang Tikka',
-  pendants: 'Pendants'
-};
+const categoryLabels = productCategoryLabels;
 
-const categoryOrder = ['bundles', 'necklaces', 'earrings', 'bangles', 'bracelets', 'anklets', 'rings', 'pendants', 'mang-tikka', 'kamarband'];
+const categoryOrder = ['bundles', 'necklaces', 'earrings', 'bangles', 'bracelets', 'watches', 'anklets', 'rings', 'pendants', 'mang-tikka', 'kamarband', 'kandora'];
 const catalogProducts = categoryOrder.flatMap(category => (productsData[category] || []).map(product => ({ ...product, category })));
 const state = { query: '', category: 'all', availability: 'all', sort: 'featured' };
 
