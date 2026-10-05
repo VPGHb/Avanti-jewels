@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const { createHash } = require('node:crypto');
 
 const root = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(root, 'products.js'), 'utf8');
@@ -150,5 +151,7 @@ test('reviewed galleries retain unique IDs, confirmed categories and view orderi
     assert.equal(product.images.length, 2);
   }
   const selected = products.find(p => p.id === 137).images[1];
-  assert.deepEqual(fs.readFileSync(path.join(root, selected)), fs.readFileSync(path.join(root, 'photo-previews/image-73-corrected-oct5-v2.png')));
+  // Fingerprint of the client-approved image #73; review drafts stay unpublished.
+  const selectedHash = createHash('sha256').update(fs.readFileSync(path.join(root, selected))).digest('hex');
+  assert.equal(selectedHash, '8f205968d1c67605cb42c842cc1bfcbc50bb0caee5a65e3932ec157737789454');
 });
